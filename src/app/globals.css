@@ -1,0 +1,674 @@
+@import url('https://fonts.googleapis.com/css2?family=Gulzar&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+/* ⁡⁢⁣⁢Tailwind⁡ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Tailwind */
+
+/* Base CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.urdufont {
+  font-family: "Gulzar", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.btn-primary {
+  font-family: inherit;
+  line-height: 2em;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  @apply border border-primary;
+  transition: all 0.5s;
+  z-index: 1;
+  font-size: 0.9rem;
+  border-radius: 6px;
+}
+
+.heading-text {
+  @apply text-[#002147];
+  font-weight: 500;
+}
+
+.para-text {
+  font-size: 14px;
+}
+
+hr {
+  height: 1px;
+  border-color: #f0f0f0;
+}
+
+/* Base CSS */
+
+/* Coursol CSS */
+.embla {
+  position: relative;
+  overflow: hidden;
+}
+
+.embla__viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.embla__container {
+  display: flex;
+  @apply h-[100vh] lg:w-full lg:h-[100vh];
+  flex-direction: row;
+}
+
+.embla__slide {
+  position: relative;
+  flex: 0 0 auto;
+  @apply min-w-[100%] lg:min-w-48; /* Each slide takes up 100% of the viewport width */
+}
+
+.embla__button {
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+  @apply bg-primary/50 hover:bg-primary duration-200 rounded-full;
+}
+
+.imgwhite {
+  @apply filter invert brightness-0;
+}
+
+/* Background Images */
+
+.header-bg-image {
+  position: relative;
+  z-index: 20;
+  background-image: url("/headerbg1.jpg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.header-bg-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.8;
+  background-color: black;
+  z-index: -1;
+}
+
+.bg-joinnow {
+  background-image: url("/freelancing.jpeg");
+  background-repeat: no-repeat;
+  height: 300px;
+  background-size: cover;
+  position: relative;
+  background-position: right;
+  z-index: 20;
+}
+
+.bg-joinnow::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.89;
+  background-color: black;
+  z-index: -1;
+}
+
+.bg-insights {
+  background-image: url("/ingihits-bg.jpg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 20;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.bg-insights::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.8;
+  background-color: black;
+  z-index: -1;
+}
+
+.apply_now_bg{
+  background-image: url('/apply-now-banner.png');
+ background-repeat: no-repeat;
+  background-size:cover;
+}
+
+.pageinfo-bg {
+  /* background-image: url("/headerbg1.jpg"); */
+  background-position: top;
+  background:green;
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  @apply bg-primary;
+  z-index: 20;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.pageinfo-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.8;
+  /* background-color: ; */
+  @apply bg-primary;
+  z-index: -1;
+}
+
+.funfactbg {
+  background-image: url("/funfactbg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.requestquote {
+  background-image: url("/requestquote.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 20;
+}
+
+.requestquote::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.9;
+  background-color: #2e6930;
+  z-index: -1;
+}
+
+.aboutus-bgimg {
+  background-image: url("/aboutus-img1.png");
+  width: 100%;
+  height: 600px;
+  border-radius: 20px;
+  position: relative;
+  background-size: cover !important;
+  background-position: center;
+}
+
+.aboutus-bgimg::after {
+  content: "";
+  position: absolute;
+  right: -30px;
+  height: 80%;
+  top: 50%;
+  border-radius: 10px;
+  z-index: -1;
+  transform: translateY(-50%);
+  @apply bg-primary lg:w-[154px];
+}
+
+/* Loader */
+/* From Uiverse.io by Nawsome */
+.loadingspinner {
+  --square: 26px;
+  --offset: 30px;
+  --duration: 2.4s;
+  --delay: 0.2s;
+  --timing-function: ease-in-out;
+  --in-duration: 0.4s;
+  --in-delay: 0.1s;
+  --in-timing-function: ease-out;
+  width: calc(3 * var(--offset) + var(--square));
+  height: calc(2 * var(--offset) + var(--square));
+  padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.loadingspinner div {
+  display: inline-block;
+  @apply bg-primary;
+  /*background: var(--text-color);*/
+  /*box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);*/
+  border: none;
+  border-radius: 2px;
+  width: var(--square);
+  height: var(--square);
+  position: absolute;
+  padding: 0px;
+  margin: 0px;
+  font-size: 6pt;
+  color: black;
+}
+
+.loadingspinner #square1 {
+  left: calc(0 * var(--offset));
+  top: calc(0 * var(--offset));
+  animation: square1 var(--duration) var(--delay) var(--timing-function)
+      infinite,
+    squarefadein var(--in-duration) calc(1 * var(--in-delay))
+      var(--in-timing-function) both;
+}
+
+.loadingspinner #square2 {
+  left: calc(0 * var(--offset));
+  top: calc(1 * var(--offset));
+  animation: square2 var(--duration) var(--delay) var(--timing-function)
+      infinite,
+    squarefadein var(--in-duration) calc(1 * var(--in-delay))
+      var(--in-timing-function) both;
+}
+
+.loadingspinner #square3 {
+  left: calc(1 * var(--offset));
+  top: calc(1 * var(--offset));
+  animation: square3 var(--duration) var(--delay) var(--timing-function)
+      infinite,
+    squarefadein var(--in-duration) calc(2 * var(--in-delay))
+      var(--in-timing-function) both;
+}
+
+.loadingspinner #square4 {
+  left: calc(2 * var(--offset));
+  top: calc(1 * var(--offset));
+  animation: square4 var(--duration) var(--delay) var(--timing-function)
+      infinite,
+    squarefadein var(--in-duration) calc(3 * var(--in-delay))
+      var(--in-timing-function) both;
+}
+
+.loadingspinner #square5 {
+  left: calc(3 * var(--offset));
+  top: calc(1 * var(--offset));
+  animation: square5 var(--duration) var(--delay) var(--timing-function)
+      infinite,
+    squarefadein var(--in-duration) calc(4 * var(--in-delay))
+      var(--in-timing-function) both;
+}
+
+@keyframes square1 {
+  0% {
+    left: calc(0 * var(--offset));
+    top: calc(0 * var(--offset));
+  }
+
+  8.333% {
+    left: calc(0 * var(--offset));
+    top: calc(1 * var(--offset));
+  }
+
+  100% {
+    left: calc(0 * var(--offset));
+    top: calc(1 * var(--offset));
+  }
+}
+
+@keyframes square2 {
+  0% {
+    left: calc(0 * var(--offset));
+    top: calc(1 * var(--offset));
+  }
+
+  8.333% {
+    left: calc(0 * var(--offset));
+    top: calc(2 * var(--offset));
+  }
+
+  16.67% {
+    left: calc(1 * var(--offset));
+    top: calc(2 * var(--offset));
+  }
+
+  25.00% {
+    left: calc(1 * var(--offset));
+    top: calc(1 * var(--offset));
+  }
+
+  83.33% {
+    left: calc(1 * var(--offset));
+    top: calc(1 * var(--offset));
+  }
+
+  91.67% {
+    left: calc(1 * var(--offset));
+    top: calc(0 * var(--offset));
+  }
+
+  100% {
+    left: calc(0 * var(--offset));
+    top: calc(0 * var(--offset));
+  }
+}
+
+@keyframes square3 {
+  0%,
+  100% {
+    left: calc(1 * var(--offset));
+    top: calc(1 * var(--offset));
+  }
+
+  16.67% {
+    left: calc(1 * var(--offset));
+    top: calc(1 * var(--offset));
+  }
+
+  25.00% {
+    left: calc(1 * var(--offset));
+    top: calc(0 * var(--offset));
+  }
+
+  33.33% {
+    left: calc(2 * var(--offset));
+    top: calc(0 * var(--offset));
+  }
+
+  41.67% {
+    left: calc(2 * var(--offset));
+    top: calc(1 * var(--offset));
+  }
+
+  66.67% {
+    left: calc(2 * var(--offset));
+    top: calc(1 * var(--offset));
+  }
+
+  75.00% {
+    left: calc(2 * var(--offset));
+    top: calc(2 * var(--offset));
+  }
+
+  83.33% {
+    left: calc(1 * var(--offset));
+    top: calc(2 * var(--offset));
+  }
+
+  91.67% {
+    left: calc(1 * var(--offset));
+    top: calc(1 * var(--offset));
+  }
+}
+
+@keyframes square4 {
+  0% {
+    left: calc(2 * var(--offset));
+    top: calc(1 * var(--offset));
+  }
+
+  33.33% {
+    left: calc(2 * var(--offset));
+    top: calc(1 * var(--offset));
+  }
+
+  41.67% {
+    left: calc(2 * var(--offset));
+    top: calc(2 * var(--offset));
+  }
+
+  50.00% {
+    left: calc(3 * var(--offset));
+    top: calc(2 * var(--offset));
+  }
+
+  58.33% {
+    left: calc(3 * var(--offset));
+    top: calc(1 * var(--offset));
+  }
+
+  100% {
+    left: calc(3 * var(--offset));
+    top: calc(1 * var(--offset));
+  }
+}
+
+@keyframes square5 {
+  0% {
+    left: calc(3 * var(--offset));
+    top: calc(1 * var(--offset));
+  }
+
+  50.00% {
+    left: calc(3 * var(--offset));
+    top: calc(1 * var(--offset));
+  }
+
+  58.33% {
+    left: calc(3 * var(--offset));
+    top: calc(0 * var(--offset));
+  }
+
+  66.67% {
+    left: calc(2 * var(--offset));
+    top: calc(0 * var(--offset));
+  }
+
+  75.00% {
+    left: calc(2 * var(--offset));
+    top: calc(1 * var(--offset));
+  }
+
+  100% {
+    left: calc(2 * var(--offset));
+    top: calc(1 * var(--offset));
+  }
+}
+
+@keyframes squarefadein {
+  0% {
+    transform: scale(0.75);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/* Loader */
+
+.custom-payment-form {
+  @apply w-full;
+  margin: auto;
+  padding: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-card-element {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.error-message {
+  color: red;
+  margin-top: 1rem;
+}
+
+/* Card Payment input icons */
+.icon-default {
+  opacity: 1;
+  font-size: 20px;
+  transition: opacity 0.5s ease;
+}
+
+.fade-in {
+  transition: 1s ease-in-out;
+  font-size: 20px;
+  opacity: 1 !important;
+}
+
+/* TOAST CSS */
+.custom-toast {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  max-width: 300px;
+  padding: 15px 20px;
+  color: #fff;
+  border-radius: 5px;
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: slide-in 0.5s ease-out;
+  z-index: 1000;
+}
+
+.custom-toast-info {
+  background-color: #2d9cdb;
+}
+
+.custom-toast-warning {
+  background-color: #f0ad4e;
+}
+
+.custom-toast-success {
+  background-color: #5cb85c;
+}
+
+.custom-toast-error {
+  background-color: #d9534f;
+}
+
+.custom-toast-close {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0;
+  animation: slide-out 0.5s ease-out;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+/* Tick Mark Animation */
+.checkmark-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+}
+
+.checkmark {
+  width: 52px;
+  height: 52px;
+  stroke-width: 4;
+  stroke: #4caf50;
+  fill: none;
+  animation: scaleUp 0.3s ease-in-out forwards;
+}
+
+.checkmark-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-linecap: round;
+  animation: drawCircle 0.6s ease-in-out forwards;
+}
+
+.checkmark-check {
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  stroke-linecap: round;
+  animation: drawCheck 0.3s 0.5s ease-in-out forwards;
+}
+
+@keyframes drawCircle {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawCheck {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Custom scrollbar styles */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-primary/50; /* Tailwind utility */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-primary rounded-md; /* Tailwind utility */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary w-3; /* Tailwind utility for hover effect */
+}
+
+.removeScroll::-webkit-scrollbar {
+  width: 3px;
+}
+
+.font-italic {
+  font-style: italic;
+}
