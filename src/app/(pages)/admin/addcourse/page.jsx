@@ -68,6 +68,7 @@ const [curriculumPointss,setCurriculumPointss] = useState("");
     descriptionPoints:[],
     requirements:[],
     certificate:"",
+    coursePrice:"",
     curriculumData:[]
   });
   const [errors, setErrors] = useState({});
@@ -127,7 +128,7 @@ const [curriculumPointss,setCurriculumPointss] = useState("");
       if (!formData.courseId)
         newErrors.courseId = "Course description is required.";
       if (!formData.coursePrice)
-        newErrors.coursePrice = "Course description is required.";
+        newErrors.coursePrice = "Course Price is required.";
       if (formData.whoisthecoursefor.length > 0) {
         newErrors.whoisthecoursefor = "Please add 1 point atleast";
       }
@@ -166,6 +167,7 @@ const addDescriptionPoint=()=>{
   }))
 
 }
+
 const addRquirement=()=>{
   setFormData((prev)=>({
     ...formData,requirements:[...prev.requirements,requirement]
@@ -206,7 +208,7 @@ const getCourseCategorys = async()=>{
       const docToUpdate = querySnapshot.docs[0];
       const docRef = doc(firestore, "certification_courses_category", docToUpdate.id);
       const existingArray = docRef.coursesInThisCertifications || [];
-
+      
       await updateDoc(docRef, {
         coursesInThisCertifications: [...existingArray, formData.courseTitle],
       });
@@ -231,10 +233,11 @@ const getCourseCategorys = async()=>{
         examCertificateInPicture: "",
         instructorBrandLogo: "",
         courseStatus: "active",
+        coursePrice:"",
         courseLogo:""
       });
     
-    showToast("Course Added Successfully","success",2000)
+    showToast("Course Added Successfully","success",2000);
     }
   };
 

@@ -12,10 +12,6 @@ const TrainersCertified = () => {
       alt:"brand"
     },
     {
-      source:"/aws-ptr-3.png",
-      alt:"brand"
-    },
-    {
       source:"/oracle.png",
       alt:"brand"
     },
@@ -26,13 +22,13 @@ const TrainersCertified = () => {
   ]
 
   return (
-   <div>
-     <h1 className="heading-text text-center bg-gray-50 text-4xl lg:text-5xl p-6 ">
+   <div className=' max-w-7xl mx-auto min-h-[70vh] '>
+     <h1 className="heading-text text-center  text-4xl lg:text-5xl p-6 ">
             Our Trainers Certified From
           </h1>
       
       
-    <div className='flex flex-wrap justify-center items-center gap-5 lg:gap-10' >
+    <div className='flex my-10 flex-wrap justify-center items-center gap-5 lg:gap-10' >
     {brands.map((data,idx)=>{
       return  <Image
       key={idx}
@@ -40,7 +36,7 @@ const TrainersCertified = () => {
          alt={data.alt}
          width={10}
          height={10}
-         className='w-20 lg:w-52'
+         className='w-16 h-20 lg:w-52'
          />
 
     })}

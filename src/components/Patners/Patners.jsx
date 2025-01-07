@@ -44,7 +44,7 @@ const Partners = () => {
   }, []);
 
   return (
-    <div className="relative w-full bg-white py-10 flex flex-col mx-auto gap-2 lg:flex-row px-5">
+    <div className="relative w-full py-10 lg:py-0 items-center justify-center max-w-7xl bg-white flex flex-col mx-auto gap-2 lg:flex-row px-5">
      
 
       <div className=" w-full flex-auto lg:max-w-3xl text-justify">
@@ -69,11 +69,11 @@ const Partners = () => {
               frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
               style={{
-                position: "absolute",
+            position: "relative",
                 top: "0",
                 left: "0",
                 width: "100%",
-                height: "290px",
+                height: "300px",
                 border: "none",
                 borderRadius: "20px",
               }}

@@ -61,7 +61,7 @@ const PersonalInfo = () => {
     {
       courseTitle: "Flutter Apps (Web, Mobile & Desktop Apps)",
       courseCategory: "fast_track_technical",
-    },  
+    },
     {
       courseTitle: "IOS Apps Development with SwiftUI",
       courseCategory: "fast_track_technical",
@@ -107,7 +107,6 @@ const PersonalInfo = () => {
   ]);
 
   // FormData
-  console.log(userData)
   const [formData, setFormData] = useState({
     id:userData?.formDataId || uuidv4(),
     fullName: "",
@@ -132,9 +131,6 @@ const PersonalInfo = () => {
     gettoknow: "",
     rollno:"",
     dueDate:"",
-    created_at:Date.now(),
-    updated_at:""
-
   });
 
   
@@ -201,7 +197,7 @@ console.log(formData);
                 console.log(docData);
           }
           getFormData();
-  },[userData])
+  },[])
 // console.log(form)
 
 const handleFocus = (field) => {
@@ -309,7 +305,7 @@ const generateRandomNumber = ()=>{
 }
 
 const generateDueDate = () => {
-  const currentDate = formData.created_at || new Date(); // Get the current date
+  const currentDate = new Date(); // Get the current date
   const dueDate = new Date(currentDate.getTime() + 10 * 24 * 60 * 60 * 1000); // Add 10 days in milliseconds
 
   // Format the date as 'MMM DD, YYYY'
@@ -370,7 +366,7 @@ const generateDueDate = () => {
         const dueDateForRegistration = generateDueDate();
 
         const docRef = doc(firestore,"user_information",formData.id);
-        await setDoc(docRef,{...formData,updated_at:Date.now(),dueDate:dueDateForRegistration,rollno:randomNmber,userId:userData?.id});
+        await setDoc(docRef,{...formData,dueDate:dueDateForRegistration,rollno:randomNmber,userId:userData?.id});
         showToast("Your Information Has saved","success",2000);
         const userRef = doc(firestore,"users",userData?.id);
         await updateDoc(userRef, { formDataId: formData.id });
@@ -1176,7 +1172,7 @@ const generateDueDate = () => {
                   onChange={handleChange}
                   onBlur={() => handleBlur("referencecode")}
                   onFocus={() => handleFocus("referencecode")}
-                  className={`w-full border-0 border-b-2 z-10 px-2 py-2 text-sm focus:border-primary focus:outline-none ${
+                  className={`w-full border-0 border-b-2 px-2 py-2 text-sm focus:border-primary focus:outline-none ${
                     error.referencecode
                       ? "border-3 border-red-700"
                       : "border-gray-300"
@@ -1207,7 +1203,7 @@ const generateDueDate = () => {
                   onChange={handleChange}
                   onBlur={() => handleBlur("gettoknow")}
                   onFocus={() => handleFocus("gettoknow")}
-                  className={`w-full border-0 z-50 border-b-2 px-2 py-2 text-sm focus:border-primary focus:outline-none ${
+                  className={`w-full border-0 border-b-2 px-2 py-2 text-sm focus:border-primary focus:outline-none ${
                     error.gettoknow
                       ? "border-3 border-red-700"
                       : "border-gray-300"
@@ -1227,10 +1223,10 @@ const generateDueDate = () => {
                   <option value="Other">Other</option>
                 </select>
                 <label
-                  className={`absolute left-1 text-gray-400 text-xs lg:text-sm transition-all ${
+                  className={`absolute left-1 text-gray-400 text-sm transition-all ${
                     focusState.gettoknow || formData.gettoknow
                       ? "top-[-14px] z-0 text-xs text-primary"
-                      : "top-[-14px] z-0"
+                      : "top-2 z-0"
                   }`}
                 >
                   How you get to know about digiPAKISTAN initiative *
@@ -1242,7 +1238,7 @@ const generateDueDate = () => {
               type="submit"
               className="bg-primary p-3 w-full text-white hover:bg-second rounded mt-2"
             >
-              {loading ? "Submitting...":"Submit"}
+              {loading ? "Submitting":"Submit"}
             </button>
           </form>
         </div>

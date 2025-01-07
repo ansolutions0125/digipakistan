@@ -14,9 +14,16 @@ import { format } from "date-fns";
 const CoursesComponent = () => {
   const [courses, setCourses] = useState([]);
   const [filteredCourses, setFilteredCourses] = useState([]);
-  const [AllCertificationCategoryes, setAllCertificationCategoryes] = useState(
-    []
-  );
+  const [AllCertificationCategoryes, setAllCertificationCategoryes] = useState([]);
+  
+  
+  // [
+  //   {id:"fast_track_technical_program"},
+  //   {id:"fast_track_technical_program"},
+  //   {id:"fast_track_technical_program"},
+  // ]
+  
+  
   const [loading, setLoading] = useState(true);
   // const [loadingForCerificationChanging, setLoadingForCerificationChanging] =
   //   useState(false);
@@ -41,8 +48,9 @@ const CoursesComponent = () => {
 
 
   return (
-    <div>
-      <div className="flex flex-col mt-52 p-3 lg:mt-0 w-full bg-gray-50 shadow-sm">
+    <div className="bg-gray-50">
+      <div className=" max-w-7xl mx-auto min-h-[70vh] ">
+      <div className="flex flex-col p-3 lg:mt-0 w-full ">
         <div className="w-full text-center lg:mx-auto">
           <h1 className="heading-text text-3xl lg:text-5xl font-bold">
             Available Programs
@@ -142,6 +150,7 @@ const CoursesComponent = () => {
           
         </div>
       </div>
+    </div>
     </div>
   );
 };

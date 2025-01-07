@@ -48,8 +48,8 @@ const UpcomingProjects = () => {
 
 
   return (
-    <div className='max-h-[70vh] '>
-         <h1 className="heading-text text-4xl lg:text-5xl font-bold bg-gray-50 text-center p-5  mb-3">
+    <div className='max-h-[70vh] max-w-7xl mx-auto'>
+         <h1 className="heading-text text-4xl lg:text-5xl font-bold text-center p-5  mb-3">
             Upcoming Programs
           </h1>
          <div className="embla w-full relative">

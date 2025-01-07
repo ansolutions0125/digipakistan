@@ -86,7 +86,7 @@ const Header = () => {
 
   return (
     <div id="home">
-      {bannerLoading ?  <div className="animate-pulse py-3 px-3 flex-col lg:flex-row flex gap-3 justify-center">
+      {bannerLoading ?<div className="animate-pulse py-3 px-3 flex-col lg:flex-row flex gap-3 justify-center">
    <div className="h-[30vh] lg:h-[60vh] p-3 flex gap-3 bg-gray-200 rounded w-full">
       
 

@@ -32,9 +32,9 @@ const SupportingInstitutions = () => {
 
   return (
     
-    <div className='min-h-[70vh] '>
+    <div className='min-h-[50vh] '>
         <div className=''>
-            <h1 className='heading-text text-3xl bg-gray-50 lg:text-5xl text-center font-bold py-5 mb-28'>Supporting Institutions</h1>
+            <h1 className='heading-text text-3xl lg:text-5xl text-center font-bold py-5 mb-10'>Supporting Institutions</h1>
         </div>
 
         <div className='flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-20'>
