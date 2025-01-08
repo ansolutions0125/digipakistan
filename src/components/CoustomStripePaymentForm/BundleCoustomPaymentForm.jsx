@@ -195,7 +195,7 @@ const CustomPaymentForm = ({ course, userData, stripeData }) => {
     } else {
       throw new Error("No such document!");
     }
-  };
+  };                                              
 
   // Fetch selected courses only when `course` is fully defined
   useEffect(() => {

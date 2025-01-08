@@ -1,50 +1,30 @@
 
 
 "use client";
-import React, { use, useEffect, useState } from "react";
+import React, { use } from "react";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
-import PageInfo from "@/components/PageInfo/PageInfo";
 import SingleCourse from "@/components/SingleCourse/SingleCourse";
+import courses from "@/components/Courses/Courses";
+import CoursePageInfo from "@/components/PageInfo/CoursePageInfo";
 
-import { doc, getDoc } from "firebase/firestore";
-import { firestore } from "@/Backend/Firebase";
-
-const SCourse = ({params }) => {
+const SCourse = ({params}) => {
   const resolvedParams = use(params); // Unwrap the params promise
-  const id = resolvedParams.id;
-  // const { course } = useCourseContext();
-  const [course,setCourse]= useState({});
-  const [loading,setLoading]=useState(false)
+  const courseId = resolvedParams.id;
 
-useEffect(()=>{
-      const getCourse = async()=>{
-       try {
-        setLoading(true);
-        const query = doc(firestore,"courses",id);
-        const querySnapshot = await getDoc(query);
-        setCourse(querySnapshot.data());
-        setLoading(false)
-       } catch (error) {
-        console.log(error)
-       }
-      }
-      getCourse();
-    }
-  ,[])
-  console.log(course)
-
+const selectedCourse = courses.find((c)=>c.id===courseId)
   return (
     <>
       {/* Navbar */}
-      <Navbar />
+      <Navbar/>
 
       {/* Page Info */}
-      <PageInfo PageName={course?.courseTitle} pageDescription={course?.courseShortDescription} />
+      <CoursePageInfo duration={selectedCourse.batchDuration} enrolled={selectedCourse.enrolledStudents} totalReview={selectedCourse.totalReviews} reviews={selectedCourse.reviews}
+      level={selectedCourse.level} PageName={selectedCourse.courseTitle} pageDescription={selectedCourse.courseShortDescription} />
 
       {/* All Courses */}
-      <main className="p-6">
-        <SingleCourse data={course} loading={loading} />
+      <main className="p-4 lg:p-0">
+        <SingleCourse data={selectedCourse} />
       </main>
       <Footer />
     </>
