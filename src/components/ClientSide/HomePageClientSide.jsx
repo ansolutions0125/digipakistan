@@ -19,13 +19,13 @@ import FreelancingPlateform from "../FreelancingPlateform/FreelancingPlateform";
 import SupportingInstitutions from "../SupportingInstitutions/SupportingInstitutions";
 
 const HomePageClientSide = () => {
-  // useEffect(() => {
-  //   // Initialize Facebook Pixel
-  //   FacebookPixel();
+  useEffect(() => {
+    // Initialize Facebook Pixel
+    FacebookPixel();
 
-  //   // Track page view
-  //   trackPageView();
-  // }, []);
+    // Track page view
+    trackPageView();
+  }, []);
 
   return (
     <>

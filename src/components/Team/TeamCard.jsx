@@ -13,7 +13,7 @@ const TeamCard = () => {
   };
 
   return (
-    <div className="flex-col flex items-center justify-center text-center border bg-slate-100 p-2">
+    <div className="flex-col flex items-center mb-3 justify-center text-center border bg-slate-100 p-2">
       <div>
         <img
           className="rounded-full p-5"

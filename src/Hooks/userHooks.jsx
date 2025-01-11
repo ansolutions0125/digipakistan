@@ -8,7 +8,7 @@ const userHooks = () => {
   const [loading,setLoading] = useState(true);
   const setUserData = useAuthStore((state) => state.setUserData); // Get Zustand setter
   const userData = useAuthStore((state) => state.userData); // Get user data from Zustand
-console.log(userData)
+
 
 
   useEffect(() => {
@@ -24,7 +24,11 @@ console.log(userData)
           
           const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
           setUserData(decryptedData); // Set user data in Zustand store
+
+            // localStorage.setItem("user_data",JSON.stringify(decryptedData));
         }
+
+         
       } catch (error) {
         console.error("Error fetching user data:", error);
       } finally {

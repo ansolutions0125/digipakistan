@@ -870,7 +870,7 @@ export const getRegistrationPendingStatus = async (userId) => {
 
 export const getUserRegistrationD = async (id) => {
   try {
-    const userDocRef = doc(firestore, "registration_form_data", id);
+    const userDocRef = doc(firestore, "user_information", id);
     const userDoc = await getDoc(userDocRef);
 
     if (userDoc.exists()) {

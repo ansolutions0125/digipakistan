@@ -23,20 +23,19 @@ const TrainersCertified = () => {
 
   return (
    <div className=' max-w-7xl mx-auto min-h-[70vh] '>
-     <h1 className="heading-text text-center  text-4xl lg:text-5xl p-6 ">
+     <h1 className="heading-text text-center text-3xl lg:text-5xl p-6 ">
             Our Trainers Certified From
           </h1>
       
       
     <div className='flex my-10 flex-wrap justify-center items-center gap-5 lg:gap-10' >
     {brands.map((data,idx)=>{
-      return  <Image
-      key={idx}
+      return  <Image key={idx}
          src={data.source}
          alt={data.alt}
          width={10}
          height={10}
-         className='w-16 h-20 lg:w-52'
+         className='h-10 lg:h-auto w-1/3 lg:w-52'
          />
 
     })}

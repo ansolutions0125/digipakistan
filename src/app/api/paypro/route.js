@@ -61,7 +61,7 @@ const fetchPayProkeys = async () => {
     if (templateDoc.exists) {
       return templateDoc.data(); // Assuming your HTML is stored in the 'template' field
     } else {
-      throw new Error("Thinkific keys not found..");
+      throw new Error("PayPro keys not found..");
     }
   } catch (error) {
     console.error("Error fetching email template:", error);

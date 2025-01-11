@@ -2,7 +2,7 @@ import React from 'react'
 
 const ProvincialMinisterMessage = () => {
   return (
-    <div className='flex items-center justify-center flex-col'>
+    <div className='flex items-center max-w-7xl lg:mx-auto   justify-center flex-col'>
         <div>
             <img className=' rounded-full w-80' src="/province_minister.jpg" alt="" />
         </div>

@@ -25,7 +25,7 @@ const EnrollUserComponent = () => {
         {
           headers: {
             'X-Auth-API-Key': '9e2d5a6420e27c5337433e8d1b9cf62c', // Replace with your API key
-            'X-Auth-Subdomain': 'digipakistan', // Replace with your subdomain
+            'X-Auth-Subdomain': 'digitalprogram', // Replace with your subdomain
             'Content-Type': 'application/json',
           },
         }

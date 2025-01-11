@@ -103,7 +103,7 @@ export async function GET(req) {
     await updateDoc(registrationRef, {
       enrollingDataForm: enrollmentResults,
       registrationStatus: "completed",
-    });
+    });                                                       
 
     const userRef = doc(firestore, "users", user_id);
     await updateDoc(userRef, {

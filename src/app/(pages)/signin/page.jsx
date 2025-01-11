@@ -11,9 +11,6 @@ import { doc, getDoc } from "firebase/firestore";
 import CryptoJS from "crypto-js";
 import CustomToast from "../../../components/CoustomToast/CoustomToast";
 import UserProtectedRoutes from "@/ProtectedRoutes/UserProtectedRoutes";
-import Image from "next/image";
-import PasswordResetModal from "@/components/PasswordReset/PasswordResetModal";
-import { FaUser } from "react-icons/fa";
 import Footer from "@/components/Footer/Footer";
 import userHooks from "@/Hooks/userHooks";
 
@@ -193,7 +190,7 @@ const SignIn = () => {
             router.push("/registration/personalinfo");
           } else if (!userData.registrationStatus || userData.registrationStatus==="pending") {
             router.push("/registration/registration-status");
-          } else if (!userData.paidFee) {
+          } else if (!userData.paidFee || userData.paidFee === false) {
             router.push("/registration/generate-challan");
           } else {
             router.push("/");
@@ -222,7 +219,7 @@ const SignIn = () => {
     
       <div className="apply_now_bg min-h-[70vh]">
         <div className="flex items-center justify-center p-3 lg:p-5">
-          <div className="w-fu  ll min-h-[60vh] rounded-xl bg-white flex flex-col border shadow-2xl text-center lg:p-5 lg:w-[90%]">
+          <div className="w-full min-h-[60vh] rounded-xl bg-white flex flex-col border shadow-2xl text-center lg:p-5 lg:w-[50%]">
             <img className="w-36 h-36 mx-auto" src="/logo.jpg" alt="" />
             <h1 className="lg:text-3xl text-2xl font-bold">Login</h1>
             
@@ -234,25 +231,26 @@ const SignIn = () => {
                     type="email"
                     name="email"
                     value={formData.email}
+
                     onChange={handleChange}
                     onFocus={() => handleFocus("email")}
                     onBlur={() => handleBlur("email")}
-                    className={`w-full border-0 border-b-2 lg:px-2 py-2 text-sm focus:outline-none ${
-                      error.email ? "border-red-700" : "border-gray-300"
+                    className={`w-full border-2 p-3  text-sm focus:outline-none ${
+                      error.email ? "border-red-700 " : "border-gray-300"
                     }`}
-                    placeholder=""
+                    placeholder="example@gmail.com"
                   />
                   <label
                     className={`absolute left-1 text-gray-400 text-sm transition-all ${
                       focusState.email || formData.email
-                        ? "top-[-14px] text-xs text-primary"
-                        : "top-2"
+                        ? "top-[-15px] p-2 text-xs text-primary bg-white"
+                         : "top-[-15px] p-2 bg-white"
                     }`}
                   >
                     Email
                   </label>
                   {error.email && (
-                    <p className="text-right text-red-700">{error.email}</p>
+                    <p className="text-left text-xs text-red-700">{error.email}</p>
                   )}
                 </div>
 
@@ -265,22 +263,22 @@ const SignIn = () => {
                     onChange={handleChange}
                     onBlur={() => handleBlur("password")}
                     onFocus={() => handleFocus("password")}
-                    className={`w-full border-0 border-b-2 px-2 py-2 text-sm focus:outline-none ${
-                      error.password ? "border-red-700" : "border-gray-300"
+                    className={`w-full border-2 p-3 text-sm bg-transparent focus:bg-transparent fill-inherit focus:outline-none ${
+                      error.password ? "border-red-700 " : "border-gray-300"
                     }`}
-                    placeholder=""
+                    placeholder="**********"
                   />
                   <label
                     className={`absolute left-1 text-gray-400 text-sm transition-all ${
                       focusState.password || formData.password
-                        ? "top-[-14px] text-xs text-primary"
-                        : "top-2"
+                         ? "top-[-15px] p-2 text-xs text-primary bg-white"
+                         : "top-[-15px] p-2 bg-white"
                     }`}
                   >
                     Password
                   </label>
                   {error.password && (
-                    <p className="text-right text-red-700">{error.password}</p>
+                    <p className="text-left text-xs text-red-700">{error.password}</p>
                   )}
                 </div>
 

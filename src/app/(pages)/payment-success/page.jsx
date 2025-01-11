@@ -8,6 +8,7 @@ import StripeProtectedRoutes from "@/ProtectedRoutes/StripeProtectedRoutes";
 import Navbar from "@/components/Navbar/Navbar";
 import FooterCopyRights from "@/components/Footer/FooterCopyRights";
 import Link from "next/link";
+import AuthenticateUser from "@/Hooks/AuthenticateUser";
 
 const PaymentSuccess = () => {
   const router = useRouter();
@@ -38,6 +39,7 @@ const PaymentSuccess = () => {
 
   return (
     <>
+    <AuthenticateUser>
       <Navbar />
 
       <div className="w-full py-10">
@@ -109,6 +111,7 @@ const PaymentSuccess = () => {
         </div>
       </div>
       <FooterCopyRights bg={"bg-primary py-3 text-white"} />
+    </AuthenticateUser>
     </>
   );
 };

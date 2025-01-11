@@ -61,7 +61,7 @@ const CoursesComponent = () => {
 
   return (
     <div className="bg-gray-50">
-      <div className=" max-w-7xl mx-auto min-h-[70vh] ">
+      <div className=" max-w-7xl lg:mx-auto min-h-[70vh] ">
         <div className="flex flex-col p-3 lg:mt-0 w-full ">
           <div className="w-full text-center lg:mx-auto">
             <h1 className="heading-text text-3xl lg:text-5xl font-bold">
@@ -122,7 +122,7 @@ const CoursesComponent = () => {
                             />
                             <div className="flex flex-col justify-start">
                               <p className="text-[10px] ">{data.type} </p>
-                              <h3 className="text-[1rem] truncate cursor-pointer font-bold">
+                              <h3 className="lg:text-[1rem] text-ellipsis text-sm truncate cursor-pointer font-bold">
                                 {data.certificationsTitle}
                               </h3>
                               <div className="flex gap-2">
@@ -132,7 +132,7 @@ const CoursesComponent = () => {
                                   width={20}
                                   height={10}
                                 />
-                                <p>
+                                <p className="text-sm lg:text-normal">
                                   {data.coursesInThisCertifications.length}
                                   {" "} Courses
                                 </p>

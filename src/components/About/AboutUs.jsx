@@ -3,8 +3,8 @@ import React from 'react'
 const AboutUs = () => {
 
   return (
-    <div className='p-5 text-justify' >
-      <div className='text-center font-bold text-3xl p-4'>
+    <div className='lg:p-5 p-3 max-w-7xl lg:mx-auto text-justify' >
+      <div className='text-center font-bold text-3xl '>
       <h1>ڈیجی پاکستان قومی ہنر مند ترقیاتی پروگرام</h1>
       </div>
     <div>

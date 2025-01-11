@@ -216,16 +216,16 @@
                     onChange={handleChange}
                     onFocus={() => handleFocus("firstName")}
                     onBlur={() => handleBlur("firstName")}
-                    className={`w-full border-0 border-b-2 px-2 py-2 text-sm focus:outline-none ${
+                    className={`w-full border-2 p-3 text-sm focus:outline-none ${
                       error.firstName ? "border-red-700" : "border-gray-300"
                     }`}
                     placeholder=""
                   />
                   <label
-                    className={`absolute left-1 text-gray-400 text-sm transition-all ${
+                    className={`absolute left-1  text-gray-400 text-sm transition-all ${
                       focusState.firstName || formData.firstName
-                        ? "top-[-14px] text-xs text-primary"
-                        : "top-2"
+                       ? "top-[-15px] p-2 text-xs text-primary bg-white"
+                         : "top-[-15px] p-2 bg-white"
                     }`}
                   >
                     First Name
@@ -246,16 +246,16 @@
                     onChange={handleChange}
                     onFocus={() => handleFocus("lastName")}
                     onBlur={() => handleBlur("lastName")}
-                    className={`w-full border-0 border-b-2 px-2 py-2 text-sm focus:outline-none ${
+                    className={`w-full border-2 p-3 text-sm focus:outline-none ${
                       error.lastName ? "border-red-700" : "border-gray-300"
                     }`}
                     placeholder=""
                   />
                   <label
-                    className={`absolute left-1 text-gray-400 text-sm transition-all ${
+                    className={`absolute left-1  text-gray-400 text-sm transition-all ${
                       focusState.lastName || formData.lastName
-                        ? "top-[-14px] text-xs text-primary"
-                        : "top-2"
+                       ? "top-[-15px] p-2 text-xs text-primary bg-white"
+                         : "top-[-15px] p-2 bg-white"
                     }`}
                   >
                     Last Name
@@ -276,16 +276,16 @@
                     onChange={handleChange}
                     onFocus={() => handleFocus("email")}
                     onBlur={() => handleBlur("email")}
-                    className={`w-full border-0 border-b-2 px-2 py-2 text-sm focus:outline-none ${
+                    className={`w-full border-2 p-3 text-sm focus:outline-none ${
                       error.email ? "border-red-700" : "border-gray-300"
                     }`}
                     placeholder=""
                   />
                   <label
-                    className={`absolute left-1 text-gray-400 text-sm transition-all ${
+                    className={`absolute left-1  text-gray-400 text-sm transition-all ${
                       focusState.email || formData.email
-                        ? "top-[-14px] text-xs text-primary"
-                        : "top-2"
+                       ? "top-[-15px] p-2 text-xs text-primary bg-white"
+                         : "top-[-15px] p-2 bg-white"
                     }`}
                   >
                     Email
@@ -306,16 +306,16 @@
                     onChange={handleChange}
                     onFocus={() => handleFocus("password")}
                     onBlur={() => handleBlur("password")}
-                    className={`w-full border-0 border-b-2 px-2 py-2 text-sm focus:outline-none ${
+                    className={`w-full border-2 p-3 text-sm focus:outline-none ${
                       error.password ? "border-red-700" : "border-gray-300"
                     }`}
                     placeholder=""
                   />
                   <label
-                    className={`absolute left-1 text-gray-400 text-sm transition-all ${
+                    className={`absolute left-1  text-gray-400 text-sm transition-all ${
                       focusState.password || formData.password
-                        ? "top-[-14px] text-xs text-primary"
-                        : "top-2"
+                       ? "top-[-15px] p-2 text-xs text-primary bg-white"
+                         : "top-[-15px] p-2 bg-white"
                     }`}
                   >
                     Password

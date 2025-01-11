@@ -2,7 +2,7 @@ import React from 'react'
 
 const ChairmanPECMessage = () => {
   return (
-    <div className='flex items-center justify-center flex-col'>
+    <div className='flex max-w-7xl lg:mx-auto items-center justify-center flex-col'>
         <div>
             <img className='rounded-[50%] w-80 h-80' src="/chairman-pec.jpg" alt="" />
         </div>

@@ -2,7 +2,7 @@
 import { auth, firestore } from "@/Backend/Firebase";
 import userHooks from "@/Hooks/userHooks";
 import { sendEmailVerification, onAuthStateChanged, getAuth } from "firebase/auth";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import CustomToast from "../CoustomToast/CoustomToast";
@@ -27,25 +27,54 @@ const EmailVerify = () => {
         setToast({ ...toast, visible: false });
     };
 
-    useEffect(()=>{
-        const auth = getAuth();
-        const user = auth.currentUser;
-        if(user?.emailVerified){
-            router.push("/registration/emailverified")
-        }
-    },[]);
+    // useEffect(()=>{
+    //     const auth = getAuth();
+    //     const user = auth.currentUser;
+    //     if(user?.emailVerified){
+    //         router.push("/registration/emailverified")
+    //     }
+        
+        
+
+    // },[auth]);
 
     // Listen for email verification status change using onAuthStateChanged
     useEffect(() => {
       
       const refreshVerificationStatus = async () => {
-          const user = auth.currentUser; // Get current user
+          const user = auth.currentUser;
           if (user && user.emailVerified) {
               if (userData?.id) {
-                  const userRef = doc(firestore, "users", userData.id);
-                  await updateDoc(userRef, { isEmailVerified: true });
+                  const userRef = doc(firestore, "users", userData?.id);
+                  const userDoc= await getDoc(userRef);
+                  if(userDoc.exists() && userDoc.data()){
+                    router.push("/registration/emailverified")
+                    return;
+                  }
+                
+                   await updateDoc(userRef, { isEmailVerified: true });
                   showToast("Your email has been verified successfully.", "success", 2000);
+                  const requestBody = {
+                    fetchedUserData: userData,
+                    email_subject: "You're Almost There! Complete Your Admission Now",
+                  };
+                  try{
+                        const response = await fetch('/api/emails/direct-emails/after-verification-sendmail',{
+                            method:"POST",
+                            headers:{
+                                headers: { "Content-Type": "application/json" },
+                            },
+                            body:JSON.stringify(requestBody)
+                        });
+                        const data = await response.json();
+                        console.log("API HITTED")
+                        console.log("Backend Response:", data);
+                  }catch(error){
+                        console.log(error)
+                      }
                   router.push("/registration/emailverified");
+
+
               }
           }
       };
@@ -53,7 +82,7 @@ const EmailVerify = () => {
       refreshVerificationStatus();
 
       // Set an interval to refresh the status every 1 minute
-      const interval = setInterval(refreshVerificationStatus, 1000); 
+      const interval = setInterval(refreshVerificationStatus, 100000); 
 
       // Cleanup the interval on unmount
       return () => clearInterval(interval);

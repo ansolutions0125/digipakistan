@@ -6,11 +6,7 @@ import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
 import {
   getAllCourses,
-  getAllHeaderBanner,
-  getAllMobileHeaderBanner,
 } from "../../Backend/firebasefunctions";
-import AOS from "aos";
-import Link from "next/link";
 import Image from "next/image";
 
 const useMediaQuery = (query) => {
@@ -31,31 +27,43 @@ const useMediaQuery = (query) => {
 
 const Header = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
-  const [headerBanner, setHeaderBanner] = useState(null);
-  const [mobilebanner, setMobilebanner] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [bannerLoading,setBannerLoading]=useState(false);
 
-  useEffect(() => {
-    const fetchBanners = async () => {
-      try {
-        setBannerLoading(true);
-        const desktopBanners = await getAllHeaderBanner();
-        const mobileBanners = await getAllMobileHeaderBanner();
-        setHeaderBanner(desktopBanners.data);
-        setMobilebanner(mobileBanners.data);
-        setBannerLoading(false);
-      } catch (error) {
-        console.error("Error fetching banners:", error);
-        setLoading(false);
-      }
-    };
+  const headerBanner = [
+    {
+      banner_status:"show",
+      site_header_banners:"/carousel1.png",
+      alt:"alt"
+    },
+    {
+      banner_status:"show",
+      site_header_banners:"/carousel1.png",
+      alt:"alt"
+    },
+    {
+      banner_status:"show",
+      site_header_banners:"/carousel1.png",
+      alt:"alt"
+    },
+  ]
 
-    fetchBanners();
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-  }, []);
+  const mobilebanner = [
+    {
+      banner_status:"show",
+      site_header_banners:"/carousel1.png",
+      alt:"alt"
+    },
+    {
+      banner_status:"show",
+      site_header_banners:"/carousel1.png",
+      alt:"alt"
+    },
+    {
+      banner_status:"show",
+      site_header_banners:"/carousel1.png",
+      alt:"alt"
+    },
+  ]
+
 
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     Autoplay({ delay: 10000, stopOnInteraction: false }),
@@ -69,33 +77,11 @@ const Header = () => {
     if (emblaApi) emblaApi.scrollPrev();
   }, [emblaApi]);
 
-  const [coursedata, setCoursesdata] = useState([]);
-  const [coursesLoading, setCoursesLoading] = useState(false);
-  useEffect(() => {
-    setCoursesLoading(true);
-    const fetchAllCourses = async () => {
-      const data = await getAllCourses();
-      setCoursesdata(data.data);
-    };
 
-    fetchAllCourses();
-    setTimeout(() => {
-      setCoursesLoading(false);
-    }, 1000);
-  }, []);
 
   return (
     <div id="home">
-      {bannerLoading ?<div className="animate-pulse py-3 px-3 flex-col lg:flex-row flex gap-3 justify-center">
-   <div className="h-[30vh] lg:h-[60vh] p-3 flex gap-3 bg-gray-200 rounded w-full">
-      
-
-      </div>   
-   
-   
- 
-  
- </div>:<div className="embla w-full relative">
+    <div className="embla w-full relative">
         <button
           onClick={scrollPrev}
           className="embla__button embla__button--prev absolute left-4 top-1/2 transform -translate-y-1/2"
@@ -105,12 +91,7 @@ const Header = () => {
 
         <div className="embla__viewport w-full overflow-hidden h-[30vh] lg:h-[70vh] " ref={emblaRef}>
           <div className="embla__container flex">
-          {loading ? (
-              <div className="max-w-6xl lg:mx-auto flex justify-center items-center mx-5 w-full">
-                <div className="animate-spin h-16 w-16 border-4 border-t-transparent border-primary rounded-full"></div>
-              </div>
-            ) : isMobile
-              ? mobilebanner?.map(
+          { isMobile ? mobilebanner.map(
                   (data, idx) =>
                     data.banner_status === "show" && (
                       <div
@@ -130,7 +111,7 @@ const Header = () => {
                       </div>
                     )
                 )
-              : headerBanner?.map(
+              : headerBanner.map(
                   (data, idx) =>
                     data.banner_status === "show" && (
                       <div
@@ -152,11 +133,6 @@ const Header = () => {
                 )}
           </div>
         </div>
-        {(isMobile ? mobilebanner : headerBanner)?.length === 0 && (
-  <div className="flex justify-center items-center h-full">
-    <p>No banners available</p>
-  </div>
-)}
 
         <button
           onClick={scrollNext}
@@ -164,7 +140,7 @@ const Header = () => {
         >
           <MdNavigateNext />
         </button>
-      </div>}
+      </div>
       
     </div>
   );

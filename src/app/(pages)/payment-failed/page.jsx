@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Typed from "typed.js";
 import Image from "next/image";
 import StripeProtectedRoutes from "@/ProtectedRoutes/StripeProtectedRoutes";
+import AuthenticateUser from "@/Hooks/AuthenticateUser";
 
 const PaymentCancelled = () => {
   const typedElement = useRef(null);
@@ -36,6 +37,7 @@ const PaymentCancelled = () => {
 
   return (
     <>
+    <AuthenticateUser> 
         <div className="w-full h-screen py-10">
           <div className="flex justify-center">
             <div className="w-[90%] flex flex-col h-[500px] items-center md:w-1/2 lg:w-1/2">
@@ -69,6 +71,7 @@ const PaymentCancelled = () => {
             </div>
           </div>
         </div>
+    </AuthenticateUser>
     </>
   );
 };

@@ -1,4 +1,4 @@
-import Loader from "@/components/AppLoader/Loader";
+import Loader from "@/components/AppLoader/CircelLoading";
 import React from "react";
 
 function loading() {

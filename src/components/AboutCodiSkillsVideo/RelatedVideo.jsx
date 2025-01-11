@@ -97,9 +97,8 @@ const RelatedVideo = () => {
                 className={`flex items-center p-3 gap-3 rounded-lg cursor-pointer ${
                   mainVideo === video.videoUrl ? "bg-white text-black" : "text-white"
                 }`}
-                onClick={() => handleThumbnailClick(video)}
-              >
-                {/* Thumbnail */}
+                onClick={() => handleThumbnailClick(video)} >
+              {/* Thumbnail */}
                 <img
                   src={video.thumbnail}
                   alt={`Thumbnail for ${video.title}`}

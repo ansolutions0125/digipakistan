@@ -5,10 +5,9 @@ const Loader = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate a loading process (e.g., fetching data)
     setTimeout(() => {
       setIsLoading(false);
-    }, 2000); // Example: Hide loader after 2 seconds
+    }, 1000); 
   }, []);
 
   return (

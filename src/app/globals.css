@@ -209,12 +209,13 @@ hr {
 
 
 .pageinfo-bg {
-  /* background-image: url("/headerbg1.jpg"); */
+  background-image: url("/carousel1.png");
+  
   background-position: top;
-  background:green;
-  /* background-repeat: no-repeat; */
-  /* background-size: cover; */
-  @apply bg-primary;
+  /* background:green; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  @apply bg-primary opacity-100;
   z-index: 20;
   background-attachment: fixed;
   position: relative;
@@ -543,6 +544,64 @@ hr {
   }
 }
 /* Loader */
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+  background-color: transparent !important; /* Keeps the background consistent */
+  transition: background-color 5000s ease-in-out 0s; /* Prevents autofill flash */
+}
+/* Scrollbar width */
+::-webkit-scrollbar {
+  width: 8px; /* Adjust the width of the scrollbar */
+}
+
+/* Scrollbar track (background) */
+::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Light gray track */
+}
+
+/* Scrollbar thumb (handle) */
+::-webkit-scrollbar-thumb {
+  @apply bg-primary ;/* Primary color */
+  border-radius: 4px; /* Rounded corners */
+  border: 1px solid transparent; /* Optional: adds spacing */
+}
+
+/* Scrollbar thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary 
+}
+
+/* Slect Element styling */
+select {
+
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  width: 100%; /* Adjust as needed */
+  height: 50px; /* Set desired height */
+  background-color: #fff;
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none;
+  /* box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); */
+}
+
+select option{
+  font-size: 15px; /* Increase font size */
+  padding: 10px; /* This padding may not work in some browsers */
+  height: 50px; /* Ensure enough height for each option */
+  line-height: 1.5; /* Adjust the line height */
+}
+
+/* Slect Element styling */
+
 
 .custom-payment-form {
   @apply w-full;

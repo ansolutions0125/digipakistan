@@ -59,14 +59,13 @@ const Partners = () => {
           <div
             className="p-4 lg:p-12 md:p-48 lg:mx-0 sm:p-6 rounded-lg w-full"
             style={{
-              paddingTop: "20%",
+              paddingTop: "10%",
               borderRadius: "20px",
               overflow: "hidden",
             }}
           >
             <iframe
               src={`https://www.youtube.com/embed/bMGzyml4HMY`}
-              frameBorder="0"
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
               style={{
             position: "relative",

@@ -94,7 +94,7 @@ const SidebarMenu = () => {
 
   useEffect(() => {
     const getUserRegistrationData = async () => {
-      const data = await getUserRegistrationD(userData?.uid);
+      const data = await getUserRegistrationD(userData?.id);
       setFetchUserRegistrationDatae(data);
     };
 

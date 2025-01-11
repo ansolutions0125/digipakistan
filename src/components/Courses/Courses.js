@@ -10,16 +10,16 @@ const courses = [
     batchDuration: "3 Month",
     certificate:
       "On successful completion of the course participants will be awarded participation certificate from DigiPAKISTAN",
-    courseCategory: "Fast Track Technical Program",
-    courseEnrollments: "",
+      courseCategory:"fast_track_technical",
+      courseEnrollments: "",
     courseId: "it_fundamentals",
     courseInstructor: "Tabish Hashmi",
     courseLongDescription:
       "The IT Fundamentals course is your gateway to understanding the world of technology. Tailored for beginners, this course provides a comprehensive introduction to the essential concepts of Information Technology. You will explore the fundamentals of computer hardware, software, and operating systems, along with an overview of networks and the internet.",
     courseShortDescription:
       "Master the basics of Information Technology! This course is designed for beginners to build a solid foundation in IT, covering hardware, software, networks, and essential computer skills.",
-    coursePrice: "3500",
     courseStatus: "active",
+    coursePrice:3500,
     requirements: [
       "A basic understanding of using a computer or smartphone.",
       "Access to a computer or laptop with an internet connection.",
@@ -155,16 +155,16 @@ const courses = [
     batchDuration: "3 Month",
     certificate:
       "On successful completion of the course participants will be awarded participation certificate from DigiPAKISTAN",
-    courseCategory: "Fast Track Technical Program",
-    courseEnrollments: "",
+      courseCategory:"fast_track_technical",
+      courseEnrollments: "",
     courseId: "microsoft_frontend",
     courseInstructor: "Abdul Moeez",
     courseLongDescription:
       "Learn to build and design modern, responsive web applications using Microsoft front-end technologies. This course covers key skills and tools required for creating interactive user interfaces.",
     courseShortDescription:
       "Master Microsoft Front-End development! This course equips you with the tools and knowledge to design stunning, user-friendly web applications.",
-    coursePrice: "4000",
     courseStatus: "active",
+    coursePrice:3500,
     requirements: [
       "Basic understanding of HTML and CSS.",
       "Access to a computer or laptop with an internet connection.",
@@ -224,16 +224,16 @@ const courses = [
     batchDuration: "4 Month",
     certificate:
       "On successful completion of the course participants will be awarded participation certificate from DigiPAKISTAN",
-    courseCategory: "Fast Track Technical Program",
-    courseEnrollments: "",
+      courseCategory:"fast_track_technical",
+      courseEnrollments: "",
     courseId: "asp.net",
     courseInstructor: "Karan",
     courseLongDescription:
       "Dive into the world of web development with ASP.NET. This course provides a complete understanding of creating robust, dynamic web applications using the ASP.NET framework.",
     courseShortDescription:
       "Become an ASP.NET expert! Learn to create scalable and secure web applications with this powerful framework.",
-    coursePrice: "5000",
     courseStatus: "active",
+    coursePrice:3500,
     requirements: [
       "Basic knowledge of programming concepts.",
       "Familiarity with C# is a plus.",
@@ -295,16 +295,16 @@ const courses = [
     batchDuration: "4 Month",
     certificate:
       "On successful completion of the course participants will be awarded participation certificate from DigiPAKISTAN",
-    courseCategory: "Fast Track Technical Program",
-    courseEnrollments: "",
+      courseCategory:"fast_track_technical",
+      courseEnrollments: "",
     courseId: "php_laraval",
     courseInstructor: "Ahmed Khan",
     courseLongDescription:
       "Learn to create powerful web applications using PHP and Laravel. This course teaches you everything from basics to advanced concepts of Laravel framework.",
     courseShortDescription:
       "Master PHP Laravel development! Build robust and scalable web applications using this popular PHP framework.",
-    coursePrice: "4500",
     courseStatus: "active",
+    coursePrice:3500,
     requirements: [
       "Basic knowledge of PHP programming.",
       "A computer with Laravel environment setup.",
@@ -359,16 +359,16 @@ const courses = [
     batchDuration: "4 Month",
     certificate:
       "On successful completion of the course participants will be awarded participation certificate from DigiPAKISTAN",
-    courseCategory: "Fast Track Technical Program",
-    courseEnrollments: "",
+      courseCategory:"fast_track_technical",
+      courseEnrollments: "",
     courseId: "mernstack",
     courseInstructor: "Ali Khan",
     courseLongDescription:
       "Learn to build full-stack web applications using MongoDB, Express.js, React, and Node.js. This course covers the essentials of front-end and back-end development.",
     courseShortDescription:
       "Master full-stack development with the MERN stack! Learn to create modern web applications from scratch using popular technologies.",
-    coursePrice: "6000",
     courseStatus: "active",
+    coursePrice:3500,
     requirements: [
       "Basic understanding of JavaScript.",
       "Access to a computer with Node.js installed.",
@@ -432,16 +432,16 @@ const courses = [
     batchDuration: "3 Month",
     certificate:
       "On successful completion of the course participants will be awarded participation certificate from DigiPAKISTAN",
-    courseCategory: "Database Management Program",
-    courseEnrollments: "",
+      courseCategory:"fast_track_technical",
+      courseEnrollments: "",
     courseId: "sqlserver",
     courseInstructor: "Sara Ali",
     courseLongDescription:
       "Master SQL Server for database management. Learn to create, query, and manage databases with this powerful relational database management system.",
     courseShortDescription:
       "Learn SQL Server! This course provides the skills needed to manage and query relational databases effectively.",
-    coursePrice: "5000",
     courseStatus: "active",
+    coursePrice:3500,
     requirements: [
       "Basic knowledge of databases.",
       "Access to a computer with SQL Server installed.",
@@ -500,16 +500,16 @@ const courses = [
     batchDuration: "4 Month",
     certificate:
       "On successful completion of the course participants will be awarded participation certificate from DigiPAKISTAN",
-    courseCategory: "Database Administration Program",
-    courseEnrollments: "",
+      courseCategory:"fast_track_technical",
+      courseEnrollments: "",
     courseId: "oracle",
     courseInstructor: "Kamran Javed",
     courseLongDescription:
       "Become an Oracle Database Administrator! Learn to install, configure, and maintain Oracle databases with hands-on training.",
     courseShortDescription:
       "Master Oracle DBA! Learn the skills to manage and secure enterprise-level databases effectively.",
-    coursePrice: "6500",
     courseStatus: "active",
+    coursePrice:3500,
     requirements: [
       "Basic understanding of databases.",
       "Access to a computer with Oracle Database installed.",
@@ -566,16 +566,16 @@ const courses = [
     batchDuration: "3 Month",
     certificate:
       "On successful completion of the course participants will be awarded participation certificate from DigiPAKISTAN",
-    courseCategory: "Mobile App Development Program",
-    courseEnrollments: "",
+      courseCategory:"fast_track_technical",
+      courseEnrollments: "",
     courseId: "android",
     courseInstructor: "Zara Ahmed",
     courseLongDescription:
       "Learn Android app development from scratch. This course covers everything from basic concepts to advanced techniques, enabling you to build dynamic and user-friendly Android applications.",
     courseShortDescription:
       "Master Android development! Learn to create robust and interactive mobile applications using Android Studio and Java/Kotlin.",
-    coursePrice: "5500",
     courseStatus: "active",
+    coursePrice:3500,
     requirements: [
       "Basic understanding of programming.",
       "Access to a computer with Android Studio installed.",
@@ -628,16 +628,16 @@ const courses = [
     batchDuration: "3 Month",
     certificate:
       "On successful completion of the course participants will be awarded participation certificate from DigiPAKISTAN",
-    courseCategory: "Fast Track Technical Program",
-    courseEnrollments: "",
+      courseCategory:"fast_track_technical",
+      courseEnrollments: "",
     courseId: "kotlin",
     courseInstructor: "Adeel Khan",
     courseLongDescription:
       "Master Kotlin for Android app development. This course takes you through the essential features of Kotlin and demonstrates its integration with Android Studio to build cutting-edge apps.",
     courseShortDescription:
       "Learn Kotlin for Android! Build powerful and efficient Android applications using Kotlin programming language.",
-    coursePrice: "5000",
     courseStatus: "active",
+    coursePrice:3500,
     requirements: [
       "Basic understanding of programming.",
       "Access to a computer with Android Studio installed.",
@@ -690,16 +690,16 @@ const courses = [
     batchDuration: "4 Month",
     certificate:
       "On successful completion of the course participants will be awarded participation certificate from DigiPAKISTAN",
-    courseCategory: "Fast Track Technical Program",
-    courseEnrollments: "",
+      courseCategory:"fast_track_technical",
+      courseEnrollments: "",
     courseId: "ios",
     courseInstructor: "Tariq Hussain",
     courseLongDescription:
       "Learn to build iOS applications using Swift and Xcode. This course provides a complete understanding of creating high-performance apps for Apple devices.",
     courseShortDescription:
       "Master iOS app development! Learn to create sleek and efficient apps using Swift and Xcode.",
-    coursePrice: "7000",
     courseStatus: "active",
+    coursePrice:3500,
     requirements: [
       "Basic understanding of programming.",
       "Access to a Mac with Xcode installed.",
@@ -753,16 +753,16 @@ const courses = [
     batchDuration: "4 Month",
     certificate:
       "On successful completion of the course participants will be awarded participation certificate from DigiPAKISTAN",
-    courseCategory: "Mobile App Development Program",
-    courseEnrollments: "",
+      courseCategory:"fast_track_technical",
+      courseEnrollments: "",
     courseId: "xamarin",
     courseInstructor: "Usman Ali",
     courseLongDescription:
       "Master Xamarin to build cross-platform mobile applications. This course covers the essentials of creating native apps for Android and iOS using Xamarin and C#.",
     courseShortDescription:
       "Learn Xamarin development! Build efficient cross-platform mobile applications with ease using Xamarin and C#.",
-    coursePrice: "5500",
     courseStatus: "active",
+    coursePrice:3500,
     requirements: [
       "Basic knowledge of C# programming.",
       "Access to Visual Studio with Xamarin installed.",
@@ -815,16 +815,16 @@ const courses = [
     batchDuration: "3 Month",
     certificate:
       "On successful completion of the course participants will be awarded participation certificate from DigiPAKISTAN",
-    courseCategory: "Mobile App Development Program",
-    courseEnrollments: "",
+      courseCategory:"fast_track_technical",
+      courseEnrollments: "",
     courseId: "reactnative",
     courseInstructor: "Ahsan Qureshi",
     courseLongDescription:
       "Learn React Native to create cross-platform mobile applications. This course covers React Native fundamentals, component architecture, and advanced integration techniques.",
     courseShortDescription:
       "Master React Native! Build responsive and robust mobile apps using React Native and JavaScript.",
-    coursePrice: "5000",
     courseStatus: "active",
+    coursePrice:3500,
     requirements: [
       "Basic understanding of JavaScript and React.",
       "Access to a computer with Node.js installed.",
@@ -877,16 +877,16 @@ const courses = [
     batchDuration: "4 Month",
     certificate:
       "On successful completion of the course participants will be awarded participation certificate from DigiPAKISTAN",
-    courseCategory: "Game Development Program",
-    courseEnrollments: "",
+      courseCategory:"fast_track_technical",
+      courseEnrollments: "",
     courseId: "game",
     courseInstructor: "Bilal Ahmed",
     courseLongDescription:
       "Learn game development fundamentals and advanced techniques. This course covers game design, programming, and deployment using popular game engines like Unity and Unreal Engine.",
     courseShortDescription:
       "Master game development! Learn to create engaging and interactive games with industry-standard tools.",
-    coursePrice: "6000",
     courseStatus: "active",
+    coursePrice:3500,
     requirements: [
       "Basic programming knowledge.",
       "Access to Unity or Unreal Engine.",
@@ -939,16 +939,16 @@ const courses = [
     batchDuration: "3 Month",
     certificate:
       "On successful completion of the course participants will be awarded participation certificate from DigiPAKISTAN",
-    courseCategory: "Networking Program",
-    courseEnrollments: "",
+      courseCategory:"fast_track_technical",
+      courseEnrollments: "",
     courseId: "ccna",
     courseInstructor: "Fahad Malik",
     courseLongDescription:
       "Prepare for the CCNA certification with hands-on training in networking fundamentals, routing, switching, and security. This course provides comprehensive preparation for the CCNA exam.",
     courseShortDescription:
       "Master CCNA! Learn networking essentials and prepare for the Cisco certification exam.",
-    coursePrice: "7000",
     courseStatus: "active",
+    coursePrice:3500,
     requirements: [
       "Basic understanding of networking concepts.",
       "Access to networking devices or simulators.",
@@ -1001,16 +1001,16 @@ const courses = [
     batchDuration: "4 Month",
     certificate:
       "On successful completion of the course participants will be awarded participation certificate from DigiPAKISTAN",
-    courseCategory: "Cybersecurity Program",
-    courseEnrollments: "",
+      courseCategory:"fast_track_technical",
+      courseEnrollments: "",
     courseId: "comptia",
     courseInstructor: "Hassan Raza",
     courseLongDescription:
       "Prepare for the CompTIA Security+ certification with in-depth training on cybersecurity concepts, risk management, and system security. This course ensures readiness for the certification exam.",
     courseShortDescription:
       "Master cybersecurity basics! Learn to secure systems and prepare for the CompTIA Security+ certification.",
-    coursePrice: "7500",
     courseStatus: "active",
+    coursePrice:3500,
     requirements: [
       "Basic knowledge of IT concepts.",
       "Access to a computer with a secure environment.",

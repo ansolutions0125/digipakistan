@@ -49,7 +49,7 @@ const Terms = () => {
         </p>
       </div>
 
-        <Link href={"registration/personalinfo"} className='bg-primary p-2 mt-5 hover:bg-second text-white'>
+        <Link href={"registration/personalinfo"} className='bg-primary rounded p-2 mt-5 hover:bg-second text-white'>
             Agree with our terms & conditions
         </Link >
       </div>

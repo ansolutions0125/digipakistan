@@ -6,7 +6,7 @@ const FreelancingPlateform = () => {
         <div>
             <img className='w-full' src="/freelancing-platforms.jpg" alt="Freelancing Plateforms" />
         </div>
-        <div className='flex flex-col lg:flex-row p-10 gap-10 text-center'>
+        <div className='flex max-w-7xl lg:mx-auto flex-col lg:flex-row p-10 gap-10 text-center'>
             <div className='flex flex-col gap-3 items-center justify-center'>
                 <h1 className='font-bold text-3xl'>
                     Become an Instructor

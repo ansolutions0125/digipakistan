@@ -178,9 +178,11 @@ const SingleCourse = ({ data }) => {
                   <p>Career Development</p>
                 </div>
                 <hr className="bg-primary h-[1px] " />
+                <Link href={"/registration/register"}>
                 <button className="text-center w-full p-3 hover:font-extrabold  duration-300 border-3 border border-yellow-700 hover:bg-yellow-700 bg-primary text-white rounded mt-4">
                   Enroll Now
                 </button>
+                </Link>
               </div>
             </div>
           </div>
