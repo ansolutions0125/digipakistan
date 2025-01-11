@@ -2,24 +2,7 @@ import { fetchSmtpConfig } from "@/lib/SmtpSettings";
 import { db } from "../../../../../lib/FirebaseAdminSDK";
 import { initializeTransporter } from "@/lib/TransportNodeMailer";
 
-// getting instructionsEmail
-// const fetchInstructionsEmail = async () => {
-//   try {
-//     const templateDoc = await db
-//       .collection("email_templates")
-//       .doc("2i93jaiuielao-23ko2mweio20-2j2") // Use your template document ID
-//       .get();
 
-//     if (templateDoc.exists) {
-//       return templateDoc.data().template; // Assuming your HTML is stored in the 'template' field
-//     } else {
-//       throw new Error("Email template not found in Firestore.");
-//     }
-//   } catch (error) {
-//     console.error("Error fetching email template:", error);
-//     throw error;
-//   }
-// };
 
 const fetchThinkFicKeys = async () => {
   try {
@@ -107,6 +90,7 @@ export async function POST(req) {
       if (existingUsers.items && existingUsers.items.length > 0) {
         // User already exists
         userData = existingUsers.items[0];
+         console.log(userData);
         console.log("User already exists on DigiPakistan portal.");
       } else {
         // Create a new user on the portal

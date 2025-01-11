@@ -40,53 +40,58 @@ const EmailVerify = () => {
 
     // Listen for email verification status change using onAuthStateChanged
     useEffect(() => {
-      
-      const refreshVerificationStatus = async () => {
+        const refreshVerificationStatus = async () => {
           const user = auth.currentUser;
+    
           if (user && user.emailVerified) {
-              if (userData?.id) {
-                  const userRef = doc(firestore, "users", userData?.id);
-                  const userDoc= await getDoc(userRef);
-                  if(userDoc.exists() && userDoc.data()){
-                    router.push("/registration/emailverified")
-                    return;
-                  }
-                
-                   await updateDoc(userRef, { isEmailVerified: true });
-                  showToast("Your email has been verified successfully.", "success", 2000);
-                  const requestBody = {
-                    fetchedUserData: userData,
-                    email_subject: "You're Almost There! Complete Your Admission Now",
-                  };
-                  try{
-                        const response = await fetch('/api/emails/direct-emails/after-verification-sendmail',{
-                            method:"POST",
-                            headers:{
-                                headers: { "Content-Type": "application/json" },
-                            },
-                            body:JSON.stringify(requestBody)
-                        });
-                        const data = await response.json();
-                        console.log("API HITTED")
-                        console.log("Backend Response:", data);
-                  }catch(error){
-                        console.log(error)
-                      }
-                  router.push("/registration/emailverified");
-
-
+            if (userData?.id) {
+              const userRef = doc(firestore, "users", userData.id);
+    
+              try {
+                const userDoc = await getDoc(userRef);
+    
+                // Update the user's email verification status in Firestore
+                await updateDoc(userRef, { isEmailVerified: true });
+    
+                // Prepare request body for the API
+                const requestBody = {
+                  fetchedUserData: userData,
+                  email_subject: "You're Almost There! Complete Your Admission Now",
+                };
+    
+                // Call the API
+                const response = await fetch('/api/emails/direct-emails/after-verification-sendmail', {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(requestBody),
+                });
+    
+                const data = await response.json();
+                console.log("API HITTED");
+                console.log("Backend Response:", data);
+    
+                // Redirect to the verified page
+                router.push("/registration/emailverified");
+              } catch (error) {
+                console.error("Error updating verification status:", error);
               }
+            }
+    
+            // Show success toast
+            showToast("Your email has been verified successfully.", "success", 2000);
           }
-      };
-
-      refreshVerificationStatus();
-
-      // Set an interval to refresh the status every 1 minute
-      const interval = setInterval(refreshVerificationStatus, 100000); 
-
-      // Cleanup the interval on unmount
-      return () => clearInterval(interval);
-  }, []);
+        };
+    
+        // Ensure auth state is loaded before calling the refresh function
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+          if (user) {
+            refreshVerificationStatus();
+          }
+        });
+    
+        return () => unsubscribe(); // Cleanup listener on unmount
+      }, [userData, router]); // Add dependencies for userData and router
+      
 
     const buttonLoad = async () => {
         if (isVerificationDisabled) return; // Prevent multiple requests
