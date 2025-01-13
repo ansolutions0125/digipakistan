@@ -373,7 +373,7 @@ const courses = [
   //   ///   /// //// ////MERN STACK
   {
     id: "mernstack",
-    lmsId: 10101,
+    lmsCourseId: 2980087,
     courseLogo: "/fullstack.png",
     thumbnail: "",
     courseTitle: "MERN Stack Development",
@@ -886,6 +886,7 @@ const courses = [
   {
     id: "php_laraval",
     thumbnail: "",
+    lmsCourseId:2980085,
     courseLogo: "/php.png",
     courseTitle: "PHP Laravel",
     batchDuration: "3 Months",
@@ -1338,6 +1339,7 @@ const courses = [
   {
     id: "android",
     thumbnail: "",
+    lmsCourseId:2980047,
     courseLogo: "/android.png",
     courseTitle: "Android Apps Development",
     batchDuration: "3 Months",

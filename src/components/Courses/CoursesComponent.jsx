@@ -15,7 +15,7 @@ const CoursesComponent = () => {
   const [courses, setCourses] = useState([]);
   const [filteredCourses, setFilteredCourses] = useState([]);
   const [AllCertificatjionCategoryes, setAllCertificationCategoryes] = useState( [
-    {id:"fast_track_technical_program",coursesInThisCertifications:["IT Fundamentals","Microsoft Front End","ASP.NET","PHP Laravel","MERN Stack","SQL Server","SQL Server","Oracle DBA","Android Apps","Kotlin Apps","IOS Apps","Xamarin Apps","React Native","Game Development","CCNA","CompTIA Security","CEH","CHFI","ECSA","CISA","CISM","AWS Practitioner","AWS Sol.Architect","AWS SysOps","AWS Developer","Azure Fundamentals","Microsoft Cloud Administrator","Google Cloud","Python","ML & AI","Data Sceience","Big Data"],
+    {id:"fast_track_technical_program",coursesInThisCertifications:["IT Fundamentals","Microsoft Front End","ASP.NET","PHP Laravel","MERN Stack","SQL Server","Oracle DBA","Android Apps","Kotlin Apps","IOS Apps","Xamarin Apps","React Native","Game Development","CCNA","CompTIA Security","CEH","CHFI","ECSA","CISA","CISM","AWS Practitioner","AWS Sol.Architect","AWS SysOps","AWS Developer","Azure Fundamentals","Microsoft Cloud Administrator","Google Cloud","Python","ML & AI","Data Sceience","Big Data"],
       type:"Fast Track",
       certificationsId:"fast_track_technical_program",
       certificationsTitle:"Fast Track Technical Program",
