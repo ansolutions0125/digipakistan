@@ -1,12 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { FaAngleDown, FaHistory, FaRegUserCircle } from "react-icons/fa";
-import {
-  IoIosArrowDown,
-  IoIosArrowForward,
-  IoIosCloseCircleOutline,
-} from "react-icons/io";
-import { IoSearchOutline } from "react-icons/io5";
+import { FaAngleDown,FaRegUserCircle } from "react-icons/fa";
+
 import Link from "next/link";
 import Image from "next/image";
 import SidebarMenu from "./SidebarMenu";
@@ -20,7 +15,6 @@ import { useRouter } from "next/navigation";
 import CustomToast from "../CoustomToast/CoustomToast";
 import { firestore } from "@/Backend/Firebase";
 import { doc, getDoc } from "firebase/firestore";
-import MobileCertificationSearching from "./MobileCertificationSearching";
 import userHooks from "@/Hooks/userHooks";
 import MobileProfileButton from "./MobileProfileButton";
 
@@ -211,18 +205,18 @@ const Navbar = () => {
             <div className="hidden lg:block" >
             <ul className="flex gap-3">
             <Link href="/">
-                <li className="hover:text-white hover:bg-primary p-2 hover:rounded duration-300 text-[0.9rem] font-bold ">
+                <li className="hover:text-white hover:bg-primary py-1 px-2 hover:rounded duration-300 text-[0.9rem] font-bold ">
                   Home
                 </li>
               </Link>
 
 
                 {/* Available Courses */}
-              <li className="relative group hover:text-white hover:bg-primary p-2 hover:rounded duration-300 text-[0.9rem] font-bold text-black cursor-pointer">
+              <li className="relative group hover:text-white hover:bg-primary py-1 px-2 hover:rounded duration-300 text-[0.9rem] font-bold text-black cursor-pointer">
                 <div className="flex items-center gap-1">
                   <span className="">Available Courses</span> <FaAngleDown size={10} />
                 </div>
-                <ul className="absolute left-0 py-2 z-50 top-8 bg-white w-[270px] rounded-md shadow-lg hidden group-hover:block">
+                <ul className="absolute left-0 bg-white py-2 z-50 top-7 border w-[270px] duration-200 transition-all rounded-md shadow-lg hidden group-hover:block">
                   <Link href="/courses/fast_track_technical_program">
                     <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded font-normal duration-200 ">
                       Fast Track Technical Programs
@@ -233,7 +227,7 @@ const Navbar = () => {
                       Fast Track Non-Technical Programs
                     </li>
                   </Link>
-                  <Link href="/courses/associate_certification_programs">
+                  <Link href="/courses/associate_certification_program">
                     <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded font-normal duration-200 ">
                       Associate Ceritification Programs
                     </li>
@@ -242,7 +236,7 @@ const Navbar = () => {
               </li>
 
                 {/* Join digiPAKISTAN */}
-              <li className="relative group hover:text-white hover:bg-primary p-2 hover:rounded duration-300 text-[0.9rem] font-bold text-black cursor-pointer">
+              <li className="relative group hover:text-white hover:bg-primary py-1 px-2 hover:rounded duration-300 text-[0.9rem] font-bold text-black cursor-pointer">
                 <div className="flex items-center gap-1">
                   <span className="">Join DigiPAKISTAN</span> <FaAngleDown size={10} />
                 </div>
@@ -263,30 +257,30 @@ const Navbar = () => {
 
               {/* Get Certificates */}
               <Link href="/get-certificate">
-                <li className=" hover:text-white hover:bg-primary p-2 hover:rounded duration-300 text-[0.9rem] font-bold ">
+                <li className=" hover:text-white hover:bg-primary py-1 px-2 hover:rounded duration-300 text-[0.9rem] font-bold ">
                   Get Certificate 
                 </li>
               </Link>
               {/* How It Works */}
               <Link href="/howitworks">
-                <li className="hover:text-white hover:bg-primary p-2 hover:rounded duration-300 text-[0.9rem] font-bold flex gap-1">
+                <li className="hover:text-white hover:bg-primary py-1 px-2 hover:rounded duration-300 text-[0.9rem] font-bold flex gap-1">
                   <span>Admission</span>
                   <span>Process</span>
                 </li>
               </Link>
               {/* FAQS */}
               <Link href="/faq">
-                <li className="hover:text-white hover:bg-primary p-2 hover:rounded duration-300 text-[0.9rem] font-bold ">
+                <li className="hover:text-white hover:bg-primary py-1 px-2 hover:rounded duration-300 text-[0.9rem] font-bold ">
                   FAQ's 
                 </li>
               </Link>
 
 
-              <li className="relative group hover:text-white hover:bg-primary p-2 hover:rounded duration-300 text-[0.9rem] font-bold text-black cursor-pointer">
+              <li className="relative group hover:text-white hover:bg-primary py-1 px-2 hover:rounded duration-300 text-[0.9rem] font-bold text-black cursor-pointer">
                 <div className="flex items-center gap-1">
                   <span className="">About</span> <FaAngleDown size={10} />
                 </div>
-                <ul className="absolute left-0 py-2 z-50 top-8 bg-white w-[250px] rounded-md shadow-lg hidden group-hover:block">
+                <ul className="absolute left-0 bg-white py-2 z-50 top-7 border w-[250px] rounded-md shadow-lg hidden group-hover:block">
                   <Link href="/message/provincial-minister-message">
                     <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded font-normal duration-200 ">
                       Provincial Minister Message
@@ -323,7 +317,7 @@ const Navbar = () => {
 
 
               <Link href="/contact">
-                <li className="hover:text-white hover:bg-primary p-2 hover:rounded duration-300 text-[0.9rem] font-bold ">
+                <li className="hover:text-white hover:bg-primary py-1 px-2 hover:rounded duration-300 text-[0.9rem] font-bold ">
                      Contact
                 </li>
               </Link>
@@ -331,7 +325,7 @@ const Navbar = () => {
           </div>
 
             {/* <div className="border-primary border group relative hidden lg:block text-primary hover:bg-primary hover:text-white py-1.5 px-3 rounded-md duration-100 text-[0.9rem] font-bold">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center g py-1apx-2">
                 <span>Explore</span>
                 <IoIosArrowDown className="group-hover:rotate-180 duration-300" />
               </div>
@@ -388,7 +382,7 @@ const Navbar = () => {
                         </div>
                       </div>
                     ) : selectedCategoryData ? (
-                      <div className="flex flex-col gap-2">
+                      <div className="flex flex-col g py-1apx-2">
                         <div className="py-5 border shadow-lg px-5 text-[15px] bg-white font-semibold heading-text">
                           <h2>{category.certificationsTitle}</h2>
                           <p className="text-[12px] text-gray-600">
@@ -398,7 +392,7 @@ const Navbar = () => {
                         </div>
                         <div className="p-5 flex flex-col justify-between h-full">
                           {selectedCategoryData.length > 0 ? (
-                            <div className="grid lg:grid-cols-2 gap-2 w-[90%]">
+                            <div className="grid lg:grid-cols-2 g py-1apx-2 w-[90%]">
                               {selectedCategoryData.map((course, idx) => {
                                 return (
                                   <div key={idx}>
@@ -462,7 +456,7 @@ const Navbar = () => {
                         </div>
                       </div>
                     ) : (
-                      <div className="flex flex-col gap-2">
+                      <div className="flex flex-col g py-1apx-2">
                         <div className="py-5 border shadow-lg px-5 text-[15px] bg-white font-semibold heading-text">
                           <h2>{category.certificationsTitle}</h2>
                           <p className="text-[12px] text-gray-600">
@@ -546,7 +540,7 @@ const Navbar = () => {
                       {recentSearches.map((query, index) => (
                         <div
                           key={index}
-                          className="flex text-gray-600 items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                          className="flex text-gray-600 items-center g py-1apx-2 px-4 py-2 hover:bg-gray-100 cursor-pointer"
                           onClick={() => setSearchQuery(query)}
                         >
                           <FaHistory /> <span>{query}</span>
@@ -575,8 +569,8 @@ const Navbar = () => {
               fetchedUser={fetchedUser}
             />
           </div> */}
-          <div className="lg:flex hidden items-center gap-2">
-            <ul className="flex items-center gap-2">
+          <div className="lg:flex hidden items-center g py-1apx-2">
+            <ul className="flex items-center gap-3 py-1 px-2">
               
               {userData ? (
                 <Link
@@ -612,7 +606,7 @@ const Navbar = () => {
             {userData ? (
               <div className="flex items-center gap-x-3">
                 <div className="w-[120px] relative group hover:text-primary duration-300 text-black cursor-pointer">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center g py-1apx-2">
                     <div className="">
                       <FaRegUserCircle size={26} />
                     </div>

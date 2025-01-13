@@ -68,7 +68,7 @@ export async function POST(req) {
     }
 
     // Example usage:
-    const password = generatePassword("codi");
+    const password = generatePassword("dgpk");
     const keys = await fetchThinkFicKeys();
 
   

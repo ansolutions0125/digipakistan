@@ -8,6 +8,7 @@ import {
 } from "@/Backend/firebasefunctions";
 import FastTrackNonTechnicalPrograms from "@/components/Courses/FastTrackNonTechnicalPrograms";
 import AssociateCertificationPrograms from "@/components/Courses/AssociateCertificateProgram";
+import courses from "@/components/Courses/Courses";
  
 export function generateMetadata()
 {
@@ -250,6 +251,7 @@ export function generateMetadata()
 const FastTrackNonTechnicalProgram = async () => {
 //   const data = await getAllCourses();
 //   const certifications = await getAllCertificationCategoryes();
+const data = courses.find((c)=>c.id==="associate_courses");
   return (
     <>
       {/* Navbar */}
@@ -260,7 +262,7 @@ const FastTrackNonTechnicalProgram = async () => {
       {/* All Courses */}
       <main className="p-6 min-h-screen">
         {/* <AllCourses certifications={certifications} courses={data.data} /> */}
-        <AssociateCertificationPrograms/>
+        <AssociateCertificationPrograms data={data} />
       </main>
       <Footer />
     </>

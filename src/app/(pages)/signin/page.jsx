@@ -217,13 +217,14 @@ const SignIn = () => {
   <UserProtectedRoutes userNotLogined={true} ifUserLoginedThen={true}>
       <Navbar />
     
-      <div className="apply_now_bg min-h-[70vh]">
+      {/* <div className="apply_now_bg min-h-[70vh]"> */}
+      <div className="bg-gray-100 min-h-[70vh]">
         <div className="flex items-center justify-center p-3 lg:p-5">
-          <div className="w-full min-h-[60vh] rounded-xl bg-white flex flex-col border shadow-2xl text-center lg:p-5 lg:w-[50%]">
+          <div className="w-full min-h-[60vh] rounded-xl bg-white flex flex-col shadow-2xl text-center lg:p-5 lg:w-[30%]">
             <img className="w-36 h-36 mx-auto" src="/logo.jpg" alt="" />
             <h1 className="lg:text-3xl text-2xl font-bold">Login</h1>
             
-            <div className="flex flex-col lg:mx-auto text-center p-3 lg:w-[35rem] ">
+            <div className="flex flex-col lg:mx-auto text-center p-3 lg:w-[100%] ">
               <form onSubmit={handleFormSubmit}>
                 {/* Email */}
                 <div className="relative mb-6">

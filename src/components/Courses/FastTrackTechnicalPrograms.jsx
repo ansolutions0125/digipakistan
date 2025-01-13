@@ -6,113 +6,93 @@ import { color } from "framer-motion";
 import { collection, getDocs } from "firebase/firestore";
 import { firestore } from "@/Backend/Firebase";
 
-const FastTrackTechnicalPrograms = () => {
+const FastTrackTechnicalPrograms = ({data}) => {
   const { setCourse } = useCourseContext();
-  const [courses, setCourses] = useState([
-    {
-      id:"it_fundamentals",
-      courseTitle: "IT Fundamentals",
-      courseLogo: "/it_fundamentals.png",
-    },
-    {
-      id:"microsoft_frontend",
-      courseTitle: "Microsoft FrontEnd",
-      courseLogo: "/frontend.png",
-    },
-    {
-      id:"asp.net",
-      courseTitle: "ASP.NET",
-      courseLogo: "/asp.net.svg",
-    },
-    {
-      id:"php_laraval",
-      courseTitle: "PHP Lraval",
-      courseLogo: "/php.png",
-    },
-    {
-      id:"mernstack",
-      courseTitle: "MERN Stack Devlopment",
-      courseLogo: "/fullstack.png",
-    },
-    {
-      id:"sqlserver",
-      courseTitle: "SQL Server",
-      courseLogo: "/sql.png",
-    },
-    {
-      id:"oracle",
-      courseTitle: "Oracle Database Administrator",
-      courseLogo: "/oracle.png",
-    },
-    {
-      id:"android",
-      courseTitle: "Android Apps Development",
-      courseLogo: "/android.png",
-    },
-    {
-      id:"kotlin",
-      courseTitle: "Kotlin Apps Development",
-      courseLogo: "/kotlin.png",
-    },
-    {
-      id:"ios",
-      courseTitle: "IOS Apps Development",
-      courseLogo: "/ios.png",
-    },
-    {
-      id:"xamarin",
-      courseTitle: "Xamarin Apps Development",
-      courseLogo: "/xamarin.png",
-    },
-    {
-      id:"reactnative",
-      courseTitle: "React Native Development",
-      courseLogo: "/reactnative.png",
-    },
-    {
-      id:"game",
-      courseTitle: "Game Development",
-      courseLogo: "/game.png",
-    },
-    {
-      id:"ccna",
-      courseTitle: "Compute Communication Network Administrator(CCNA)",
-      courseLogo: "/ccna.png",
-    },
-    {
-      id:"comptia",
-      courseTitle: "CompTIA Security",
-      courseLogo: "/comptia-ptr6.jpeg",
-    },
-    {
-      id:"ceh",
-      courseTitle: "Ceritified Ethical Hacking",
-      courseLogo: "/ceh.png",
-    },
-  ]);
-  const [loading, setLoading] = useState(false);
+  // const [courses, setCourses] = useState([
+  //   {
+  //     id:"it_fundamentals",
+  //     courseTitle: "IT Fundamentals",
+  //     courseLogo: "/it_fundamentals.png",
+  //   },
+  //   {
+  //     id:"microsoft_frontend",
+  //     courseTitle: "Microsoft FrontEnd",
+  //     courseLogo: "/frontend.png",
+  //   },
+  //   {
+  //     id:"asp.net",
+  //     courseTitle: "ASP.NET",
+  //     courseLogo: "/asp.net.svg",
+  //   },
+  //   {
+  //     id:"php_laraval",
+  //     courseTitle: "PHP Lraval",
+  //     courseLogo: "/php.png",
+  //   },
+  //   {
+  //     id:"mernstack",
+  //     courseTitle: "MERN Stack Devlopment",
+  //     courseLogo: "/fullstack.png",
+  //   },
+  //   {
+  //     id:"sqlserver",
+  //     courseTitle: "SQL Server",
+  //     courseLogo: "/sql.png",
+  //   },
+  //   {
+  //     id:"oracle",
+  //     courseTitle: "Oracle Database Administrator",
+  //     courseLogo: "/oracle.png",
+  //   },
+  //   {
+  //     id:"android",
+  //     courseTitle: "Android Apps Development",
+  //     courseLogo: "/android.png",
+  //   },
+  //   {
+  //     id:"kotlin",
+  //     courseTitle: "Kotlin Apps Development",
+  //     courseLogo: "/kotlin.png",
+  //   },
+  //   {
+  //     id:"ios",
+  //     courseTitle: "IOS Apps Development",
+  //     courseLogo: "/ios.png",
+  //   },
+  //   {
+  //     id:"xamarin",
+  //     courseTitle: "Xamarin Apps Development",
+  //     courseLogo: "/xamarin.png",
+  //   },
+  //   {
+  //     id:"reactnative",
+  //     courseTitle: "React Native Development",
+  //     courseLogo: "/reactnative.png",
+  //   },
+  //   {
+  //     id:"game",
+  //     courseTitle: "Game Development",
+  //     courseLogo: "/game.png",
+  //   },
+  //   {
+  //     id:"ccna",
+  //     courseTitle: "Compute Communication Network Administrator(CCNA)",
+  //     courseLogo: "/ccna.png",
+  //   },
+  //   {
+  //     id:"comptia",
+  //     courseTitle: "CompTIA Security",
+  //     courseLogo: "/comptia-ptr6.jpeg",
+  //   },
+  //   {
+  //     id:"ceh",
+  //     courseTitle: "Ceritified Ethical Hacking",
+  //     courseLogo: "/ceh.png",
+  //   },
+  // ]);
+  const [loading, setLoading] = useState(true);
+console.log(data);
 
-  // useEffect(()=>{
-  //   const getFastTrackCourses =async()=>{
-
-  //    try {
-
-  //     const query = collection(firestore,"courses");
-  //     const querySnapshot = await getDocs(query);
-  //     const temp = [];
-
-  //     querySnapshot.forEach((doc)=>{
-  //       temp.push({id:doc.id,...doc.data()});
-  //     })
-  //     const fastTrackData = temp.filter((data)=> data.courseCategory === "Fast Track Technical Program" )
-  //     setCourses(fastTrackData);
-  //     setLoading(false);
-  //    } catch (error) {
-  //     console.log(error);
-  //    }
-  //   }
-  //   getFastTrackCourses();
-  // },[])
 
   const randomColors = () => {
     const letters = "0123456789ABCDEF";
@@ -123,6 +103,12 @@ const FastTrackTechnicalPrograms = () => {
     return color;
   };
 
+  useEffect(()=>{
+    const timer = setTimeout(()=>{
+      setLoading(false);
+    },600);
+    return ()=>clearTimeout(timer);
+  },[])
   return (
     <div className="grid place-items-center mt-10">
       <div className="container">
@@ -179,7 +165,7 @@ const FastTrackTechnicalPrograms = () => {
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
-            {courses.map((data, idx) => {
+            {data.map((data, idx) => {
               const randomColor = randomColors();
               return (
                 <Link

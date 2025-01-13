@@ -11,8 +11,8 @@ const RegistrationForm = () => {
         <div className="w-full min-h-[60vh] rounded-xl bg-white flex flex-col border shadow-2xl text-center p-5 lg:w-[90%] ">
           <img className="w-36 h-36 mx-auto" src="/logo.jpg" alt="" />
           <h1 className="text-4xl font-bold pb-5">Online Apllication System</h1>
-          <p className="text-sm">
-            <span className="text-red-600 ">Register yourself</span> as a new
+          <p className="text-sm max-w-4xl lg:mx-auto">
+            <span className="text-red-600">Register yourself</span> as a new
             applicant. After successfully registration, enter your login details
             (Type your email & password which you have created during
             registration). You will be successfully logged into the Candidate

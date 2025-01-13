@@ -28,7 +28,7 @@ const CoursesComponent = () => {
       img:"/fast_track_non.png"
 
     },
-    {id:"associate_certificate_program",coursesInThisCertifications:[
+    {id:"associate_certification_program",coursesInThisCertifications:[
       "Digital Forensic Cyber Security","Penetration Testing Cyber Security","CISSP Cyber Security Professional","Artificial Intelligence","AWS Cloud Computing","Internet of Things (IoT)","BlockChain Technology","FullStack Web Devlopment (MCSA)"],
     type:"6 Monts",
     certificationsId:"associate_certificate_program",
@@ -58,6 +58,9 @@ const CoursesComponent = () => {
   //   };
   //   getallCourses();
   // }, []);
+
+
+ 
 
   return (
     <div className="bg-gray-50">

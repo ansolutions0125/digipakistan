@@ -5,32 +5,12 @@ import { useCourseContext } from "../../../context/context";
 import { collection, getDocs } from "firebase/firestore";
 import { firestore } from "@/Backend/Firebase";
 
-const AssociateCertificationPrograms = () => {
+const AssociateCertificationPrograms = ({data}) => {
     const {setCourse} = useCourseContext();
   
   const [courses,setCourses] =useState([]);
   const [loading,setLoading]= useState(true);
-    useEffect(()=>{
-      const getFastTrackCourses =async()=>{
-        
-       try {
-        const query = collection(firestore,"courses");
-        const querySnapshot = await getDocs(query);
-        const temp = [];
-    
-        querySnapshot.forEach((doc)=>{
-          temp.push({id:doc.id,...doc.data()});
-        })
-        const fastTrackData = temp.filter((data)=> data.courseCategory === "Associate Certification Programs" )
-        setCourses(fastTrackData);
-        setLoading(false);
-       } catch (error) {  
-        console.log(error);
-       }
-      }
-      getFastTrackCourses();
-    },[])
-  
+ 
   
   const randomColors = ()=>{
     const letters = "0123456789ABCDEF";
@@ -41,11 +21,24 @@ const AssociateCertificationPrograms = () => {
     return color;
  }
 
+ useEffect(()=>{
+  const timer = setTimeout(()=>{
+    setLoading(false);
+  },600);
+  return ()=>clearTimeout(timer);
+},[]);
  
+if (!data || data.length === 0) {
+  return (
+    <p className="min-h-[50vh] flex justify-center items-center text-red-600 text-5xl">
+      Courses not found
+    </p>
+  );
+}
+
  return (
    <div className="grid place-items-center mt-10">
-    {   courses.length===0 && <p className="min-h-[50vh] flex justify-center items-center text-red-600 text-5xl">Courses not found</p>
-    }
+   
      <div className="container">
         {loading ?<div className="animate-pulse py-3 grid grid-cols-1 lg:gap-3 lg:grid-cols-4 w-full">
  
@@ -101,7 +94,7 @@ const AssociateCertificationPrograms = () => {
  
   
  </div> : <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
-          {courses.map((data, idx) => {
+          {data?.map((data, idx) => {
             const randomColor = randomColors();
             return (
               <Link

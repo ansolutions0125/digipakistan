@@ -3,7 +3,7 @@ import userHooks from "@/Hooks/userHooks";
 import { getAuth } from "firebase/auth";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { MdVerified } from "react-icons/md";
+import { MdOutlineVerified, MdVerified } from "react-icons/md";
 
 const EmailVerified = () => {
   const [loading, setLoading] = useState(false);
@@ -22,12 +22,12 @@ const EmailVerified = () => {
 
 
   return (
-    <div className="apply_now_bg min-h-[70vh]">
+    <div className="bg-gray-50 min-h-[70vh]">
       <div className="flex items-center justify-center p-3 lg:p-5">
-        <div className="w-full min-h-[60vh] rounded-xl bg-white flex items-center justify-center flex-col border shadow-2xl text-center p-5 lg:w-[90%]">
+        <div className="w-full min-h-[60vh] rounded-xl bg-white flex items-center justify-center flex-col border shadow-2xl text-center p-5 lg:w-[40%]">
           {/* <img className=" w-40  mx-auto" src="/email-verify.gif" alt="" /> */}
           {/* <div className="flex items-center justify-center gap-3"> */}
-            <MdVerified className="text-9xl text-primary" />
+            <MdOutlineVerified className="text-9xl text-primary" />
             <h1 className="lg:text-3xl text-2xl font-bold">
               Hi {userData.firstName} {userData.lastName}{" "}
             </h1>

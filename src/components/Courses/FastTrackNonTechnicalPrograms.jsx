@@ -5,34 +5,13 @@ import { useCourseContext } from "../../../context/context";
 import { collection, getDocs } from "firebase/firestore";
 import { firestore } from "@/Backend/Firebase";
 
-const FastTrackNonTechnicalPrograms = () => {
+const FastTrackNonTechnicalPrograms = ({data}) => {
 
   const [courses,setCourses] =useState([]);
     const { setCourse } = useCourseContext();
   console.log(courses)
 const [loading,setLoading]= useState(true);
- 
 
-
-useEffect(()=>{
-  const getFastTrackCourses =async()=>{
-   try {  
-    const query = collection(firestore,"courses");
-    const querySnapshot = await getDocs(query);
-    const temp = [];
-
-    querySnapshot.forEach((doc)=>{
-      temp.push({id:doc.id,...doc.data()});
-    })
-    const fastTrackData = temp.filter((data)=> data.courseCategory ==="Fast Track Non Technical Program" )
-    setCourses(fastTrackData);
-    setLoading(false);
-   } catch (error) {
-    console.log(error);
-   }
-  }
-  getFastTrackCourses();
-},[])
 
   const randomColors = ()=>{
 
@@ -43,6 +22,13 @@ useEffect(()=>{
     }
     return color;
  }
+
+   useEffect(()=>{
+     const timer = setTimeout(()=>{
+       setLoading(false);
+     },600);
+     return ()=>clearTimeout(timer);
+   },[])
 
   return (
     <div className="grid place-items-center mt-10">
@@ -102,7 +88,7 @@ useEffect(()=>{
  
   
  </div> : <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
-          {courses.map((data, idx) => {
+          {data.map((data, idx) => {
    const randomColor = randomColors();
             return <Link
               key={idx}

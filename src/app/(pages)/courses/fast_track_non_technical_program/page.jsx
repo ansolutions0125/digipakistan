@@ -7,9 +7,9 @@ import {
   getAllCourses,
 } from "@/Backend/firebasefunctions";
 import FastTrackNonTechnicalPrograms from "@/components/Courses/FastTrackNonTechnicalPrograms";
- 
-export function generateMetadata()
-{
+import courses from "@/components/Courses/Courses";
+
+export function generateMetadata() {
   return {
     title: {
       default: "Courses",
@@ -247,19 +247,24 @@ export function generateMetadata()
 }
 
 const FastTrackNonTechnicalProgram = async () => {
-//   const data = await getAllCourses();
-//   const certifications = await getAllCertificationCategoryes();
+  //   const data = await getAllCourses();
+  //   const certifications = await getAllCertificationCategoryes();
+  const data = courses.filter(
+    (c) => c.courseCategory === "fast_track_non_technical"
+  );
   return (
     <>
       {/* Navbar */}
       <Navbar />
-
       {/* Page Info */}
-      <PageInfo PageName="Fast Track Non-Technical Program (3 Months)" pageDescription="A continuously evolving stack of Information Technology Programs consoling the latest technologies are available at DigiPAKISTAN and all you have to do is to enrol yourself in your desired course." />
+      <PageInfo
+        PageName="Fast Track Non-Technical Program (3 Months)"
+        pageDescription="A continuously evolving stack of Information Technology Programs consoling the latest technologies are available at DigiPAKISTAN and all you have to do is to enrol yourself in your desired course."
+      />
       {/* All Courses */}
       <main className="p-6 min-h-screen">
         {/* <AllCourses certifications={certifications} courses={data.data} /> */}
-        <FastTrackNonTechnicalPrograms/>
+        <FastTrackNonTechnicalPrograms data={data} />
       </main>
       <Footer />
     </>

@@ -6,6 +6,8 @@ import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import CustomToast from "../CoustomToast/CoustomToast";
+import { MdOutlineAttachEmail, MdOutlineEmail } from "react-icons/md";
+import { CiMail } from "react-icons/ci";
 
 const EmailVerify = () => {
     const [loading, setLoading] = useState(false);
@@ -130,13 +132,15 @@ const EmailVerify = () => {
     if (!userData) return null;
 
     return (
-        <div className="apply_now_bg min-h-[70vh]">
+        <div className="bg-gray-100 min-h-[70vh]">
             <div className="flex items-center justify-center p-3 lg:p-5">
-                <div className="w-full min-h-[60vh] rounded-xl bg-white flex flex-col border shadow-2xl text-center p-5 lg:w-[90%]">
-                    <img className="w-40 mx-auto" src="/email.gif" alt="Email Verification" />
+                <div className="w-full min-h-[60vh] rounded-xl bg-white flex flex-col border shadow-2xl text-center p-5 lg:w-[40%]">
+                   <div className="flex flex-col justify-center items-center">
+                   <CiMail className="text-8xl"/>
                     <h1 className="lg:text-3xl text-2xl font-bold">
                         Hi {userData.firstName} {userData.lastName}
                     </h1>
+                   </div>
                     <p className="mt-2">
                         First verify your email{" "}
                         <span className="text-red-500">{userData.email}</span> account as all communication will be done via email.

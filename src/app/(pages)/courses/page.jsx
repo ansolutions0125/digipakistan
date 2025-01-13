@@ -258,7 +258,7 @@ const Courses = async () => {
 
       {/* All Courses */}
       <main className="p-6 min-h-screen">
-        <AllCourses certifications={certifications} courses={data.data} />
+        <AllCourses certifications={certifications} courses={data.data}/>
       </main>
 
       {/* Footer */}

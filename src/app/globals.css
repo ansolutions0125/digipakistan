@@ -203,13 +203,18 @@ hr {
 }
 
 .accordion-content.active {
-  max-height: 500px;
+  max-height: 3000px;
   opacity: 1; 
 }
 
-
+.apply_bg{
+  background-image: url("/.png");
+  background-repeat: none;
+  
+  
+}
 .pageinfo-bg {
-  background-image: url("/carousel1.png");
+  /* background-image: url("/carousel1.png"); */
   
   background-position: top;
   /* background:green; */

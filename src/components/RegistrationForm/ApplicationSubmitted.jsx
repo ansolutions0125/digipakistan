@@ -10,23 +10,39 @@ import {
   where,
 } from "firebase/firestore";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { GoVerified } from "react-icons/go";
 import { MdApproval, MdOutlinePending, MdPending, MdPendingActions } from "react-icons/md";
+import CustomToast from "../CoustomToast/CoustomToast";
+
 
 const ApplicationSubmitted = () => {
   const [loading, setLoading] = useState(true);
   const [userInformation, setUserInformation] = useState(null);
   const { userData } = userHooks();
   const [userDataa, setUserDataa] = useState(null);
+const router  = useRouter();
+const [toast, setToast] = useState({
+  message: "",
+  type: "",
+  visible: false,
+  duration: 5000,
+});
 
-  console.log(userDataa);
+
+console.log(userDataa);
   const getUser = async () => {
     const docRef = doc(firestore, "users", userData?.id);
     const userRef = await getDoc(docRef);
     const userr = userRef.data();
     setUserDataa(userr);
   };
+
+  const showToast = (message, type = "info", duration = 20000) => {
+    setToast({ message, type, visible: true, duration });
+};
+
 
   useEffect(() => {
     const getUserData = async () => {
@@ -48,6 +64,10 @@ const ApplicationSubmitted = () => {
     getUserData();
     getUser();
   }, [userData]);
+  
+  const handleCloseToast = () => {
+    setToast({ ...toast, visible: false });
+};
 
   return (
     <div className="flex items-center max-w-6xl lg:mx-auto justify-center p-3 lg:p-5">
@@ -180,6 +200,14 @@ const ApplicationSubmitted = () => {
           </Link>
         </div>
       </div>
+      {toast.visible && (
+          <CustomToast
+            message={toast.message}
+            type={toast.type}
+            duration={toast.duration}
+            onClose={handleCloseToast}
+          />
+        )}
     </div>
   );
 };

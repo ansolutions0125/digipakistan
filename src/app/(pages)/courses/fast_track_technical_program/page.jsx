@@ -2,11 +2,8 @@ import React from "react";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import PageInfo from "@/components/PageInfo/PageInfo";
-import {
-  getAllCertificationCategoryes,
-  getAllCourses,
-} from "@/Backend/firebasefunctions";
 import FastTrackTechnicalPrograms from "@/components/Courses/FastTrackTechnicalPrograms";
+import courses from "@/components/Courses/Courses";
  
 export function generateMetadata()
 {
@@ -247,8 +244,9 @@ export function generateMetadata()
 }
 
 const FastTrackTechnicalProgram = async () => {
-//   const data = await getAllCourses();
-//   const certifications = await getAllCertificationCategoryes();
+
+  const data = courses.filter((data)=> data.courseCategory==="fast_track_technical" );
+
   return (
     <>
       {/* Navbar */}
@@ -259,8 +257,7 @@ const FastTrackTechnicalProgram = async () => {
       {/* All Courses */}
       <main className="p-6 bg-gray-100 min-h-screen">
         {/* <AllCourses certifications={certifications} courses={data.data} /> */}
-        <FastTrackTechnicalPrograms/>
-
+        <FastTrackTechnicalPrograms data ={data}/>
       </main>
 
       <Footer />
