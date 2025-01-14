@@ -251,7 +251,7 @@ export function generateMetadata()
 const FastTrackNonTechnicalProgram = async () => {
 //   const data = await getAllCourses();
 //   const certifications = await getAllCertificationCategoryes();
-const data = courses.find((c)=>c.id==="associate_courses");
+const data = courses.filter((c)=>c.courseCategory==="associate_certificate_program");
   return (
     <>
       {/* Navbar */}

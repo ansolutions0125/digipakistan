@@ -18,7 +18,7 @@ const SingleCourse = ({ data }) => {
 
   return (
     <div className="bg-gray-100">
-      <div className="max-w-7xl  flex lg:mx-auto">
+      <div className="max-w-7xl  flex flex-col lg:mx-auto">
         <div className="flex flex-col w-full gap-4 lg:flex-row ">
           <div className="lg:w-3/4 -mt-20 bg-white z-20 shadow-2xl border mb-5 p-5 rounded-xl">
             {/* Tabs */}
@@ -154,7 +154,11 @@ const SingleCourse = ({ data }) => {
                 </div>
               )}
             </div>
+
+
+            
           </div>
+
 
           {/* Right Sidebar */}
           <div className=" w-full z-20 mb-5 flex gap-5 flex-col lg:mt-[-250px]  lg:w-[400px] p-3 ">
@@ -187,6 +191,25 @@ const SingleCourse = ({ data }) => {
             </div>
           </div>
         </div>
+
+        
+          {
+            data.domainsInThisProgram && (
+
+              <div>
+                <h1 className="text-3xl font-sans p-5 font-bold">Domains that that will be covered in this Course:</h1>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-4 mb-5 p-4">
+                {data.domainsInThisProgram.map((data,idx)=>{
+                 return <div className="flex items-center hover:bg-primary hover:text-white duration-300 cursor-pointer bg-white p-6 rounded-xl shadow-2xl border gap-4" key={idx}>
+                    <img src={data.icon} className="w-14 hover:text-white h-14" alt={data.title} />
+                    <p>{data.title}</p>
+                  </div>
+                })}
+              </div>
+              </div>
+            )
+          }
+       
       </div>
     </div>
   );

@@ -150,93 +150,93 @@ const courses = [
   },
 
   // MICROSOFT FRONTEND
-  {
-    id: "microsoft_frontend",
-    thumbnail: "",
-    reviews: "4.9",
-    courseLogo: "/frontend.png",
-    totalReviews: 15,
-    enrolledStudents: 1043,
-    level: "Intermediate",
-    courseTitle: "Microsoft Front End",
-    batchDuration: "3 Month",
-    certificate:
-      "On successful completion of the course participants will be awarded participation certificate from DigiPAKISTAN",
-    courseCategory: "fast_track_technical",
-    courseEnrollments: "",
-    courseId: "microsoft_frontend",
-    courseInstructor: "Abdul Moeez",
-    courseLongDescription:
-      "Learn to build and design modern, responsive web applications using Microsoft front-end technologies. This course covers key skills and tools required for creating interactive user interfaces.",
-    courseShortDescription:
-      "Master Microsoft Front-End development! This course equips you with the tools and knowledge to design stunning, user-friendly web applications.",
-    courseStatus: "active",
-    coursePrice: 3500,
-    requirements: [
-      "Basic understanding of HTML and CSS.",
-      "Access to a computer or laptop with an internet connection.",
-      "A willingness to learn and experiment with front-end design.",
-    ],
-    seoDescription: "Learn Microsoft Front-End Development",
-    seoKeywords: [
-      "Microsoft Front-End Course",
-      "Responsive Web Design",
-      "Learn Front-End Development",
-      "Web Applications Design",
-      "Microsoft UI Development",
-    ],
-    videoMedium: "Urdu",
-    whatYouWillLearn: [
-      "Build modern and responsive web applications.",
-      "Design interactive user interfaces.",
-      "Learn advanced CSS and JavaScript techniques.",
-      "Work with Microsoft-specific front-end tools.",
-    ],
-    whoIsTheCourseFor: [
-      "Beginners with basic HTML/CSS knowledge.",
-      "Aspiring front-end developers.",
-      "Professionals looking to upgrade their UI design skills.",
-    ],
-    descriptionPoints: [
-      "Master responsive design principles.",
-      "Learn to create user-friendly interfaces.",
-      "Hands-on projects to build real-world applications.",
-    ],
-    curriculumData: [
-      {
-        curriculumTitle: "Introduction to Front-End Development",
-        curriculumPoints: [
-          "Basics of HTML and CSS",
-          "Responsive design fundamentals",
-        ],
-      },
-      {
-        curriculumTitle: "Advanced JavaScript Techniques",
-        curriculumPoints: ["DOM Manipulation", "Event Handling"],
-      },
-      {
-        curriculumTitle: "Microsoft Tools for UI Design",
-        curriculumPoints: ["Microsoft-specific front-end technologies"],
-      },
-    ],
-  },
+  // {
+  //   id: "microsoft_frontend",
+  //   thumbnail: "",
+  //   reviews: "4.9",
+  //   courseLogo: "/frontend.png",
+  //   totalReviews: 15,
+  //   enrolledStudents: 1043,
+  //   level: "Intermediate",
+  //   courseTitle: "Microsoft Front End",
+  //   batchDuration: "3 Month",
+  //   certificate:
+  //     "On successful completion of the course participants will be awarded participation certificate from DigiPAKISTAN",
+  //   courseCategory: "fast_track_technical",
+  //   courseEnrollments: "",
+  //   courseId: "microsoft_frontend",
+  //   courseInstructor: "Abdul Moeez",
+  //   courseLongDescription:
+  //     "Learn to build and design modern, responsive web applications using Microsoft front-end technologies. This course covers key skills and tools required for creating interactive user interfaces.",
+  //   courseShortDescription:
+  //     "Master Microsoft Front-End development! This course equips you with the tools and knowledge to design stunning, user-friendly web applications.",
+  //   courseStatus: "active",
+  //   coursePrice: 3500,
+  //   requirements: [
+  //     "Basic understanding of HTML and CSS.",
+  //     "Access to a computer or laptop with an internet connection.",
+  //     "A willingness to learn and experiment with front-end design.",
+  //   ],
+  //   seoDescription: "Learn Microsoft Front-End Development",
+  //   seoKeywords: [
+  //     "Microsoft Front-End Course",
+  //     "Responsive Web Design",
+  //     "Learn Front-End Development",
+  //     "Web Applications Design",
+  //     "Microsoft UI Development",
+  //   ],
+  //   videoMedium: "Urdu",
+  //   whatYouWillLearn: [
+  //     "Build modern and responsive web applications.",
+  //     "Design interactive user interfaces.",
+  //     "Learn advanced CSS and JavaScript techniques.",
+  //     "Work with Microsoft-specific front-end tools.",
+  //   ],
+  //   whoIsTheCourseFor: [
+  //     "Beginners with basic HTML/CSS knowledge.",
+  //     "Aspiring front-end developers.",
+  //     "Professionals looking to upgrade their UI design skills.",
+  //   ],
+  //   descriptionPoints: [
+  //     "Master responsive design principles.",
+  //     "Learn to create user-friendly interfaces.",
+  //     "Hands-on projects to build real-world applications.",
+  //   ],
+  //   curriculumData: [
+  //     {
+  //       curriculumTitle: "Introduction to Front-End Development",
+  //       curriculumPoints: [
+  //         "Basics of HTML and CSS",
+  //         "Responsive design fundamentals",
+  //       ],
+  //     },
+  //     {
+  //       curriculumTitle: "Advanced JavaScript Techniques",
+  //       curriculumPoints: ["DOM Manipulation", "Event Handling"],
+  //     },
+  //     {
+  //       curriculumTitle: "Microsoft Tools for UI Design",
+  //       curriculumPoints: ["Microsoft-specific front-end technologies"],
+  //     },
+  //   ],
+  // },
 
 // COMPTIA Fundamentals
 {
   id: "comptia_it_fundamentals",
   thumbnail: "",
-  courseTitle: "CompTIA IT Fundamentals Certification",
+  courseTitle: "CompTIA IT Fundamentals",
   batchDuration: "3 Months",
   courseLogo:"/it_fundamentals.png",
-  certificate: "On successful completion of the course, participants will be awarded a CompTIA IT Fundamentals certification.",
+  certificate: "On successful completion of the course, participants will be awarded a CompTIA IT Fundamentals.",
   courseCategory: "fast_track_technical",
   courseEnrollments: "",
   courseId: "comptia_it_fundamentals",
-  courseInstructor: "Hassan Raza",
+  courseInstructor: "Ijaz Ahmad",
   courseLongDescription: "This course provides foundational knowledge for individuals entering the IT field. Learn about IT concepts, infrastructure, software management, databases, and cybersecurity. Prepare for the CompTIA IT Fundamentals certification exam with in-depth content and quizzes.",
   courseShortDescription: "Learn IT Fundamentals! Master basic IT concepts, software management, cybersecurity, and databases.",
   courseStatus: "active",
-  coursePrice: 8500,
+  coursePrice: 3500,
   requirements: [
     "No prior IT knowledge required.",
     "A computer with internet access.",
@@ -368,8 +368,6 @@ const courses = [
   ]
 }
 ,
-
-
   //   ///   /// //// ////MERN STACK
   {
     id: "mernstack",
@@ -881,7 +879,6 @@ const courses = [
       },
     ],
   },
-
   // ////PHP Laraval
   {
     id: "php_laraval",
@@ -2806,6 +2803,7 @@ const courses = [
       },
     ],
   },
+
   //Game DEVELOPMENT
   {
     id: "game",
@@ -8912,6 +8910,753 @@ const courses = [
       },
     ],
   },
+
+
+// // // // // // // // // // // // // // // // // // // // // ASSOCIATE CERTIFICATE PROGRAMS // // // // // // // // // // // // // // //
+
+//  // // CISSP Cyber Security Professional
+
+{
+  id: "cissp_certification",
+  thumbnail: "",
+  courseTitle: "CISSP Cyber Security Professional",
+  batchDuration: "6 Months",
+  courseLogo:"/cissp.png",
+  certificate: "On successful completion of the course, participants will be awarded a CISSP certification.",
+  courseCategory: "associate_certificate_program",
+  courseEnrollments: "",
+  courseId: "cissp_certification",
+  courseInstructor: "Bilal Khan",
+  courseLongDescription: "The Certified Information Systems Security Professional (CISSP) certification is a globally recognized credential for professionals in the field of information security. This comprehensive course is designed to provide in-depth knowledge and skills across the eight CISSP domains, including Security & Risk Management, Asset Security, Communication & Network Security, and Software Development Security. Through detailed lectures, practical insights, and domain-specific case studies, this program prepares candidates to excel in their roles as information security experts and equips them to pass the challenging CISSP exam. Whether you're a seasoned IT professional or new to the field, this course ensures you develop the expertise needed to secure systems, manage risks, and safeguard organizational assets effectively.",
+  courseShortDescription: "Master the eight domains of CISSP and achieve globally recognized expertise in information security.",
+  courseStatus: "active",
+  coursePrice: 4500,
+  requirements: [
+    "A minimum of five years of cumulative, paid work experience in two or more CISSP domains.",
+    "Basic understanding of IT infrastructure, cybersecurity, and risk management concepts.",
+    "Dedication to learning and preparation for the CISSP exam."
+  ],
+  seoDescription: "Comprehensive CISSP Certification Course - Master all eight domains of information security and advance your career with globally recognized certification.",
+  seoKeywords: [
+    "CISSP Certification",
+    "Information Security Training",
+    "Learn Cybersecurity",
+    "CISSP Exam Preparation",
+    "Certified Information Systems Security Professional"
+  ],
+  videoMedium: "Urdu",
+  whatYouWillLearn: [
+    "Develop expertise in all eight CISSP domains including risk management, security operations, and software development security.",
+    "Gain practical skills to implement security measures, manage access controls, and secure organizational assets.",
+    "Understand cryptography, network security protocols, and cloud computing security principles.",
+    "Prepare for the CISSP certification exam with in-depth domain coverage and practical case studies.",
+    "Learn how to mitigate vulnerabilities, manage risks, and ensure compliance with global security standards."
+  ],
+  whoIsTheCourseFor: [
+    "Experienced IT and cybersecurity professionals aspiring to achieve CISSP certification.",
+    "Security consultants, analysts, and architects seeking to enhance their expertise.",
+    "IT managers and professionals responsible for securing systems and ensuring compliance with security standards."
+  ],
+  descriptionPoints: [
+    "Comprehensive coverage of all eight CISSP domains with detailed insights.",
+    "Practical case studies and scenarios for real-world application.",
+    "Designed to help professionals pass the CISSP certification exam confidently."
+  ],
+reviews: "4.8",
+  totalReviews: 250,
+  enrolledStudents: 3200,
+  level: "Advanced",
+  curriculumData: [
+    {
+      curriculumTitle: "Security & Risk Management",
+      curriculumPoints: [
+        "Overview and Learning Objectives",
+        "Understand, adhere to, and promote professional ethics",
+        "Understand and apply security concepts Confidentiality",
+        "Understand and apply security concepts Integrity",
+        "Understand and apply security concepts Availability",
+        "Understand and apply Other Security Concepts",
+        "Protection mechanism, Layering, Abstraction, data Hiding",
+        "Types of Plan",
+        "Organizational Processes",
+        "Change Management Process",
+        "Data Classification Process",
+        "Data Classification Scheme",
+        "Determine the Compliance and other requirements",
+        "Intellectual Property",
+        "Develop document and implement security policy",
+        "Identify, analyze, and prioritize Business Continuity requirement",
+        "Business Impact Assessment",
+        "Contribute to and Enforce Personnel Security Policies and Procedure",
+        "Vendor, Consultant, and Contractor SLA",
+        "Understand and Apply Risk Management Concepts",
+        "Risk Responses",
+        "Administratively, logically, technically, or physically Controls",
+        "Apply Supply Chain Risk Management (SCRM) concepts",
+        "Establish and Maintain a Security Awareness"
+      ]
+    },
+    {
+      curriculumTitle: "Asset Security",
+      curriculumPoints: [
+        "Overview Asset Security Objectives",
+        "Identify and Classify Information and Assets",
+        "Establish Information and Asset Handling Requirements",
+        "Provision resources securely",
+        "Manage data lifecycle",
+        "Determining Ownership & roles",
+        "Eliminating Data Remanence",
+        "Ensure appropriate asset retention",
+        "Determine data security controls and compliance requirements"
+      ]
+    },
+    {
+      curriculumTitle: "Security Architecture and Engineering",
+      curriculumPoints: [
+        "Introduction",
+        "Research, implement and manage engineering processes",
+        "Techniques for Ensuring Confidentiality, Integrity, and Availability",
+        "Essential Security Protection Mechanisms",
+        "Technical Mechanisms",
+        "Zero Trust",
+        "Defense in Depth",
+        "Trust but verify",
+        "Privacy by design",
+        "Fail securely (Closed)",
+        "Understand the fundamental concepts of security models",
+        "Access Control Matrix",
+        "Bell-LaPadula Model",
+        "Biba Model",
+        "Non-Interference",
+        "Select controls based upon systems security requirements",
+        "TCSEC ITSEC Common Criteria",
+        "Certification and Accreditation",
+        "Understand security capabilities of Information Systems",
+        "Assess and mitigate the vulnerabilities of security architectures",
+        "Execution Types",
+        "Protection Mechanisms",
+        "Storage and Security",
+        "Client and Server Based Systems",
+        "Database Systems Security",
+        "Cloud-Based Systems and Cloud Computing",
+        "Cryptographic solutions and cryptanalytic attacks",
+        "Cryptography Concepts",
+        "Confusion and Diffusion",
+        "Symmetric Key Algorithms",
+        "Asymmetric Cryptography",
+        "Hashing Function",
+        "Digital Signatures",
+        "Certificates",
+        "Apply Security Principles to Site and Facility Design",
+        "Design site and facility security controls",
+        "Utilities and HVAC Considerations",
+        "Fire Prevention, Detection, and Suppression"
+      ]
+    },
+    {
+      curriculumTitle: "Communication and Network Security",
+      curriculumPoints: [
+        "Communication and Network Security",
+        "Assess and implement secure design principles in network architectures",
+        "OSI Model and its layers",
+        "TCP IP Model",
+        "IP classes and addressing",
+        "TCP IP Vulnerabilities",
+        "Converged Protocols",
+        "Secure protocols",
+        "Wireless Networks",
+        "Antenna Types",
+        "General Wi-Fi Security Procedure",
+        "Wireless Attacks",
+        "Secure Network Components",
+        "Firewalls",
+        "Cabling Topology Communications Transmission Media",
+        "Wireless Communications and Security",
+        "Network and Protocol Security Mechanisms",
+        "Authentication Protocols",
+        "Secure Voice Communications",
+        "Virtual LAN",
+        "Virtualization",
+        "WAN Technologies",
+        "Third-Party Connectivity",
+        "Prevent or Mitigate Network Attacks"
+      ]
+    },
+    {
+      curriculumTitle: "Identity and Access Management",
+      curriculumPoints: [
+        "Identity and Access Management Overview",
+        "Control Physical and Logical Access to Assets",
+        "CIA Triad and Access Controls",
+        "Types of Access Control",
+        "Manage Identification and Authentication of People Devices and Services",
+        "Authorization and Accountability",
+        "Passwords",
+        "Two-Step Authentication",
+        "Biometrics Authentication",
+        "Multifactor Authentication and Implementing Identity Management",
+        "Federated Identity with a Third-party Service"
+      ]
+    },
+    {
+      curriculumTitle: "Security Assessment and Testing",
+      curriculumPoints: [
+        "Security Assessment and Testing Overview",
+        "Design and Validate Assessment Test and Audit Strategies",
+        "Conduct Security Control Testing",
+        "Network Discovery Scanning",
+        "Network Vulnerability Scanning",
+        "Web Vulnerability Scanning",
+        "Database Vulnerability Scanning",
+        "Penetration Testing",
+        "Testing Software and Code Review",
+        "Static and Dynamic Testing",
+        "Fuzz Testing",
+        "Website Monitoring",
+        "Breach attack simulations",
+        "Key Performance and Risk Indicators",
+        "Natural and man-made disasters",
+        "Analyze Test Output and Generate Report",
+        "Conduct or Facilitate Security Audits",
+        "Types of SOC Reports"
+      ]
+    },
+    {
+      curriculumTitle: "Security Operations",
+      curriculumPoints: [
+        "Security Operations Overview",
+        "Understand and Comply with Investigations - eDiscovery",
+        "Evidence and types of Evidences",
+        "Investigations and Investigations Types",
+        "Conduct Logging and Monitoring Activities",
+        "Logging Techniques and Log types",
+        "Data Loss Prevention",
+        "Threat Intelligence, Cyber Kill Chain and MITRE",
+        "Perform Configuration Management Provisioning and Baselining",
+        "Apply Foundational Security Operations Concepts",
+        "Apply Resource Protection Physical and Virtual Asset",
+        "Managing Cloud-Based Assets",
+        "Conduct Incident Management and Incident Response",
+        "Operate and Maintain Detective and Preventative Measures",
+        "Specific Preventive and Detective Measures",
+        "Implement and Support Patch and Vulnerability Management",
+        "Understand and Participate in Change Management Processes",
+        "Implement Recovery Strategies and Protecting Harddisks",
+        "Protecting Power Sources",
+        "Recovery Strategy and Alternate Processing Sites",
+        "Implement Disaster Recovery (DR) Processes and Communication",
+        "Software Escrow Arrangements, Utilities, Logistics and Supplies",
+        "Test Disaster Recovery Plans (DRP) and Testing Categories",
+        "Participate in Business Continuity (BC) Planning and Exercises",
+        "Implement and Manage Physical Security",
+        "Perimeter Security Controls",
+        "Address Personnel Safety and Security Concerns"
+      ]
+    },
+    {
+      curriculumTitle: "Software Development Security",
+      curriculumPoints: [
+        "Understand and Integrate Security in the SDLC",
+        "Software Capability Maturity and Assurance Model",
+        "Change and Configuration Management",
+        "Identify and Apply Security Controls in SD language",
+        "Understanding Knowledge-Based Systems",
+        "Assess the Effectiveness of Software Security",
+        "Assess Security Impact of Acquired Software",
+        "Define and Apply Secure Coding Guidelines and Standards",
+        "Secure Coding Practices",
+        "Software-defined security (SDS)"
+      ]
+    }
+  ],
+  domainsInThisProgram:[
+    {
+      title:"Security and Risk Management",
+      icon:"/risk_mangement.png"
+    },
+    
+    {
+      title:"Asset Security",
+      icon:"/asset_security.png"
+    },
+    {
+      title:"Security Architecture and Engineering",
+      icon:"/security_architecture.png"
+    },
+    {
+      title:"Communication and Network Security",
+      icon:"/cyber_security.png"
+    },
+    {
+      title:"Identity and Access Management",
+      icon:"/identity.png"
+    },
+    {
+      title:"Security Assessment and Testing",
+      icon:"/security_testing.png"
+    },
+    {
+      title:"Security Operations",
+      icon:"/security_operations.png"
+    },
+    {
+      title:"Software Development Security",
+      icon:"/swdp_test.png"
+    },
+
+  ]
+}
+,
+
+// AWS Cloud Computing
+{
+  id: "aws_cloud_computing",
+  thumbnail: "",
+  courseTitle: "AWS Cloud Computing",
+  batchDuration: "6 Months",
+  courseLogo: "/aws_cloud_computing.png",
+certificate: "On successful completion of the course participants will be awarded a participation certificate from DigiPAKISTAN.",
+  courseCategory: "associate_certificate_program",
+  courseEnrollments: "",
+  courseId: "aws_cloud_computing",
+  courseInstructor: "Shabeer Hussain",
+  courseLongDescription: "This comprehensive program combines multiple AWS certifications, including AWS Practitioner, Solutions Architect, SysOps Administrator, and Developer Associate. Learn the full spectrum of AWS services, from foundational concepts to advanced topics like VPC, CI/CD pipelines, cloud monitoring, and application deployment. Gain hands-on experience through labs, real-world scenarios, and extensive exam preparation to excel in AWS certifications.",
+  courseShortDescription: "Learn AWS Cloud Computing with a bundled certification program! Master AWS Practitioner, Solutions Architect, SysOps, and Developer Associate certifications.",
+  courseStatus: "active",
+  coursePrice: 4500,
+  requirements: [
+    "Basic understanding of IT and cloud computing concepts is helpful but not required.",
+    "A computer with internet access.",
+    "Willingness to learn AWS cloud technologies and services."
+  ],
+  seoDescription: "AWS Cloud Computing Certification Bundle - Master AWS Practitioner, Solutions Architect, SysOps, and Developer Associate certifications.",
+  seoKeywords: [             
+    "AWS Cloud Computing Certification",
+    "AWS Practitioner Training",
+    "AWS Solutions Architect Course",
+    "AWS SysOps Certification",
+    "AWS Developer Associate Training"
+  ],
+  videoMedium: "Urdu",
+  whatYouWillLearn: [
+    "Understand foundational and advanced AWS cloud computing concepts.",
+    "Gain expertise in IAM, EC2, S3, databases, VPC, CI/CD pipelines, and security.",
+    "Master AWS architecture, monitoring, and deployment strategies.",
+    "Prepare for multiple AWS certifications with hands-on labs and real-world scenarios.",
+    "Develop scalable and secure AWS solutions for cloud-based applications."
+  ],
+  whoIsTheCourseFor: [
+    "Aspiring cloud professionals and IT practitioners.",
+    "Students and graduates in IT, computer science, or related fields.",
+    "Professionals preparing for multiple AWS certifications.",
+    "IT managers and architects looking to enhance their AWS expertise."
+  ],
+  descriptionPoints: [
+    "Comprehensive AWS certification bundle program.",
+    "Covers AWS Practitioner, Solutions Architect, SysOps, and Developer Associate certifications.",
+    "Includes hands-on labs, real-world scenarios, and exam preparation."
+  ],
+  reviews: "4.9",
+  totalReviews: 120,
+  enrolledStudents: 4000,
+  level: "Beginner to Advanced",
+  curriculumData: [
+    {
+      curriculumTitle: "AWS Practitioner Certification",
+      curriculumPoints: [
+        "Introduction to AWS and Course Overview",
+        "What is Cloud Computing and AWS Basics",
+        "IAM - Identity and Access Management Overview",
+        "EC2 - Elastic Compute Cloud Introduction and Hands-On",
+        "S3 - Simple Storage Service Concepts and Security",
+        "Databases & Analytics in AWS",
+        "VPC & Networking Essentials",
+        "Exam Preparation and Practice Questions",
+        "AWS Certified Cloud Practitioner Congratulations"
+      ]
+    },
+    {
+      curriculumTitle: "AWS Solutions Architect Certification",
+      curriculumPoints: [
+        "Course Introduction",
+        "Identity & Federation: IAM, STS, Cognito",
+        "Security: KMS, CloudHSM, and AWS WAF",
+        "Compute & Load Balancing: EC2, ECS, and Elastic Load Balancers",
+        "Storage Solutions: S3, Glacier, and EFS",
+        "Networking: VPC, Direct Connect, and VPN",
+        "Databases: RDS, DynamoDB, and Redshift",
+        "Exam Preparation and Sample Questions",
+        "AWS Solutions Architect Certification Congratulations"
+      ]
+    },
+    {
+      curriculumTitle: "AWS SysOps Administrator Certification",
+      curriculumPoints: [
+        "AWS Cloud Computing Basics",
+        "Monitoring with CloudWatch and Alarms",
+        "Managing EC2 Instances, Auto Scaling, and ELB",
+        "Configuring S3 Storage and Lifecycle Rules",
+        "Backup Strategies and EBS Volume Management",
+        "Security and Compliance in AWS",
+        "Exam Preparation and Practical Scenarios",
+        "AWS SysOps Certification Congratulations"
+      ]
+    },
+    {
+      curriculumTitle: "AWS Developer Associate Certification",
+      curriculumPoints: [
+        "Introduction to AWS Development and CI/CD Pipelines",
+        "Elastic Beanstalk and CloudFormation Templates",
+        "Application Integration with AWS SNS, SQS, and Lambda",
+        "DynamoDB Configuration and Use Cases",
+        "Building and Deploying Applications on AWS",
+        "Hands-On Labs and Real-World Scenarios",
+        "Exam Preparation and Sample Questions",
+        "AWS Developer Associate Certification Congratulations"
+      ]
+    }
+  ],
+  domainsInThisProgram:[
+    {
+      title:"AWS Developer Associate",
+      icon:"/awsdeveloper.png",
+    },
+    {
+      title:"AWS SysOps Administrator",
+      icon:"/awssysops.png",
+    },
+    {
+      title:"AWS Solutions Architect",
+      icon:"/awssolutions.png",
+    },
+    {
+      title:"AWS Practitioner",
+      icon:"/awspractitioner.png",
+    },
+  ]
+},
+
+
+// Artificial Intelligence
+
+
+{
+  id: "ai",
+  thumbnail: "",
+  courseTitle: "Artificial Intelligence",
+  batchDuration: "6 Months",
+  courseLogo: "/artificial_intelligence.png",
+  certificate:
+    "On successful completion of the course participants will be awarded a participation certificate from DigiPAKISTAN",
+  courseCategory: "associate_certificate_program",
+  courseEnrollments: "",
+  courseId: "ai",
+  courseInstructor: "Anas Raza",
+  courseLongDescription:
+    "This comprehensive course combines Machine Learning, Artificial Intelligence, and Data Science into one. Covering Python programming, data analysis, AI lifecycle, machine learning models, and real-world projects using tools like NumPy, Pandas, Matplotlib, and Scikit-Learn.",
+  courseShortDescription:
+    "Master Artificial Intelligence! Learn Python, data science, machine learning, AI lifecycle, and real-world projects.",
+  courseStatus: "active",
+  coursePrice: 4500,
+  requirements: [
+    "Basic understanding of programming concepts is helpful but not required.",
+    "A computer with internet access.",
+    "Willingness to learn Python, AI, and machine learning tools."
+  ],
+  seoDescription: "Artificial Intelligence Course",
+  seoKeywords: [
+    "Learn Artificial Intelligence",
+    "Machine Learning and Data Science",
+    "Python for AI",
+    "Data Science and AI Projects",
+    "AI Lifecycle and Tools"
+  ],
+  videoMedium: "Urdu",
+  whatYouWillLearn: [
+    "Understand machine learning, artificial intelligence, and data science concepts.",
+    "Learn Python programming for data analysis and AI development.",
+    "Master tools like NumPy, Pandas, Matplotlib, and Scikit-Learn.",
+    "Build machine learning models and optimize their performance.",
+    "Work on real-world projects combining AI and Data Science."
+  ],
+  whoIsTheCourseFor: [
+    "Aspiring data scientists and machine learning engineers.",
+    "Students and graduates in IT, computer science, or related fields.",
+    "Professionals looking to upskill in AI, ML, and data science."
+  ],
+  descriptionPoints: [
+    "Comprehensive course covering Python, AI lifecycle, and data science.",
+    "Hands-on projects to apply AI and machine learning techniques.",
+    "Learn tools like Scikit-Learn, Pandas, and Matplotlib."
+  ],
+  reviews: "4.9",
+  totalReviews: 100,
+  enrolledStudents: 5000,
+  level: "Beginner to Advanced",
+  curriculumData: [
+    {
+      curriculumTitle: "Introduction",
+      curriculumPoints: [
+        "What is Machine Learning.",
+        "Data Science Play Ground",
+        "First Image Classifier.",
+        "Resources"
+      ]
+    },
+    {
+      curriculumTitle: "Data Science and Machine Learning",
+      curriculumPoints: [
+        "Recommender System using K nearest Means",
+        "Data Science vs Machine Learning vs Artificial Intelligence",
+        "Summarizing it all"
+      ]
+    },
+    {
+      curriculumTitle: "AI Project Life Cycle",
+      curriculumPoints: [
+        "AI Project Framework",
+        "Step-1 Problem Definition",
+        "Step-2 Data",
+        "Step-3 Evaluation.",
+        "Step-4 Features",
+        "Step-5 Modelling.",
+        "Step-5 Data Validation",
+        "Step-6 Course Correction",
+        "Tools needed for AI Project"
+      ]
+    },
+    {
+      curriculumTitle: "Python the Most Powerful Language",
+      curriculumPoints: [
+        "What is Programming Language",
+        "Python Interpreter and First Code",
+        "Python 3 vs Python 2",
+        "Formula to Learn Coding",
+        "Data Types and Basic Arithmetic",
+        "Basic Arithmetic Part 2",
+        "Rule of Programming",
+        "Mathematical Operators and Order of Precedence",
+        "Variables and their BIG No-No",
+        "Statement vs Expression",
+        "Augmented Assignment Operator",
+        "String Data Type",
+        "Type Conversion",
+        "String Formatting",
+        "Indexing",
+        "Immutability",
+        "Built-in Function and Methods",
+        "Boolean Data Type",
+        "Exercise",
+        "Data Structure and Lists",
+        "Lists continued",
+        "Matrix from Lists",
+        "List Methods",
+        "Lists Methods 2",
+        "Creating Lists Programmatically",
+        "Dictionary",
+        "Dictionary Key is Unchangeable",
+        "Most Used Methods on Dictionaries",
+        "Tuple Data Types",
+        "Sets data Types",
+        "Intro to Process of Coding Conditionals",
+        "if-else Statement",
+        "AND/OR Keywords",
+        "Boolean result of Different values",
+        "Logical Operators",
+        "Identity Operator",
+        "For loop and Iterables",
+        "Nested For loop",
+        "Exercise for loop",
+        "Range Function",
+        "While Loop",
+        "Continue Break Pass Keywords",
+        "Exercise Draw a Shape"
+      ]
+    },
+    {
+      curriculumTitle: "Python Part-2",
+      curriculumPoints: [
+        "Functions",
+        "Why Functions are Needed",
+        "Parameter vs Argument",
+        "Default Parameters",
+        "Return Keyword",
+        "Doc String",
+        "Good Programming Practices",
+        "Args and kwargs",
+        "Exercise",
+        "Scope of a Function",
+        "Scope Rules 1",
+        "Scope Rules 2",
+        "Global vs Nonlocal Keywords",
+        "Programming Best Practices 2",
+        "Special Functions map",
+        "Special Functions filter",
+        "Special Functions zip",
+        "Special Functions reduce",
+        "List Comprehension Case 1, 2, and 3",
+        "Sets and Dictionary Comprehension",
+        "Python Modules",
+        "Python Packages"
+      ]
+    },
+    {
+      curriculumTitle: "Environment Setup for Machine Learning Projects",
+      curriculumPoints: [
+        "Tools for Data Science Environment",
+        "Who is Mr Conda",
+        "Setting Up Machine Learning Project",
+        "Blueprint of Machine Learning Project",
+        "Installing Conda",
+        "Installing Tools",
+        "Starting Jupyter Notebook",
+        "Installing for MacOS and Linux",
+        "Walkthrough of Jupyter Notebook",
+        "Loading and Visualizing Data",
+        "Summing it Up"
+      ]
+    },
+    {
+      curriculumTitle: "Pandas for Data Analysis",
+      curriculumPoints: [
+        "Tools needed",
+        "Pandas and What we Will cover",
+        "Data Frames",
+        "How to Import Data",
+        "Describing Data",
+        "Data Selection",
+        "Changing Data",
+        "Manipulating Data",
+        "Add/Remove Data"
+      ]
+    },
+    {
+      curriculumTitle: "NumPy",
+      curriculumPoints: [
+        "What and Why of NumPy",
+        "NumPy Array",
+        "Shape of Array",
+        "Important Functions on Arrays",
+        "Creating NumPy Array",
+        "Random seed",
+        "Accessing Elements",
+        "Array Manipulation",
+        "Aggregations",
+        "Dot Product",
+        "Matrix Manipulation",
+        "Sorting Arrays",
+        "Comparison Operators"
+      ]
+    },
+    {
+      curriculumTitle: "Matplotlib",
+      curriculumPoints: [
+        "Matplotlib Intro",
+        "First Plot with Matplotlib",
+        "Methods to Plot",
+        "Setting up Features",
+        "Bar Plot",
+        "Histograms",
+        "Plotting from Pandas Data Frame"
+      ]
+    },
+    {
+      curriculumTitle: "Scikit-Learn",
+      curriculumPoints: [
+        "What Actually ML Model is",
+        "Intro to Sklearn",
+        "Step 1: Getting Data Split Data",
+        "Step 2: Choosing ML Model",
+        "Step 3: Fit Model",
+        "Step 4: Evaluate Model",
+        "Step 5: Improve Model",
+        "Step 6: Save Model"
+      ]
+    },
+    {
+      curriculumTitle: "Project-1",
+      curriculumPoints: [
+        "Milestone Project 1 Intro",
+        "Creating Project Environment",
+        "First 4 Steps",
+        "Data Features Recognition",
+        "Importing Tools and Libraries",
+        "Exploratory Data Analysis Part 1",
+        "Exploratory Data Analysis Part 2",
+        "Be Careful with Plot choice",
+        "Scatter Plot to see any Pattern",
+        "Age Distribution",
+        "Chest Pain Type and Target Relation Part 1",
+        "Chest Pain Type and Target Relation Part 2",
+        "Correlation Matrix Part 1",
+        "Plotting Correlation Matrix Part 2",
+        "Modeling Split the data",
+        "Choosing the Right Model",
+        "Improving Model",
+        "Plotting the Improved Model Score",
+        "Hyperparameter Tuning using GSCV",
+        "Hyperparameters for RandomForestClassifier",
+        "Running the model with Hyperparameters using GSCV",
+        "Score Comparison after tuning",
+        "Hyperparameters Tuning Using Grid Search CV",
+        "Summarizing",
+        "What have we learned",
+        "Area under the curve and Confusion Matrix",
+        "Plot the Classification report",
+        "Visualizing Cross Validation Score",
+        "Features Improvement",
+        "Conclusion"
+      ]
+    }
+  ],
+  domainsInThisProgram:[
+    {
+      title:"Machine Learning",
+      icon:"/machine_learning.png"
+    },
+    {
+      title:"Data Science",
+      icon:"/datascience.png"
+    },
+    {
+      title:"Artificial Intelligence",
+      icon:"/artificial_intelligence.png"
+    },
+  ]
+}
+
+
+
+//Full Stack Web Development
+
+
+
+
+
+
+
+
+// // // // // // // // // // // // // // // // // // // // // ASSOCIATE CERTIFICATE PROGRAMS // // // // // // // // // // // // // // //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ];
 
 export default courses;

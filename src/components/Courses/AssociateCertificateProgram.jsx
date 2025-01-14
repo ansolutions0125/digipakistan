@@ -6,9 +6,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { firestore } from "@/Backend/Firebase";
 
 const AssociateCertificationPrograms = ({data}) => {
-    const {setCourse} = useCourseContext();
-  
-  const [courses,setCourses] =useState([]);
+
   const [loading,setLoading]= useState(true);
  
   
