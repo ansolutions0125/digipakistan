@@ -12,7 +12,7 @@ const TrainersCertified = () => {
       alt:"brand"
     },
     {
-      source:"/oracle.png",
+      source:"/oracle.jpg",
       alt:"brand"
     },
     {

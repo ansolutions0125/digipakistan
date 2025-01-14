@@ -7,8 +7,9 @@ import { RxActivityLog } from "react-icons/rx";
 
 const CoursePageInfo = ({ PageName,pageDescription,reviews,duration,totalReview,enrolled,level }) => {
   return (
-    <div className="pageinfo-bg flex items-center -top-10 z-0 min-h-[60vh]">
-      <div className="max-w-7xl lg:mx-auto text-left flex flex-col gap-14 mx-5">
+    <div className="pageinfo-bg -my-10" >
+    <div className="max-w-7xl lg:mx-auto flex items-center justify-start  z-0 min-h-[60vh]">
+      <div className=" text-left flex flex-col gap-14 mx-5">
         <div>
         <h1 className="text-white font-medium text-left text-2xl lg:text-5xl">
           {PageName}
@@ -35,6 +36,7 @@ const CoursePageInfo = ({ PageName,pageDescription,reviews,duration,totalReview,
             </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
