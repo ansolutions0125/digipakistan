@@ -16,39 +16,58 @@ const fetchThinkFicKeys = async () => {
     } else {
       throw new Error("Email template not found in Firestore.");
     }
+  } catch (error) { 
+    console.error("Error fetching email template:", error);
+    throw error;
+  }
+};
+const fetchInstructionsEmail = async () => {
+  try {
+    const templateDoc = await db
+      .collection("email_templates")
+      .doc("instructions_email") // Use your template document ID
+      .get();
+
+    if (templateDoc.exists) {
+      return templateDoc.data(); // Assuming your HTML is stored in the 'template' field
+    } else {
+      throw new Error("Email template not found in Firestore.");
+    }
   } catch (error) {
     console.error("Error fetching email template:", error);
     throw error;
   }
 };
 
+
+
 // // Replacing userName and other things like template
-// const replacePlaceholders = (template, placeholders) => {
-//   return template.replace(/\${(.*?)}/g, (_, key) => placeholders[key] || "");
-// };
+const replacePlaceholders = (template, placeholders) => {
+  return template.replace(/\${(.*?)}/g, (_, key) => placeholders[key] || "");
+};
 
-// // SendEmail Function
-// const sendEmail = async (transporter, user, email_subject) => {
-//   const smtpConfig = await fetchSmtpConfig();
-//   const defaultTemplate = await fetchInstructionsEmail();
+// SendEmail Function
+const sendEmail = async (transporter, user, email_subject) => {
+  const smtpConfig = await fetchSmtpConfig();
+  const defaultTemplate = await fetchInstructionsEmail();
 
-//   const mailOptions = {
-//     from: smtpConfig.SMTP_EMAIL_FROM,
-//     to: user.email,
-//     subject: email_subject,
-//     html: replacePlaceholders(defaultTemplate, {
-//       user: `${user.firstName} ${user.lastName}`, // Replace `${user}` with the user's name
-//     }),
-//   };
+  const mailOptions = {
+    from: smtpConfig.SMTP_EMAIL_FROM,
+    to: user.email,
+    subject: email_subject,
+    html: replacePlaceholders(defaultTemplate, {
+      user: `${user.firstName} ${user.lastName}`, // Replace `${user}` with the user's name
+    }),
+  };
 
-//   try {
-//     await transporter.sendMail(mailOptions);
-//     return { email: user.email, status: "success" };
-//   } catch (error) {
-//     console.error(`Error sending email to ${user.email}:`, error);
-//     return { email: user.email, status: "failed", error: error.message };
-//   }
-// };
+  try {
+    await transporter.sendMail(mailOptions);
+    return { email: user.email, status: "success" };
+  } catch (error) {
+    console.error(`Error sending email to ${user.email}:`, error);
+    return { email: user.email, status: "failed", error: error.message };
+  }
+};
 
 // Route
 // Export POST method as a named export
@@ -196,10 +215,10 @@ export async function POST(req) {
       );
     }
 
-    // const transporter = await initializeTransporter();
+    const transporter = await initializeTransporter();
 
     // Process each user in fetchedUserData
-    // await sendEmail(transporter, fetchedUserData, email_subject);
+    await sendEmail(transporter, fetchedUserData, email_subject);
 
     return new Response(
       JSON.stringify(response),

@@ -16,7 +16,7 @@ const font = Albert_Sans({
 export const metadata = {
   title: {
     default: "DigiPAKISTAN Training Program",
-    template: "%s | DigiPAKISTAN Training Program",
+    template: "%s | DigiPAKISTAN National Skills Development Program",
   },
   
   description:

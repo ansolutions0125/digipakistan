@@ -4928,6 +4928,165 @@ courseEnrollments: "",
     ],
   },
 
+  // CISM Fast Track Technical Program
+
+  {
+    id: "cism_certification",
+    thumbnail: "",
+    courseTitle: "CISM (Certified Information Security Manager)",
+    batchDuration: "3 Months",
+    courseLogo: "/cism.png",
+    certificate: "On successful completion of the course, participants will be awarded a participation certificate from DigiPAKISTAN.",
+    courseCategory: "fast_track_technical",
+    courseEnrollments: "",
+    courseId: "cism_certification",
+    courseInstructor: "Hassan Raza",
+    courseLongDescription: "Prepare for the CISM Certification with this comprehensive course. Gain expertise in Information Security Governance, Risk Management, Security Program Development, and Incident Management. This course is designed for professionals aiming to excel in IS management roles with real-world scenarios and exam-focused training.",
+    courseShortDescription: "Learn CISM Certification! Master IS Governance, Risk Management, and Security Program Development.",
+    courseStatus: "active",
+    coursePrice: 3500,
+    requirements: [
+      "Basic knowledge of IT security concepts.",
+      "A computer with internet access.",
+      "Willingness to learn and prepare for the CISM exam."
+    ],
+    seoDescription: "CISM Certification Course",
+    seoKeywords: [
+      "CISM Certification",
+      "Information Security Manager",
+      "IS Governance Training",
+      "Risk Management Course",
+      "Learn IS Security"
+    ],
+    videoMedium: "English",
+    whatYouWillLearn: [
+      "Understand Information Security Governance and its importance.",
+      "Master Risk Management strategies and practices.",
+      "Develop skills for Security Program Development and management.",
+      "Learn to handle Incident Management and Compliance.",
+      "Prepare thoroughly for the CISM certification exam."
+    ],
+    whoIsTheCourseFor: [
+      "IT professionals aiming to become Information Security Managers.",
+      "Individuals preparing for the CISM certification exam.",
+      "Students and professionals seeking expertise in IS governance and risk management."
+    ],
+    descriptionPoints: [
+      "Comprehensive CISM certification preparation.",
+      "Covers IS Governance, Risk Management, and Security Program Development.",
+      "Includes quizzes and exam practice questions for effective learning."
+    ],
+    reviews: "4.8",
+    totalReviews: 45,
+    enrolledStudents: 800,
+    level: "Intermediate to Advanced",
+    curriculumData: [
+      {
+        curriculumTitle: "Course Orientation",
+        curriculumPoints: [
+          "CISM Intro & Orientation (Part I)",
+          "CISM Intro & Orientation (Part II)"
+        ]
+      },
+      {
+        curriculumTitle: "Governance Basics",
+        curriculumPoints: [
+          "IS Governance Overview",
+          "Importance of Governance",
+          "Governance Owner",
+          "Quiz – Exam Practice"
+        ]
+      },
+      {
+        curriculumTitle: "Implementation Outcomes",
+        curriculumPoints: [
+          "Outcomes of IS Implementation",
+          "Roles & Responsibilities",
+          "GRC (Governance, Risk & Compliance)",
+          "Quiz – Exam Practice"
+        ]
+      },
+      {
+        curriculumTitle: "Performance and Metrics",
+        curriculumPoints: [
+          "Risk Mgmt Metrics",
+          "Performance Management",
+          "Quiz – Exam Practice"
+        ]
+      },
+      {
+        curriculumTitle: "Security Strategy",
+        curriculumPoints: [
+          "Define Security Objective",
+          "Security Desired State",
+          "Elements of Strategy",
+          "Role & Responsibilities",
+          "Quiz – Exam Practice"
+        ]
+      },
+      {
+        curriculumTitle: "Core Governance Aspects",
+        curriculumPoints: [
+          "CIA Reinforcement",
+          "Audits, Compliance and …",
+          "Business Impact Assessment",
+          "Outsourced, Legal and Third Party",
+          "Physical Environment",
+          "Quiz – Exam Practice"
+        ]
+      },
+      {
+        curriculumTitle: "Policy and Practice",
+        curriculumPoints: [
+          "Policy Development",
+          "Practice Exam Sample",
+          "Quiz – Exam Practice"
+        ]
+      },
+      {
+        curriculumTitle: "Risk Management Basics",
+        curriculumPoints: [
+          "Risk Management",
+          "Developing Risk Management",
+          "Determining Risk Requirements",
+          "Quiz – Exam Practice"
+        ]
+      },
+      {
+        curriculumTitle: "Risk Analysis and Treatment",
+        curriculumPoints: [
+          "Analysis of Relevant Risk",
+          "Risk Treatment Options",
+          "Information Asset Classification",
+          "Recovery Time Objectives",
+          "Quiz – Exam Practice"
+        ]
+      },
+      {
+        curriculumTitle: "Awareness and Practice",
+        curriculumPoints: [
+          "Training and Awareness",
+          "Quiz – Exam Practice"
+        ]
+      },
+      {
+        curriculumTitle: "Security Program Development",
+        curriculumPoints: [
+          "Information Security Program (Chapter 3)",
+          "Governance of the Security Program",
+          "Elements of the Security Program Roadmap",
+          "Quiz – Exam Practice"
+        ]
+      },
+      {
+        curriculumTitle: "Policies",
+        curriculumPoints: [
+          "Acceptable Use Policy"
+        ]
+      }
+    ]
+  },  
+  
   //AWS SYSOPS
   {
     id: "aws_sysops_administrator",
@@ -7168,6 +7327,202 @@ courseEnrollments: "",
     ],
   },
 
+  // SAP ERP
+
+  {
+    id: "sap_erp",
+    thumbnail: "",
+    courseTitle: "SAP ERP",
+    batchDuration: "3 Months",
+    courseLogo: "/sap.png",
+    certificate: "On successful completion of the course, participants will be awarded a participation certificate from DigiPAKISTAN.",
+    courseCategory: "fast_track_non_technical",
+    courseEnrollments: "",
+    courseId: "sap_erp",
+    courseInstructor: "Hassan Raza",
+    courseLongDescription: "Master SAP Business One ERP with this comprehensive course. Learn SAP installation, interface navigation, financial modules, inventory management, and production modules. Gain practical knowledge with hands-on exercises and real-world scenarios to effectively manage business operations using SAP ERP.",
+    courseShortDescription: "Learn SAP ERP! Master SAP Business One installation, financials, inventory, and production modules.",
+    courseStatus: "active",
+    coursePrice: 3500,
+    requirements: [
+      "Basic understanding of business processes.",
+      "A computer with Windows OS for SAP installation.",
+      "Willingness to learn ERP systems and SAP tools."
+    ],
+    seoDescription: "SAP ERP Training Course",
+    seoKeywords: [
+      "SAP ERP Training",
+      "Learn SAP Business One",
+      "ERP Systems Training",
+      "SAP Financial Modules",
+      "SAP Inventory Management"
+    ],
+    videoMedium: "Urdu",
+    "whatYouWillLearn": [
+      "Understand SAP Business One ERP fundamentals.",
+      "Install and configure SAP ERP systems.",
+      "Master financial, inventory, and production modules.",
+      "Navigate SAP interfaces and create master data.",
+      "Effectively manage business operations using SAP ERP."
+    ],
+    whoIsTheCourseFor: [
+      "Aspiring SAP ERP professionals.",
+      "Students and graduates in business or IT.",
+      "Professionals looking to enhance their ERP skills."
+    ],
+    descriptionPoints: [
+      "Comprehensive SAP ERP training.",
+      "Hands-on projects and exercises for practical learning.",
+      "Prepare for real-world business operation challenges."
+    ],
+    reviews: "4.8",
+    totalReviews: 150,
+    enrolledStudents: 2811,
+    level: "Beginner to Intermediate",
+    curriculumData: [
+      {
+        curriculumTitle: "SAP Installation Method 1",
+        curriculumPoints: [
+          "How to Use LMS & Start Learning?",
+          "Installation of Virtual Machine",
+          "Installing Windows on VM",
+          "Installation of VM Tools and Sharing Folder Settings",
+          "Installation of SQL Server on VM",
+          "Running SQL Management Studio",
+          "Assessment Exercise-01"
+        ]
+      },
+      {
+        curriculumTitle: "SAP Installation Method 1 and Method 2",
+        curriculumPoints: [
+          "Installation of Server Tools",
+          "Installation of SAP Server Part 1",
+          "Installation of SAP Client",
+          "Introduction about SAP Business One",
+          "Download and Run PreInstalled SAP VM",
+          "Assessment Exercise-02"
+        ]
+      },
+      {
+        curriculumTitle: "About SAP Interface",
+        curriculumPoints: [
+          "Method 2 Download and Run PreInstalled SAP VM",
+          "Introduction to SAP Interface",
+          "Introduction to Master Data and Its Modes",
+          "Examples of Effective Use of Modes",
+          "Creating a New Master Data Record in SAP",
+          "Deleting a Business Partner Record in SAP",
+          "Assessment Exercise-03"
+        ]
+      },
+      {
+        curriculumTitle: "Introduction & Basic Initializations in SAP B-1",
+        curriculumPoints: [
+          "Introduction Basic Initializations Financial Setups",
+          "Creating Master Data Entering Opening Balances (Project 1)",
+          "Assessment Exercise-04"
+        ]
+      },
+      {
+        curriculumTitle: "Introduction & Basic Initializations in SAP B-1 Part 02",
+        curriculumPoints: [
+          "Processing Day-to-Day Transactions (Project 1) Part 01",
+          "Processing Day-to-Day Transactions (Project 1) Part 02",
+          "Assessment Exercise-05"
+        ]
+      },
+      {
+        curriculumTitle: "AR-Accounts Receivable Module",
+        curriculumPoints: [
+          "Accounts Receivable (Sales Cycle) Part-1"
+        ]
+      },
+      {
+        curriculumTitle: "AR-Accounts Receivable Module Part 02",
+        curriculumPoints: [
+          "Accounts Receivable (Sales Cycle) Part-2",
+          "Accounts Receivable (Sales Cycle) Part-3",
+          "Assessment Exercise-06"
+        ]
+      },
+      {
+        curriculumTitle: "AP-Accounts Payable Module",
+        curriculumPoints: [
+          "Accounts Payable (Purchase Cycle) Part-1",
+          "Accounts Payable (Purchase Cycle) Part-2",
+          "Accounts Payable (Purchase Cycle) Part-3",
+          "Assessment Exercise-07"
+        ]
+      },
+      {
+        curriculumTitle: "Financial Module - Basics",
+        curriculumPoints: [
+          "Financial Module Part 1- General Functionality",
+          "Financial Module Part 2- Reverse Transactions and Budgets Setup",
+          "Assessment Exercise-08"
+        ]
+      },
+      {
+        curriculumTitle: "Financial Module - Advanced",
+        curriculumPoints: [
+          "Financial Module Part 3-Budgets Reports",
+          "Financial Module Part 4 Fixed Assets (Setup Configuration)",
+          "Assessment Exercise-09"
+        ]
+      },
+      {
+        curriculumTitle: "Financial Module - Expert",
+        curriculumPoints: [
+          "Financial Module Part 5 Fixed Assets (Class Setup, Capitalization, Depreciation)",
+          "Financial Module Part 6 Fixed Assets (Revaluation, Retirement, Reports)",
+          "Financial Module Part 7 Cost Accounting",
+          "Assessment Exercise-10"
+        ]
+      },
+      {
+        curriculumTitle: "Inventory & Warehouse Management",
+        curriculumPoints: [
+          "Financial Module Part 8 Financial Accounting Reports",
+          "Inventory Warehouse Management Part-1",
+          "Inventory Warehouse Management Part-2",
+          "Assessment Exercise-11"
+        ]
+      },
+      {
+        curriculumTitle: "Inventory & Warehouse Management - Part 2",
+        curriculumPoints: [
+          "Inventory Warehouse Management Part-3",
+          "Inventory Warehouse Management Part-4",
+          "Assessment Exercise-12"
+        ]
+      },
+      {
+        curriculumTitle: "Production Module And CRM - Sales Opportunities & Service Module",
+        curriculumPoints: [
+          "Production Module",
+          "Sales Opportunities Service Module",
+          "Assessment Exercise-13"
+        ]
+      },
+      {
+        curriculumTitle: "Currencies",
+        curriculumPoints: [
+          "Currencies"
+        ]
+      },
+      {
+        curriculumTitle: "Final Exam",
+        curriculumPoints: [
+          "Final Exam"
+        ]
+      }
+    ]
+  }
+,  
+
+
+
+
   // Project Management Professionals
   {
     id: "pmp_exam_preparation",
@@ -9308,6 +9663,238 @@ courseEnrollments: "",
       },
     ],
   },
+
+
+// Maya 3d Animationsssssssssssssssssssssssssssssssssss
+
+{
+  id: "maya_3d_character_animation",
+  thumbnail: "",
+  courseTitle: "MAYA 3D Character Animation",
+  batchDuration: "3 Months",
+  courseLogo: "/maya.png",
+  certificate: "On successful completion of the course, participants will be awarded a participation certificate from DigiPAKISTAN.",
+  courseCategory: "fast_track_non_technical",
+  courseEnrollments: "",
+  courseId: "maya_3d_character_animation",
+  courseInstructor: "Hassan Raza",
+  courseLongDescription: "Master the art of character animation with Maya 3D. This course covers storyboarding, project creation, character modeling, rigging, scene setup, and advanced animation techniques. Gain practical skills through hands-on projects and exercises, preparing you for real-world animation challenges.",
+  courseShortDescription: "Learn Maya 3D Character Animation! Master modeling, rigging, and advanced animation techniques.",
+  courseStatus: "active",
+  coursePrice: 3500,
+  requirements: [
+    "Basic understanding of 3D modeling concepts.",
+    "A computer with Maya 3D installed.",
+    "Willingness to learn advanced character animation."
+  ],
+  seoDescription: "Maya 3D Character Animation Certification Course",
+  seoKeywords: [
+    "Maya 3D Animation",
+    "Learn Character Animation",
+    "3D Modeling and Rigging",
+    "Advanced Animation Techniques",
+    "Maya Certification Course"
+  ],
+  videoMedium: "English",
+  whatYouWillLearn: [
+    "Understand the fundamentals of character animation in Maya.",
+    "Create detailed 3D characters and environments.",
+    "Master rigging techniques for human and monster characters.",
+    "Learn advanced animation workflows and scene setups.",
+    "Develop animation scenes with realistic motions and sound overlays."
+  ],
+  whoIsTheCourseFor: [
+    "Aspiring 3D animators and character modelers.",
+    "Students and professionals interested in Maya animation.",
+    "Individuals aiming to excel in 3D character animation."
+  ],
+  descriptionPoints: [
+    "Comprehensive Maya 3D Character Animation training.",
+    "Hands-on projects and exercises for practical learning.",
+    "Prepare for real-world animation challenges."
+  ],
+  reviews: "4.9",
+  totalReviews: 50,
+  enrolledStudents: 1200,
+  level: "Intermediate to Advanced",
+  curriculumData: [
+    {
+      curriculumTitle: "Introduction",
+      curriculumPoints: [
+        "Introduction to Advance Animation Course",
+        "Storyboarding and Art Design",
+        "Creating a Project in Maya"
+      ]
+    },
+    {
+      curriculumTitle: "Preparing Location",
+      curriculumPoints: [
+        "Street and Road Modelling",
+        "Texturing Building",
+        "Assessment Exercise-01"
+      ]
+    },
+    {
+      curriculumTitle: "Character Modeling and Rigging",
+      curriculumPoints: [
+        "Finalizing Street Location",
+        "Rigging Human Character with HumanIK",
+        "Assessment Exercise-02"
+      ]
+    },
+    {
+      curriculumTitle: "Character Modeling and Rigging Part 02",
+      curriculumPoints: [
+        "Human Character Modeling",
+        "Human Face Rigging",
+        "Assessment Exercise-03"
+      ]
+    },
+    {
+      curriculumTitle: "Character Modeling and Rigging Part 03",
+      curriculumPoints: [
+        "Modeling Monster Character",
+        "Modeling Monster Teeths and Jaw",
+        "Assessment Exercise-04"
+      ]
+    },
+    {
+      curriculumTitle: "Character Modeling and Rigging Part 04",
+      curriculumPoints: [
+        "Creating Monster Eyes",
+        "Rigging Monster Character",
+        "Assessment Exercise-05"
+      ]
+    },
+    {
+      curriculumTitle: "Character Modeling and Rigging Part 05",
+      curriculumPoints: [
+        "Correcting the Skin Issues",
+        "Creating Monster Face Blendshapes",
+        "Creating Monster Face Rigging Controls",
+        "Assessment Exercise-06"
+      ]
+    },
+    {
+      curriculumTitle: "Character Modeling and Rigging Part 06",
+      curriculumPoints: [
+        "Monster Face Rigging Controls Part 2",
+        "Monster Face Rigging Controls Part 3",
+        "Assessment Exercise-07"
+      ]
+    },
+    {
+      curriculumTitle: "Correcting Issues and Setting Scenes",
+      curriculumPoints: [
+        "Scene Setup",
+        "Correcting Human Rigging Issues",
+        "Assessment Exercise-08"
+      ]
+    },
+    {
+      curriculumTitle: "Correcting Issues and Setting Scenes Part 02",
+      curriculumPoints: [
+        "Correcting Monster Face Rigging Issues",
+        "Correcting Monster Rig Issues",
+        "Assessment Exercise-09"
+      ]
+    },
+    {
+      curriculumTitle: "Correcting Issues and Setting Scenes Part 03",
+      curriculumPoints: [
+        "Re-Rigging Monster",
+        "Skinning Monster with Rig - Part-1",
+        "Assessment Exercise-10"
+      ]
+    },
+    {
+      curriculumTitle: "Correcting Issues and Setting Scenes Part 04",
+      curriculumPoints: [
+        "Skinning Monster with Rig - Part-2",
+        "Connecting Monster Mouth and Eyes",
+        "Assessment Exercise-11"
+      ]
+    },
+    {
+      curriculumTitle: "Animation of Each Scene and Shots",
+      curriculumPoints: [
+        "Importing References",
+        "Blocking Motion Part-1",
+        "Assessment Exercise-12"
+      ]
+    },
+    {
+      curriculumTitle: "Animation of Each Scene and Shots Part 02",
+      curriculumPoints: [
+        "Creating Walk Motion of Human Scene 1 Shot 1",
+        "Monster Walk Motion",
+        "Assessment Exercise-13"
+      ]
+    },
+    {
+      curriculumTitle: "Animation of Each Scene and Shots Part 03",
+      curriculumPoints: [
+        "Monster Walk Run and Roar",
+        "Monster Walk Run and Roar Part 2",
+        "Assessment Exercise-14"
+      ]
+    },
+    {
+      curriculumTitle: "Animation of Each Scene and Shots Part 04",
+      curriculumPoints: [
+        "Correcting Walk Motion using Graph Editor",
+        "Creating Traffic using LowPoly Vehicles",
+        "Assessment Exercise-15"
+      ]
+    },
+    {
+      curriculumTitle: "Animation of Each Scene and Shots Part 05",
+      curriculumPoints: [
+        "Motion Path Animation of Traffic Vehicles",
+        "Akbar Scared Motion",
+        "Assessment Exercise-16"
+      ]
+    },
+    {
+      curriculumTitle: "Advance Character Animation Setup",
+      curriculumPoints: [
+        "Advance Maya SP Textures and Shaders Explained",
+        "Create a Custom Human IK Rig - Human IK Rigging in Maya",
+        "Assessment Exercise-17"
+      ]
+    },
+    {
+      curriculumTitle: "Advance Character Animation Setup Part 02",
+      curriculumPoints: [
+        "Rigging Character with Human IK Rig Tool in Maya",
+        "Face Rigging in Maya using Blendshapes with Custom",
+        "Assessment Exercise-18"
+      ]
+    },
+    {
+      curriculumTitle: "Advance Character Animation Setup Part 03",
+      curriculumPoints: [
+        "Animation Scene Setup in Maya - Prepare Scene for",
+        "Character Animation by Shots and Scenes with Sound Mixing",
+        "Assessment Exercise-19"
+      ]
+    },
+    {
+      curriculumTitle: "Advance Character Animation Setup Part 04",
+      curriculumPoints: [
+        "Animating Human Characters with Dope Sheet and Scene",
+        "Pose-To-Pose Character Animation with Sound Overlay",
+        "Assessment Exercise-20"
+      ]
+    },
+    {
+      curriculumTitle: "Final Exam",
+      curriculumPoints: [
+        "Final Exam"
+      ]
+    }
+  ]
+},
 
   // Enterprenureship
   {

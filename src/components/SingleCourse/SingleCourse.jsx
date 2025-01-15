@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useState } from "react";
 import { CiVideoOn } from "react-icons/ci";
 import { FaAngleDown, FaAngleUp, FaCheck } from "react-icons/fa";
@@ -32,8 +33,8 @@ const SingleCourse = ({ data }) => {
         <div className="flex flex-col w-full gap-4 lg:flex-row ">
           {loading ? (
             <div className=" py-3 h-full -mt-14 z-50 w-full">
-              <div className="mb-3 p-4 flex flex-col gap-3 bg-white rounded-xl ">
-                <div className=" an animate-pulseimate-pulse flex gap-2">
+              <div className="mb-3 p-4 flex flex-col gap-3 bg-white rounded-xl">
+                <div className="animate-pulseimate-pulse flex gap-2">
                   <div className="h-7 animate-pulse mt-10 w-20 rounded-full bg-gray-300"></div>
                   <div className="h-7 animate-pulse mt-10 w-20 rounded-full bg-gray-300"></div>
                 </div>
@@ -56,7 +57,7 @@ const SingleCourse = ({ data }) => {
                 <div className="h-6 animate-pulse mt-2 w-full rounded-full bg-gray-300"></div>  </div>
             </div>
           ) : (
-            <div className="lg:w-3/4 -mt-8 bg-white z-20 shadow-2xl border mb-5 p-5 rounded-xl">
+            <div className="lg:w-3/4 -mt-16 lg:-mt-28 bg-white z-20 shadow-2xl border mb-5 p-5 rounded-xl">
               {/* Tabs */}
               <div className="tabs flex space-x-4 border-b">
                 <button
@@ -232,7 +233,7 @@ const SingleCourse = ({ data }) => {
                 <hr className="bg-primary h-[1px] " />
                 <Link href={"/registration/register"}>
                   <button className="text-center w-full p-3 hover:font-extrabold  duration-300 border-3 border border-yellow-700 hover:bg-yellow-700 bg-primary text-white rounded mt-4">
-                    Enroll Now
+                    Apply Now
                   </button>
                 </Link>
               </div>

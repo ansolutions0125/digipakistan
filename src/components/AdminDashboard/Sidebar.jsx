@@ -221,6 +221,11 @@ const Sidebar = () => {
                   itemIcon: <MdModeEdit />,
                 },
                 {
+                  label: "Add Template",
+                  href: "/admin/template-add",
+                  itemIcon: <MdModeEdit />,
+                },
+                {
                   label: "Settings",
                   href: "/admin/email-settings",
                   itemIcon: <IoIosSettings />,
