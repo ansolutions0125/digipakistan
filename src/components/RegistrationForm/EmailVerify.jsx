@@ -46,12 +46,11 @@ const EmailVerify = () => {
           const user = auth.currentUser;
     
           if (user && user.emailVerified) {
-            if (userData?.id) {
+            if (userData?.id){
               const userRef = doc(firestore, "users", userData.id);
     
               try {
                 const userDoc = await getDoc(userRef);
-    
                 // Update the user's email verification status in Firestore
                 await updateDoc(userRef, { isEmailVerified: true });
     
@@ -94,7 +93,6 @@ const EmailVerify = () => {
         return () => unsubscribe(); // Cleanup listener on unmount
       }, [userData, router]); // Add dependencies for userData and router
       
-
     const buttonLoad = async () => {
         if (isVerificationDisabled) return; // Prevent multiple requests
 
@@ -150,8 +148,8 @@ const EmailVerify = () => {
                         <p>To verify Email</p>
                         <button
                             onClick={buttonLoad}
-                            className="bg-primary hover:bg-second duration-150 text-sm rounded-md p-2 text-white"
-                            disabled={isVerificationDisabled} // Disable the button when verification is in progress
+                            className="bg-primary disabled:bg-gray-100 hover:bg-second duration-150 text-sm rounded-md p-2 text-white"
+                            disabled={isVerificationDisabled || userData?.isEmailVerified} // Disable the button when verification is in progress
                         >
                             {loading ? "Sending Email...." : "Click Here"}
                         </button>

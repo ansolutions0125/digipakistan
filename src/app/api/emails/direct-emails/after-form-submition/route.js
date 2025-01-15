@@ -1,13 +1,13 @@
 import { fetchSmtpConfig } from "@/lib/SmtpSettings";
-import { db } from "../../../../../lib/FirebaseAdminSDK";
+import { db } from "@/lib/FirebaseAdminSDK";
 import { initializeTransporter } from "@/lib/TransportNodeMailer";
 
 // getting instructionsEmail
-const fetchInstructionsEmail = async () => {
+const fetchFormSubmittedEmail = async () => {
   try {
     const templateDoc = await db
       .collection("email_templates")
-      .doc("23j892pp0-2i32jaoe203") // Use your template document ID
+      .doc("form_submitted") // Use your template document ID
       .get();
 
     if (templateDoc.exists) {
@@ -29,7 +29,7 @@ const replacePlaceholders = (template, placeholders) => {
 // SendEmail Function
 const sendEmail = async (transporter, user, email_subject) => {
   const smtpConfig = await fetchSmtpConfig();
-  const defaultTemplate = await fetchInstructionsEmail();
+  const defaultTemplate = await fetchFormSubmittedEmail();
 
   const mailOptions = {
     from: smtpConfig.SMTP_EMAIL_FROM,
@@ -67,14 +67,15 @@ export async function POST(req) {
 
     const transporter = await initializeTransporter();
 
-    const templateRef = db.collection("users").doc(fetchedUserData.uid); // Get the reference to the document
+    const templateRef = db.collection("users").doc(fetchedUserData.id); // Get the reference to the document
     const templateDoc = await templateRef.get();
-    const userData = await templateDoc.data();
+    const userData = templateDoc.data();
 
     if (templateDoc.exists) {
       await templateRef.update({
         ...userData,
-        isApplicationSubmitted: true
+        isApplicationSubmitted: true,
+        isProfileComplete:true,
       });
     }
 

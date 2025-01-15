@@ -29,7 +29,7 @@ const fetchInstructionsEmail = async () => {
       .get();
 
     if (templateDoc.exists) {
-      return templateDoc.data(); // Assuming your HTML is stored in the 'template' field
+      return templateDoc.data().template; // Assuming your HTML is stored in the 'template' field
     } else {
       throw new Error("Email template not found in Firestore.");
     }
@@ -41,13 +41,13 @@ const fetchInstructionsEmail = async () => {
 
 
 
-// // Replacing userName and other things like template
+// Replacing userName and other things like template
 const replacePlaceholders = (template, placeholders) => {
   return template.replace(/\${(.*?)}/g, (_, key) => placeholders[key] || "");
 };
 
-// SendEmail Function
-const sendEmail = async (transporter, user, email_subject) => {
+  // SendEmail Function
+  const sendEmail = async (transporter, user, email_subject) => {
   const smtpConfig = await fetchSmtpConfig();
   const defaultTemplate = await fetchInstructionsEmail();
 
@@ -186,7 +186,7 @@ export async function POST(req) {
       // Document exists, now update it
       await user_registration_red.update({
         isEmailVerified: true,
-        isProfileComplete:true,
+    
         // currentStep: 3,
         userId: fetchedUserData.id,
         portalDetails: {
