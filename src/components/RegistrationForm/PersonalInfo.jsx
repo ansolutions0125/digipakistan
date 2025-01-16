@@ -306,7 +306,10 @@ const PersonalInfo = () => {
         });
         showToast("Your Information Has saved", "success", 2000);
         const userRef = doc(firestore, "users", userData?.id);
-        await updateDoc(userRef, { formDataId: formData.id });
+        await updateDoc(userRef, { formDataId: formData.id,
+          isProfileComplete:true
+         });
+
         
         await fetch("/api/emails/direct-emails/after-form-submition",{
           method:"POST",
@@ -314,8 +317,7 @@ const PersonalInfo = () => {
             'Content-Type':"application/json"
           },
           body:JSON.stringify({fetchedUserData:userData,email_subject:"Congratulations! Your Application Has Submitted Successfully at DigiPAKISTAN"})
-        })
-
+        });
         router.push("/registration/registration-status");
       } catch (error) {
         console.log(error);

@@ -1,9 +1,8 @@
 {
   "crons": [
-   
     {
       "path": "/api/registration-approvel-cron",
-      "schedule": "*/20 * * * *"
+      "schedule": "*/2 * * * *"
     }
   ]
 }

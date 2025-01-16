@@ -1,6 +1,8 @@
 "use client"
 import PasswordResetComponent from "@/components/FirebaseEmails_Actions/PasswordResetComponent";
 import VerifyEmailComponent from "@/components/FirebaseEmails_Actions/VerifyEmailComponent";
+import Footer from "@/components/Footer/Footer";
+import Navbar from "@/components/Navbar/Navbar";
 import { useSearchParams } from "next/navigation";
 
 const ActionHandler = () => {
@@ -10,7 +12,11 @@ const ActionHandler = () => {
 
   if (mode === "verifyEmail") {
     // Handle email verification
-    return <VerifyEmailComponent mode={mode} oobCode={actionCode} />;
+    return <div>
+      <Navbar/>
+      <VerifyEmailComponent mode={mode} oobCode={actionCode} />
+      <Footer/>
+    </div>;
   }
 
   if (mode === "resetPassword") {

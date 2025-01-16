@@ -2,14 +2,21 @@
 import { auth, firestore } from "@/Backend/Firebase";
 import userHooks from "@/Hooks/userHooks";
 import { sendEmailVerification, onAuthStateChanged, getAuth } from "firebase/auth";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import CustomToast from "../CoustomToast/CoustomToast";
 import { MdOutlineAttachEmail, MdOutlineEmail } from "react-icons/md";
 import { CiMail } from "react-icons/ci";
+import useAuthStore from "@/stores/authStore";
 
-const EmailVerify = () => {
+const EmailVerify = ({mode,oobCode}) => {
+  const [isVerified, setIsVerified] = useState(false);
+  const [verifyLoading, setVerifyLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const { setEmailVerified } = useAuthStore();
+  const { userData } = userHooks(); // Get user data from custom hook
+
     const [loading, setLoading] = useState(false);
     const [toast, setToast] = useState({
         message: "",
@@ -19,7 +26,6 @@ const EmailVerify = () => {
     });
     const [isVerificationDisabled, setIsVerificationDisabled] = useState(false); // Track if verification is disabled
 
-    const { userData } = userHooks(); // Get user data from custom hook
     const router = useRouter();
     const showToast = (message, type = "info", duration = 20000) => {
         setToast({ message, type, visible: true, duration });
@@ -28,6 +34,80 @@ const EmailVerify = () => {
     const handleCloseToast = () => {
         setToast({ ...toast, visible: false });
     };
+
+
+
+
+
+
+
+    useEffect(()=>{
+      if(oobCode && mode === "verifyEmail"){
+        verifyEmail(oobCode)
+      }
+    },[oobCode,mode])  
+
+  const verifyEmail =async(oobCode)=>{
+    try {
+      const authInstance = getAuth();
+  
+  const actionCodeInfo = await checkActionCode(authInstance,oobCode);
+  const userEmail = actionCodeInfo?.data?.email;
+  
+  if(!userEmail){
+    throw new Error("unable to fetch the email associated with this account");
+  }
+   await applyActionCode(authInstance,oobCode);
+  console.log("Email Verified Successfully");
+  setIsVerified(true);
+  setEmailVerified(true);
+  
+  
+  const userRef = collection(firestore,"users");
+  const querySnapshot = query(userRef,where("email","==",userEmail));
+  const snapshot = await getDocs(querySnapshot);
+  if (querySnapshot.empty) {
+    throw new Error("No user found with the provided email in Firestore.");
+  }
+
+  const userData = snapshot.docs[0];
+   await updateDoc(userData.ref,{isEmailVerified:true});
+   if(userData && oobCode && mode==="verifyEmail"){
+    const sendEmail =async()=>{
+      
+      const requestBody = {
+        fetchedUserData: userDoc.data(),
+        email_subject: "You're Almost There! Complete Your Admission Now",
+      };
+try {
+        const response = await fetch(
+          "/api/emails/direct-emails/after-verification-sendmail",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(requestBody), // Convert to JSON string
+          }
+        );
+
+        const responseData = await response.json();
+        console.log("Backend Response:", responseData);
+      } 
+      catch (error) {
+        console.error("Error sending email:", error);
+      }
+    };
+
+    sendEmail();
+  }
+  console.log("User email verified status updated in Firestore.");
+
+
+    }
+  
+    catch (error) {
+      console.log(error)
+    }
+}
 
     // useEffect(()=>{
     //     const auth = getAuth();
@@ -41,57 +121,57 @@ const EmailVerify = () => {
     // },[auth]);
 
     // Listen for email verification status change using onAuthStateChanged
-    useEffect(() => {
-        const refreshVerificationStatus = async () => {
-          const user = auth.currentUser;
+    // useEffect(() => {
+    //     const refreshVerificationStatus = async () => {
+    //       const user = auth.currentUser;
     
-          if (user && user.emailVerified) {
-            if (userData?.id){
-              const userRef = doc(firestore, "users", userData.id);
+    //       if (user && user.emailVerified) {
+    //         if (userData?.id){
+    //           const userRef = doc(firestore, "users", userData.id);
     
-              try {
-                const userDoc = await getDoc(userRef);
-                // Update the user's email verification status in Firestore
-                await updateDoc(userRef, { isEmailVerified: true });
+    //           try {
+    //             const userDoc = await getDoc(userRef);
+    //             // Update the user's email verification status in Firestore
+    //             await updateDoc(userRef, { isEmailVerified: true });
     
-                // Prepare request body for the API
-                const requestBody = {
-                  fetchedUserData: userData,
-                  email_subject: "You're Almost There! Complete Your Admission Now",
-                };
+    //             // Prepare request body for the API
+    //             const requestBody = {
+    //               fetchedUserData: userData,
+    //               email_subject: "You're Almost There! Complete Your Admission Now",
+    //             };
     
-                // Call the API
-                const response = await fetch('/api/emails/direct-emails/after-verification-sendmail', {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(requestBody),
-                });
+    //             // Call the API
+    //             const response = await fetch('/api/emails/direct-emails/after-verification-sendmail', {
+    //               method: "POST",
+    //               headers: { "Content-Type": "application/json" },
+    //               body: JSON.stringify(requestBody),
+    //             });
     
-                const data = await response.json();
-                console.log("API HITTED");
-                console.log("Backend Response:", data);
+    //             const data = await response.json();
+    //             console.log("API HITTED");
+    //             console.log("Backend Response:", data);
     
-                // Redirect to the verified page
-                router.push("/registration/emailverified");
-              } catch (error) {
-                console.error("Error updating verification status:", error);
-              }
-            }
+    //             // Redirect to the verified page
+    //             router.push("/registration/emailverified");
+    //           } catch (error) {
+    //             console.error("Error updating verification status:", error);
+    //           }
+    //         }
     
-            // Show success toast
-            showToast("Your email has been verified successfully.", "success", 2000);
-          }
-        };
+    //         // Show success toast
+    //         showToast("Your email has been verified successfully.", "success", 2000);
+    //       }
+    //     };
     
-        // Ensure auth state is loaded before calling the refresh function
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-          if (user) {
-            refreshVerificationStatus();
-          }
-        });
+    //     // Ensure auth state is loaded before calling the refresh function
+    //     const unsubscribe = onAuthStateChanged(auth, (user) => {
+    //       if (user) {
+    //         refreshVerificationStatus();
+    //       }
+    //     });
     
-        return () => unsubscribe(); // Cleanup listener on unmount
-      }, [userData, router]); // Add dependencies for userData and router
+    //     return () => unsubscribe(); // Cleanup listener on unmount
+    //   }, [userData, router]); // Add dependencies for userData and router
       
     const buttonLoad = async () => {
         if (isVerificationDisabled) return; // Prevent multiple requests

@@ -1,21 +1,30 @@
-// stores/authStore.js
-import { create } from 'zustand';
+import { create } from "zustand";
 
-const useAuthStore = create((set) => ({
+const useAuthStore = create((set, get) => ({
   isSignedUp: false, // Tracks if the user has signed up
-  isEmailSent: false, // Tracks if the email has been sent
-  isVerified: false, // Tracks if the email is verified
   isEmailVerified: false, // Tracks if the email is verified
+  userData: null, // Stores user data
 
-  setSignedUp: () => set({ isSignedUp: true }),
-  setEmailSent: () => set({ isEmailSent: true }),
-  setVerified: () => set({ isVerified: true }),
-
-
-userData: null,
-  setUserData: (userData) => set({ userData }),
+  setSignedUp: (status) => set({ isSignedUp: status }),
+  setEmailVerified: (status) => set({ isEmailVerified: status }),
+  setUserData: (data) => set({ userData: data }),
   clearUserData: () => set({ userData: null }),
-  setEmailVerified: (isVerified) => set({ isEmailVerified: isVerified }),
-}));
 
-export default useAuthStore; 
+  // Utility to determine if the user can access a route
+  canAccessRoute: (route) => {
+    const { isSignedUp, isEmailVerified } = get();
+
+    if (route === "/registration") {
+      return !isSignedUp; // Allow if not signed up
+    }
+    if (route === "/registration/emailverify") {
+      return isSignedUp && !isEmailVerified; // Allow if signed up but not verified
+    }
+    if (route === "/registration/personalinfo") {
+      return isSignedUp && isEmailVerified; // Allow if signed up and verified
+    }
+    return false; // Deny by default
+  },
+}));  
+
+export default useAuthStore;

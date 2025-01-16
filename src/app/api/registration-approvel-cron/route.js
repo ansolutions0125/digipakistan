@@ -7,7 +7,7 @@ const fetchApplicationApprovedEmailTemplate = async () => {
   try {
     const templateDoc = await db
       .collection("email_templates")
-      .doc("ijj0209382-239292u320-3232")
+      .doc("application_approved_by_staff")
       .get();
 
     if (templateDoc.exists) {
@@ -111,7 +111,7 @@ async function processPendingApprovals() {
         // Prepare for email sending
         const transporter = await initializeTransporter();
         const fetchedUserData = {
-          fullname: taskData.fullname,
+          fullname: taskData.fullName,
           IDBCursor: taskData.id,
           email: taskData.email,
         };
