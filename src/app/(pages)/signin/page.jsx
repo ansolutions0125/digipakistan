@@ -68,8 +68,10 @@ const SignIn = () => {
   else if(userData && registrationStatus !=="approved"){
     router.push("/registration/registration-status")
   }
-  else{
-    router.push("/")
+  else if(!userData) {
+    router.push("/signin")
+}else{
+  router.push("/")
 }
   },[])
 
