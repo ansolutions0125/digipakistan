@@ -44,7 +44,7 @@ console.log(userDataa);
 };
 
 useEffect(()=>{
-  if(userData && !userData.isProfileComplete){
+  if(!userData ){
     router.back();
   }
 },[userData]);
@@ -74,6 +74,7 @@ useEffect(()=>{
   const handleCloseToast = () => {
     setToast({ ...toast, visible: false });
 };
+
 
   return (
     <div className="flex items-center max-w-6xl lg:mx-auto justify-center p-3 lg:p-5">

@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { FaAngleDown,FaRegUserCircle } from "react-icons/fa";
+import { FaAngleDown, FaRegUserCircle } from "react-icons/fa";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -17,6 +17,7 @@ import { firestore } from "@/Backend/Firebase";
 import { doc, getDoc } from "firebase/firestore";
 import userHooks from "@/Hooks/userHooks";
 import MobileProfileButton from "./MobileProfileButton";
+import Loader from "../AppLoader/Loader";
 
 const Navbar = () => {
   const router = useRouter();
@@ -100,11 +101,7 @@ const Navbar = () => {
       }
 
       try {
-        const userDocRef = doc(
-          firestore,
-          "users",
-          userData?.id
-        );
+        const userDocRef = doc(firestore, "users", userData?.id);
         const userDoc = await getDoc(userDocRef);
 
         if (userDoc.exists()) {
@@ -171,9 +168,50 @@ const Navbar = () => {
   };
 
   const handleRegistration = async () => {
-    router.push("/registration");
+    setLoadingRedirect(true); // Set loader before redirection
+    setTimeout(() => {
+      router.push("/registration");
+      setLoadingRedirect(false); // Reset loader after redirection
+    }, 500); // Simulate delay for loader
+  };
+  const [loadingRedirect, setLoadingRedirect] = useState(false);
+
+  const handleDashboardRedirect = async () => {
+    if (!fetchUserRegistrationDatae) {
+      console.error("User registration data not available for redirection.");
+      return;
+    }
+
+    setLoadingRedirect(true); // Show loader
+    const href = getHref(); // Determine redirect path
+    console.log("Redirecting to:", href); // Debug the redirection path
+    router.push(href); // Redirect to the appropriate page
+    setLoadingRedirect(false); // Hide loader
   };
 
+  // const getHref = () => {
+  //   console.log("Checking conditions for redirection...");
+  //   console.log("fetchUserRegistrationDatae:", fetchUserRegistrationDatae);
+
+  //   if (!fetchUserRegistrationDatae?.isEmailVerify) {
+  //     console.log("Redirecting to /registration/emailverify");
+  //     return "/registration/emailverify";
+  //   } else if (fetchUserRegistrationDatae?.isProfileComplete === false) {
+  //     console.log("Redirecting to /registration/personalinfo");
+  //     return "/registration/personalinfo";
+  //   } else if (fetchUserRegistrationDatae?.isProfileComplete ===true){ 
+  //     console.log("Redirecting to /registration/registration-status");
+  //     return "/registration/registration-status";
+  //   }else if (!fetchUserRegistrationDatae?.isPaidFee) {
+  //     console.log("Redirecting to /registration/generate-challan");
+  //     return "/registration/generate-challan";
+  //   }else {
+  //     console.log("Redirecting to /registration (default)");
+  //     return "/registration";
+  //   }
+  // };
+
+  
   return (
     <div className="bg-white py-4 sticky top-0 z-50 shadow-lg">
       {toast.visible && (
@@ -186,6 +224,7 @@ const Navbar = () => {
       )}
       <div className="lg:px-6 lg:mx-auto mx-5">
         <div className="flex w-full justify-between items-center">
+          
           <div className="flex items-center justify-between  gap-16 lg:gap-3 lg:justify-start ml-3 lg:ml-0 w-full lg:px-0 px-3">
             <SidebarMenu />
             <Link
@@ -201,128 +240,124 @@ const Navbar = () => {
               />
             </Link>
 
-
-            <div className="hidden lg:block" >
-            <ul className="flex gap-3">
-            <Link href="/">
-                <li className="hover:text-white hover:bg-primary py-1 px-2 hover:rounded duration-300 text-[0.9rem] font-bold ">
-                  Home
-                </li>
-              </Link>
-
-
+            <div className="hidden lg:block">
+              <ul className="flex gap-3">
+                <Link href="/">
+                  <li className="hover:text-white hover:bg-primary py-1 px-2 hover:rounded duration-300 text-[0.9rem] font-bold ">
+                    Home
+                  </li>
+                </Link>
                 {/* Available Courses */}
-              <li className="relative group hover:text-white hover:bg-primary py-1 px-2 hover:rounded duration-300 text-[0.9rem] font-bold text-black cursor-pointer">
-                <div className="flex items-center gap-1">
-                  <span className="">Available Courses</span> <FaAngleDown size={10} />
-                </div>
-                <ul className="absolute left-0 bg-white py-2 z-50 top-7 border w-[270px] duration-200 transition-all rounded-md shadow-lg hidden group-hover:block">
-                  <Link href="/courses/fast_track_technical_program">
-                    <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded font-normal duration-200 ">
-                      Fast Track Technical Programs
-                    </li>
-                  </Link>
-                  <Link href="/courses/fast_track_non_technical_program">
-                    <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded font-normal duration-200 ">
-                      Fast Track Non-Technical Programs
-                    </li>
-                  </Link>
-                  <Link href="/courses/associate_certification_program">
-                    <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded font-normal duration-200 ">
-                      Associate Ceritification Programs
-                    </li>
-                  </Link>
-                </ul>
-              </li>
+                <li className="relative group hover:text-white hover:bg-primary py-1 px-2 hover:rounded duration-300 text-[0.9rem] font-bold text-black cursor-pointer">
+                  <div className="flex items-center gap-1">
+                    <span className="">Available Courses</span>{" "}
+                    <FaAngleDown size={10} />
+                  </div>
+                  <ul className="absolute left-0 bg-white py-2 z-50 top-7 border w-[270px] duration-200 transition-all rounded-md shadow-lg hidden group-hover:block">
+                    <Link href="/courses/fast_track_technical_program">
+                      <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded font-normal duration-200 ">
+                        Fast Track Technical Programs
+                      </li>
+                    </Link>
+                    <Link href="/courses/fast_track_non_technical_program">
+                      <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded font-normal duration-200 ">
+                        Fast Track Non-Technical Programs
+                      </li>
+                    </Link>
+                    <Link href="/courses/associate_certification_program">
+                      <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded font-normal duration-200 ">
+                        Associate Ceritification Programs
+                      </li>
+                    </Link>
+                  </ul>
+                </li>
 
                 {/* Join digiPAKISTAN */}
-              <li className="relative group hover:text-white hover:bg-primary py-1 px-2 hover:rounded duration-300 text-[0.9rem] font-bold text-black cursor-pointer">
-                <div className="flex items-center gap-1">
-                  <span className="">Join DigiPAKISTAN</span> <FaAngleDown size={10} />
-                </div>
-                <ul className="absolute left-0 py-2 z-50 top-8 bg-white w-[250px] rounded-md shadow-lg hidden group-hover:block">
-                  <Link href="/about">
-                    <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded font-normal duration-200 ">
-                      Become an Instructor
-                    </li>
-                  </Link>
-                  
-                  <Link href="/faq">
-                    <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded font-normal duration-200 ">
-                      Become a Marketing Partner
-                    </li>
-                  </Link>
-                </ul>
-              </li>
+                <li className="relative group hover:text-white hover:bg-primary py-1 px-2 hover:rounded duration-300 text-[0.9rem] font-bold text-black cursor-pointer">
+                  <div className="flex items-center gap-1">
+                    <span className="">Join DigiPAKISTAN</span>{" "}
+                    <FaAngleDown size={10} />
+                  </div>
+                  <ul className="absolute left-0 py-2 z-50 top-8 bg-white w-[250px] rounded-md shadow-lg hidden group-hover:block">
+                    <Link href="/about">
+                      <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded font-normal duration-200 ">
+                        Become an Instructor
+                      </li>
+                    </Link>
 
-              {/* Get Certificates */}
-              <Link href="/get-certificate">
-                <li className=" hover:text-white hover:bg-primary py-1 px-2 hover:rounded duration-300 text-[0.9rem] font-bold ">
-                  Get Certificate 
+                    <Link href="/faq">
+                      <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded font-normal duration-200 ">
+                        Become a Marketing Partner
+                      </li>
+                    </Link>
+                  </ul>
                 </li>
-              </Link>
-              {/* How It Works */}
-              <Link href="/howitworks">
-                <li className="hover:text-white hover:bg-primary py-1 px-2 hover:rounded duration-300 text-[0.9rem] font-bold flex gap-1">
-                  <span>Admission</span>
-                  <span>Process</span>
+
+                {/* Get Certificates */}
+                <Link href="/get-certificate">
+                  <li className=" hover:text-white hover:bg-primary py-1 px-2 hover:rounded duration-300 text-[0.9rem] font-bold ">
+                    Get Certificate
+                  </li>
+                </Link>
+                {/* How It Works */}
+                <Link href="/howitworks">
+                  <li className="hover:text-white hover:bg-primary py-1 px-2 hover:rounded duration-300 text-[0.9rem] font-bold flex gap-1">
+                    <span>Admission</span>
+                    <span>Process</span>
+                  </li>
+                </Link>
+                {/* FAQS */}
+                <Link href="/faq">
+                  <li className="hover:text-white hover:bg-primary py-1 px-2 hover:rounded duration-300 text-[0.9rem] font-bold ">
+                    FAQ's
+                  </li>
+                </Link>
+
+                <li className="relative group hover:text-white hover:bg-primary py-1 px-2 hover:rounded duration-300 text-[0.9rem] font-bold text-black cursor-pointer">
+                  <div className="flex items-center gap-1">
+                    <span className="">About</span> <FaAngleDown size={10} />
+                  </div>
+                  <ul className="absolute left-0 bg-white py-2 z-50 top-7 border w-[250px] rounded-md shadow-lg hidden group-hover:block">
+                    <Link href="/message/provincial-minister-message">
+                      <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded font-normal duration-200 ">
+                        Provincial Minister Message
+                      </li>
+                    </Link>
+                    <Link href="/message/director-general-message">
+                      <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded font-normal duration-200 ">
+                        Director General (DG) Message
+                      </li>
+                    </Link>
+                    <Link href="/message/chairman-hec-message">
+                      <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded font-normal duration-200 ">
+                        Chairman HEC Punjab Message
+                      </li>
+                    </Link>
+                    <Link href="/message/chairman-pec-message">
+                      <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded font-normal duration-200 ">
+                        Chairman PEC Message
+                      </li>
+                    </Link>
+                    <Link href="/team">
+                      <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded font-normal duration-200 ">
+                        DigiPAKISTAN Faculty
+                      </li>
+                    </Link>
+                    <Link href="/about">
+                      <li className="px-4 py-2  text-black hover:bg-primary hover:text-white hover:rounded font-normal duration-500 ">
+                        About Us
+                      </li>
+                    </Link>
+                  </ul>
                 </li>
-              </Link>
-              {/* FAQS */}
-              <Link href="/faq">
-                <li className="hover:text-white hover:bg-primary py-1 px-2 hover:rounded duration-300 text-[0.9rem] font-bold ">
-                  FAQ's 
-                </li>
-              </Link>
 
-
-              <li className="relative group hover:text-white hover:bg-primary py-1 px-2 hover:rounded duration-300 text-[0.9rem] font-bold text-black cursor-pointer">
-                <div className="flex items-center gap-1">
-                  <span className="">About</span> <FaAngleDown size={10} />
-                </div>
-                <ul className="absolute left-0 bg-white py-2 z-50 top-7 border w-[250px] rounded-md shadow-lg hidden group-hover:block">
-                  <Link href="/message/provincial-minister-message">
-                    <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded font-normal duration-200 ">
-                      Provincial Minister Message
-                    </li>
-                  </Link>
-                  <Link href="/message/director-general-message">
-                    <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded font-normal duration-200 ">
-                      Director General (DG) Message
-                    </li>
-                  </Link>
-                  <Link href="/message/chairman-hec-message">
-                    <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded font-normal duration-200 ">
-                      Chairman HEC Punjab Message
-                    </li>
-                  </Link>
-                  <Link href="/message/chairman-pec-message">
-                    <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded font-normal duration-200 ">
-                      Chairman PEC Message
-                    </li>
-                  </Link>
-                  <Link href="/team">
-                    <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded font-normal duration-200 ">
-                      DigiPAKISTAN Faculty
-                    </li>
-                  </Link>
-                  <Link href="/about">
-                    <li className="px-4 py-2  text-black hover:bg-primary hover:text-white hover:rounded font-normal duration-500 ">
-                      About Us
-                              </li>
-                  </Link>
-
-                </ul>
-              </li>
-
-
-              <Link href="/contact">
-                <li className="hover:text-white hover:bg-primary py-1 px-2 hover:rounded duration-300 text-[0.9rem] font-bold ">
-                     Contact
-                </li>
-              </Link>
-            </ul>
-          </div>
+                <Link href="/contact">
+                  <li className="hover:text-white hover:bg-primary py-1 px-2 hover:rounded duration-300 text-[0.9rem] font-bold ">
+                    Contact
+                  </li>
+                </Link>
+              </ul>
+            </div>
 
             {/* <div className="border-primary border group relative hidden lg:block text-primary hover:bg-primary hover:text-white py-1.5 px-3 rounded-md duration-100 text-[0.9rem] font-bold">
               <div className="flex items-center g py-1apx-2">
@@ -471,7 +506,7 @@ const Navbar = () => {
               </div>
             </div> */}
 
-{/* 
+            {/* 
             <div className="bg-bgcolor border-primary border rounded-full items-center w-[300px] lg:flex hidden">
               <input
                 type="text"
@@ -552,16 +587,14 @@ const Navbar = () => {
               )}
             </div> */}
             <div className="flex items-center gap-3 lg:hidden">
-            <MobileProfileButton
-              userData={userData}
-              fetchUserRegistrationDatae={fetchUserRegistrationDatae}
-              fetchedUser={fetchedUser}
-            />
-          </div>
+              <MobileProfileButton
+                userData={userData}
+                fetchUserRegistrationDatae={fetchUserRegistrationDatae}
+                fetchedUser={fetchedUser}
+              />
+            </div>
           </div>
 
-
-          
           {/* <div className="flex items-center gap-3 lg:hidden">
             <MobileProfileButton
               userData={userData}
@@ -571,25 +604,9 @@ const Navbar = () => {
           </div> */}
           <div className="lg:flex hidden items-center g py-1apx-2">
             <ul className="flex items-center gap-3 py-1 px-2">
-              
               {userData ? (
-                <Link
-                  href={
-                    fetchUserRegistrationDatae?.registrationStatus === "pending"
-                      ? `/registration-status/${userData?.id}`
-                      : fetchUserRegistrationDatae?.registrationStatus ===
-                        "approved"
-                      ? `/registration-status/${userData?.id}`
-                      : fetchUserRegistrationDatae?.registrationStatus ===
-                        "completed"
-                      ? `/registration-status/${userData?.id}`
-                      : fetchUserRegistrationDatae?.registrationStatus ===
-                        undefined
-                      ? "/registration"
-                      : "/registration"
-                  }
-                >
-                  <button>
+                <Link href={"/"}>
+                  <button onClick={handleDashboardRedirect}>
                     <li className="hover:text-primary duration-300 border py-1.5 px-3 rounded-md border-primary text-[0.9rem] font-bold ">
                       Dashboard
                     </li>
@@ -614,25 +631,20 @@ const Navbar = () => {
                   </div>
                   <div className="absolute right-1 z-50 top-5 -mt-4 py-10">
                     <ul className="py-2 bg-white w-[200px] rounded-md shadow-lg hidden group-hover:block">
-                      <Link
-                        href={ fetchUserRegistrationDatae?.registrationStatus ===
-                          "pending"
-                            ? `/registration/registration-status`
-                            : fetchUserRegistrationDatae?.registrationStatus ===
-                              "approved"
-                            ? `/registration/registration-status`
-                            : fetchUserRegistrationDatae?.registrationStatus ===
-                              "completed"
-                            ? `/registration/registration-status`
-                            : fetchUserRegistrationDatae?.registrationStatus ===
-                              undefined
-                            ? "/registration"
-                            : "/registration"
+                      {/* <Link
+                        href={ !fetchUserRegistrationDatae?.isEmailVerify ? `/registration/emailverify`: !fetchUserRegistrationDatae?.isProfileComplete ? `/registration/personalinfo`:!fetchUserRegistrationDatae?.isPaidFee ? "/registration/generate-challan": fetchUserRegistrationDatae?.isProfileComplete ? "/registration/registration-status":undefined? "/registration":"/registration"
                         }
                       >
                         <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded duration-500 hover:te2t-primary">
                           Admission Status
                         </li>
+                      </Link> */}
+                      <Link  href={"/registration/registration-status"}>
+                        <button>
+                          <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded duration-500 hover:te2t-primary">
+                          Admission Status
+                          </li>
+                        </button>
                       </Link>
                       <button onClick={HandleLogout}>
                         <li className="px-4 py-2 text-black  hover:bg-primary hover:text-white hover:rounded duration-500 hover:te2t-primary">
@@ -647,7 +659,7 @@ const Navbar = () => {
               <>
                 <Link href="/signin" className="flex items-center gap-3">
                   <button className="btn-primary duration-300 text-primary hover:bg-primary hover:text-white py-1 px-3 font-bold">
-                      Login
+                    Login
                   </button>
                 </Link>
               </>

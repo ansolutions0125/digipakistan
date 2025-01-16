@@ -162,7 +162,7 @@ const Register = () => {
 
         if (result) {
           const approvelTimee = new Date(
-            new Date().getTime() + 0 * 1 * 60 * 1000);
+            new Date().getTime() + 1 * 1 * 60 * 1000);
 
           const createdUser = result.user;
           const userId = createdUser.uid;

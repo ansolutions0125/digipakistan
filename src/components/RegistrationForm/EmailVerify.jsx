@@ -36,11 +36,20 @@ const EmailVerify = () => {
 
 
 useEffect(()=>{
-  if(userData?.isEmailVerified){
-    showToast("Email Already Verified","info",2000);
+  if(userData?.isEmailVerified && !userData?.isProfileComplete){
+    // showToast("Email Already Verified","info",2000);
+    router.push("/registration/personalinfo");
+    
+  }
+  else if(userData?.isEmailVerified && !userData.isPaidFee){
+    router.push("/registration/generate-challan");
+  }else if(userData?.isPaidFee){
+    router.push("/registration/registration-status");
+  }
+  else{
     router.back();
   }
-},[])
+},[userData])
 
 //     useEffect(()=>{
 //       if(oobCode && mode === "verifyEmail"){

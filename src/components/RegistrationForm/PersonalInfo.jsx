@@ -19,7 +19,7 @@ import courses from "@/components/Courses/Courses";
 
 const PersonalInfo = () => {
   // Current user infor
-  const { userData,loading} = userHooks();
+  const { userData} = userHooks();
   const router = useRouter();
 
   // Toast
@@ -332,12 +332,21 @@ const PersonalInfo = () => {
 
   const [userLoading,setUserLoading]= useState(true);
 
-  useEffect(()=>{
-    const interval = setTimeout(()=>{
-      setUserLoading(false);
-    },2000);
-    return ()=> clearTimeout(interval)
-  },[])
+
+
+
+  useEffect(() => {
+    const pushRouter = ()=>{
+      if (userData?.isProfileComplete===true) {
+        router.push("/registration/registration-status");
+      }
+    }
+    pushRouter();
+  }, [userData]); // Add `userData` as a dependency
+
+   
+  
+
 
   return (
     <div className="bg-gray-50">
