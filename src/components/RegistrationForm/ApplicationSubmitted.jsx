@@ -43,6 +43,12 @@ console.log(userDataa);
     setToast({ message, type, visible: true, duration });
 };
 
+useEffect(()=>{
+  if(userData && !userData.isProfileComplete){
+    router.back();
+  }
+},[userData]);
+
 
   useEffect(() => {
     const getUserData = async () => {

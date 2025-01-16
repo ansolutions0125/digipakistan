@@ -57,13 +57,18 @@ const SignIn = () => {
   //   else if(userData && !userData.isVerified){
   //     router.push("/registration/emailverify")
   // }
-    else if(userData && !userData.isProfileComplete){
+  
+   else if(userData && !userData.isProfileComplete){
       router.push("/registration/personalinfo")
   }
-    else if(userData && !userData.feePaid){
+
+    else if(userData && !userData.isPaidFee){
       router.push("/registration/generate-challan")
   }
-  else if(userData){
+  else if(userData && registrationStatus !=="approved"){
+    router.push("/registration/registration-status")
+  }
+  else{
     router.push("/")
 }
   },[])

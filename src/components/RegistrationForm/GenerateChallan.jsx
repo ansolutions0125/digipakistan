@@ -259,17 +259,14 @@ console.log(filteredC);
       // Debugging: Log the response
       console.log("API Response:", data);
 
-      if (data.checkout_url) {
-        window.location.href = data.checkout_url;
-      } else {
-        console.log(data);
-      }
+
     } catch (err) {
       console.error("Payment Request Error:", err.message || err);
     } finally {
       setGatewayLoading(false);
     }
   };
+
 
   return (
     <div className="flex items-center max-w-7xl lg:mx-auto justify-center p-3 lg:p-5">

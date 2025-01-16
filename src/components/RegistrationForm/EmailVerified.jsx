@@ -18,18 +18,17 @@ const EmailVerified = () => {
 
   if (!userData) return null;
 
- 
-
-
   return (
     <div className="bg-gray-50 min-h-[70vh]">
       <div className="flex items-center justify-center p-3 lg:p-5">
         <div className="w-full min-h-[60vh] rounded-xl bg-white flex items-center justify-center flex-col border shadow-2xl text-center p-5 lg:w-[40%]">
+        
+        
           {/* <img className=" w-40  mx-auto" src="/email-verify.gif" alt="" /> */}
           {/* <div className="flex items-center justify-center gap-3"> */}
             <MdOutlineVerified className="text-9xl text-primary" />
             <h1 className="lg:text-3xl text-2xl font-bold">
-              Hi {userData.firstName} {userData.lastName}{" "}
+              Hi {userData.firstName}{userData.lastName}{" "}
             </h1>
           {/* </div> */}
           <p className="mt-2">

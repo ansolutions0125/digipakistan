@@ -7,7 +7,7 @@ const fetchApplicationApprovedEmailTemplate = async () => {
   try {
     const templateDoc = await db
       .collection("email_templates")
-      .doc("938398LEP-2kinweae--282jpj2je2p") // Use your template document ID
+      .doc("payment_failed").template // Use your template document ID
       .get();
 
     if (templateDoc.exists) {
@@ -43,13 +43,13 @@ const sendEmail = async (transporter, user, email_subject, courseData) => {
     }),
   };
 
-  try {
+try {
     await transporter.sendMail(mailOptions);
     return { email: user.email, status: "success" };
-  } catch (error) {
+}catch (error) {
     console.error(`Error sending email to ${user.email}:`, error);
     return { email: user.email, status: "failed", error: error.message };
-  }
+}
 };
 
 // Route
@@ -57,7 +57,6 @@ const sendEmail = async (transporter, user, email_subject, courseData) => {
 export async function POST(req) {
   try {
     const { fetchedUserData, email_subject, courseData } = await req.json();
-
     // Check if fetchedUserData is valid
     if (!fetchedUserData || typeof fetchedUserData !== "object") {
       return new Response(
@@ -67,8 +66,7 @@ export async function POST(req) {
         { status: 400 }
       );
     }
-
-    const transporter = await initializeTransporter();
+   const transporter = await initializeTransporter();
 
     console.log(fetchedUserData, email_subject, courseData);
 

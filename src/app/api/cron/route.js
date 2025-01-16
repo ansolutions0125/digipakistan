@@ -31,7 +31,7 @@ const sendEmail = async (transporter, user, emailSubject, templateId) => {
     subject: emailSubject,
     html: replacePlaceholders(template, {
       user: `${user.firstName} ${user.lastName}`,
-      id: user.uid,
+      id: user.id,
     }),
   };
 
@@ -48,22 +48,22 @@ const sendEmail = async (transporter, user, emailSubject, templateId) => {
 const processEmailSeries = async () => {
   const currentTime = new Date();
   const profileReminder = {
-    "12_hours": "83h23q23p2-302-32nqin329q32032",
-    "24_hours": "pwle-2-32-kaej2-3k2-a92j329",
-    "3_days": "932u32-30jaw2-wleow-2293ncmvmz",
-    "7_days": "2093i29alea-e-232382u-32329",
-    "30_days": "j23823-23i02329832-3292032",
+    "12_hours": "profile_reminder_after_12_hours",
+    "24_hours": "profile_reminder_after_24_hours",
+    "3_days": "profile_reminder_after_7_days",
+    "7_days": "profile_reminder_after_7_days",
+    "30_days": "profile_reminder_20th_day_admission_closed",
   };
 
   const feeReminder = {
-    "12_hours": "j2j938we-2k39m2ua3-2322",
-    "24_hours": "29823-wejwa-e2ajwe2ei222",
-    "3_days": "ekjwne-2k2-2k2032-323-222",
-    "4_days": "j2n30-s-d2sjdj2-23k2u32j3k",
-    "7_days": "2832jwne202-32nwaj823-32j382",
-    "15_days": "j2372-3028jawnejjnawe-2-32",
-    "20_days": "32yu23723232-23u2j389233-23",
-    "30_days": "j23823-23i02329832-3292032",
+    "12_hours": "fee_reminder_after_12_hours",
+    "2_days": "fee_reminder_after_2_days",
+    "3_days": "fee_reminder_after_3_days",
+    "4_days": "fee_reminder_after_4_days",
+    "7_days": "fee_reminder_after_7_days",
+    "15_days": "fee_reminder_after_15_days",
+    "20_days": "fee_reminder_before_20_days_admission_closed",
+    "30_days": "fee_reminder_after_30_days",
   };
 
   const usersSnapshot = await db.collection("users").get();

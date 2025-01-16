@@ -67,6 +67,7 @@ async function processPendingApprovals() {
       .collection("users")
       .where("registrationStatus", "==", "pending")
       .where("isEmailVerified", "==", true)
+      .where("isApplicationSubmitted", "==", true)
       .orderBy("approvalTime")
       .get();
 

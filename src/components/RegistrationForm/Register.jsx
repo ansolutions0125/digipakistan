@@ -162,7 +162,7 @@ const Register = () => {
 
         if (result) {
           const approvelTimee = new Date(
-            new Date().getTime() + 4 * 60 * 60 * 1000);
+            new Date().getTime() + 0 * 1 * 60 * 1000);
 
           const createdUser = result.user;
           const userId = createdUser.uid;
@@ -180,7 +180,7 @@ const Register = () => {
             approvalTime:approvelTimee.toISOString()});
 
           showToast(
-            "Account created succes sfully! Please login now.",
+            "Account created successfully! Please login now.",
             "success",
             5000
           );
