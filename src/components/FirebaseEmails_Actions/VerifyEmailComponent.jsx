@@ -10,21 +10,17 @@ import {
   getDocs,
   updateDoc,
 } from "firebase/firestore";
-import Link from "next/navigation";
+import Link from "next/link";
 import Image from "next/image";
 import useAuthStore from "@/stores/authStore";
 import userHooks from "@/Hooks/userHooks";
 import { IoCheckmarkCircle } from "react-icons/io5";
-import { MdOutlineVerified } from "react-icons/md";
-import { Router } from "next/router";
-import { useRouter } from "next/navigation";
 
 const VerifyEmailComponent = ({ mode, oobCode }) => {
   const [isVerified, setIsVerified] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { setEmailVerified } = useAuthStore();
-  const router = useRouter();
 
   useEffect(() => {
     if (oobCode && mode === "verifyEmail") {
@@ -107,73 +103,53 @@ const VerifyEmailComponent = ({ mode, oobCode }) => {
     }
   };
 
-
   return (
-
-<div className="bg-gray-50 min-h-[70vh]">
-      <div className="flex items-center justify-center p-3 lg:p-5">
-        <div className="w-full min-h-[60vh] rounded-xl bg-white flex items-center justify-center flex-col border shadow-2xl text-center p-5 lg:w-[40%]">
-        {loading ? (
+    <div className="bg-gray-50 min-h-[70vh]">
+      {loading ? (
         <div className="fixed inset-0 flex items-center justify-center bg-white z-50">
-          <p>
-            Redirecting, Please Wait ................
-          </p>
+          Redirecting, Please wait ............
         </div>
       ) : isVerified ? (
-           <div className="flex items-center justify-center">
-             <IoCheckmarkCircle className="text-9xl text-primary" />
-            <h1 className="lg:text-3xl text-2xl font-bold">
-              Hi {userData?.firstName? `${userData?.firstName} ` :"User"}
-            </h1>
-       
-          <p className="mt-2">
-            Your Email has Verified, complete the further process for enrollment
-            in DigiPakistan NATIONAL SKILLS DEVELOPMENT PROGRAM.{" "}
-          </p>
-          <p className="mt-2 text-xl">
-            آپ کا ای میل تصدیق ہو چکا ہے، ڈیجی پاکستان نیشنل اسکلز ڈیولپمنٹ
-            پروگرام میں اندراج کے لیے مزید عمل مکمل کریں۔{" "}
-          </p>
-
-          <div className="flex justify-center items-center mt-5 gap-2">
-            {userData? <Link
-              onClick={() => buttonLoad()}
-              href={"/terms-conditions"}
-              className="bg-primary hover:bg-second duration-150 text-sm rounded-md p-2 text-white"
-            >
-              {loading ? "Loading...." : " Continue"}
-            </Link>
-            :<Link
-              onClick={() => buttonLoad()}
-              href={"/signin"}
-              className="bg-primary hover:bg-second duration-150 text-sm rounded-md p-2 text-white"
-            >
-              {loading ? "Loading...." : " Signin"}
-            </Link>
-            }
+          <div className="flex items-center justify-center p-3 lg:p-5">
+            <div className="w-full min-h-[60vh] rounded-xl bg-white flex items-center justify-center flex-col border shadow-2xl text-center p-5 lg:w-[40%]">
+              <div className="border-2 border-white rounded-full p-3 bg-white">
+                <IoCheckmarkCircle size={100} className="text-primary" />
+              </div>
+              <div className="text-2xl font-bold text-center flex flex-col gap-1">
+                <h1> Email Verified Successfully!</h1>
+                <p className="font-normal">Hi! Your email has been verified.</p>
+              </div>
+              {userData ? (
+                <Link href="/registration">
+                  <button className="border-primary hover:bg-second text-white bg-primary border rounded mt-4 px-6 py-2">
+                    Proceed to Registration
+                  </button>
+                </Link>
+              ) : (
+                <Link href="/signin">
+                  <button className="border-primary hover:bg-second bg-primary text-white border rounded mt-4 px-6 py-2">
+                    Login Now
+                  </button>
+                </Link>
+              )}
+            </div>
           </div>
-           </div>
-      ):(  <div>
-        <div className="flex flex-col items-center text-center">
-          <h1 className="text-2xl font-bold text-red-600">
-            The verification link has expired.
-          </h1>
-          <p className="mt-2 text-gray-700 text-[14px]">
-            {error ||
-              "There was an issue verifying your email. The link might have expired or been used already."}
-          </p>
+      
+      ) : (
+        <div className="flex items-center justify-center p-3 lg:p-5">
+            <div className="w-full min-h-[60vh] rounded-xl bg-white flex items-center justify-center flex-col border shadow-2xl text-center p-5 lg:w-[40%]">
+            <h1 className="text-2xl font-bold text-red-600">
+              The verification link has expired.
+            </h1>
+            <p className="mt-2 text-gray-700 text-[14px]">
+              {error ||
+                "There was an issue verifying your email. The link might have expired or been used already."}
+            </p>
+          </div>
         </div>
-      </div>)
-}
-
-</div>
-</div>
-</div>
-
+      )}
+    </div>
   );
 };
 
 export default VerifyEmailComponent;
-
-
-
