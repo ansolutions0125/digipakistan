@@ -6,7 +6,6 @@ import { doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import CustomToast from "../CoustomToast/CoustomToast";
-import { MdOutlineAttachEmail, MdOutlineEmail } from "react-icons/md";
 import { CiMail } from "react-icons/ci";
 import useAuthStore from "@/stores/authStore";
 
@@ -35,21 +34,7 @@ const EmailVerify = () => {
 
 
 
-useEffect(()=>{
-  if(userData?.isEmailVerified && !userData?.isProfileComplete){
-    // showToast("Email Already Verified","info",2000);
-    router.push("/registration/personalinfo");
-    
-  }
-  else if(userData?.isEmailVerified && !userData.isPaidFee){
-    router.push("/registration/generate-challan");
-  }else if(userData?.isPaidFee){
-    router.push("/registration/registration-status");
-  }
-  else{
-    router.back();
-  }
-},[userData])
+
 
 //     useEffect(()=>{
 //       if(oobCode && mode === "verifyEmail"){
@@ -153,8 +138,17 @@ useEffect(()=>{
         }
     };
 
-    if (!userData) return null;
+    
+  useEffect(() => {
+    if (userData?.isEmailVerified) {
+      router.push("/registration/personalinfo");
+      showToast("Your Email Has Verified", "success", 2000);
+    }
+  }, [userData]);
 
+  if (!userData) {
+    return <div>Loading...</div>; // Replace with your loading state
+  }
     return (
         <div className="bg-gray-100 min-h-[70vh]">
             <div className="flex items-center justify-center p-3 lg:p-5">

@@ -332,7 +332,11 @@ const PersonalInfo = () => {
 
   const [userLoading,setUserLoading]= useState(true);
 
-
+useEffect(()=>{
+ const timer = setTimeout(()=>{
+  setUserLoading(false);
+ },2000)
+},[userData]);
 
 
   useEffect(() => {

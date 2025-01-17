@@ -44,6 +44,9 @@ const Register = () => {
   const [createUserWithEmailAndPassword, user, loadingUser, errorUser] =
     useCreateUserWithEmailAndPassword(auth);
 
+
+    const emailSendingTiming = new Date();
+    emailSendingTiming.setMinutes(emailSendingTiming.getMinutes() + 2);
   // Form Data
   const [formData, setFormData] = useState({
     firstName: "",
@@ -51,9 +54,17 @@ const Register = () => {
     email: "",
     password: "",
     isEmailVerified: false,
+    isApproved:false,
+    isEnrollmentCompleted:false,
     isProfileComplete:false,
+    isApplicationSubmitted:false,
     registrationStatus:"pending",
     isPaidFee:false,
+    profileReminder:{
+      email_template_id:"profile_reminder_after_12_hours",
+      emailSendingTime:emailSendingTiming,
+      status:"Profile Reminder"
+    },
     created_at: serverTimestamp(),
     updated_at: Date.now(),
   });

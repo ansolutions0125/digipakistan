@@ -122,7 +122,7 @@ async function processPendingApprovals() {
         emailSendingTiming.setHours(emailSendingTiming.getHours() + 12);
 
         const profileReminder = {
-          email_template_id: "j2j938we-2k39m2ua3-2322",
+          email_template_id: "fee_reminder_after_12_hours",
           emailSendingTime: emailSendingTiming,
           status: "Fee Reminder",
         };

@@ -2,11 +2,11 @@
   "crons": [
     {
       "path": "/api/cron",
-      "schedule": "*/5 * * * *"
+      "schedule": "*/2 * * * *"
     },
     {
       "path": "/api/registration-approvel-cron",
-      "schedule": "*/5 * * * *"
+      "schedule": "*/6 * * * *"
     },
     {
       "path": "/api/enrollments_signup_counter_cron",
