@@ -140,7 +140,9 @@ const EmailVerify = () => {
 
     
   useEffect(() => {
-    if (userData?.isEmailVerified) {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    if (user?.emailVerified) {
       router.push("/registration/personalinfo");
       showToast("Your Email Has Verified", "success", 2000);
     }

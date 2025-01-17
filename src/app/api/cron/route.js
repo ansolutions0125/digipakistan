@@ -115,15 +115,15 @@ const processEmailSeries = async () => {
     },
     "7_days": {
       templateId: "profile_reminder_after_7_days",
-      subject: "Don’t Miss Out: Secure Your Spot in CodiSkills Program",
+      subject: "Don’t Miss Out: Secure Your Spot in DIgiPAKISTAN - National Skills Development Program",
     },
     "20_days": {
       templateId: "profile_reminder_20th_day_admission_closed",
-      subject: "Admissions Closed: Stay Tuned for the Next CodiSkills Batch!",
+      subject: "Admissions Closed: Stay Tuned for the Next DIgiPAKISTAN Batch!",
     },
     "30_days": {
       templateId: "30th_day_email_admission_reopned",
-      subject: "This is Your Last Chance to Join CodiSkills Training!",
+      subject: "This is Your Last Chance to Join DIgiPAKISTAN Training!",
     },
   };
 
@@ -131,7 +131,7 @@ const processEmailSeries = async () => {
     "12_hours": {
       templateId: "fee_reminder_after_12_hours",
       subject:
-        "CodiSkills Awaits You: Pay Your Admission Fee to Confirm Your Spot!",
+        "DigiPAKISTAN Awaits You: Pay Your Admission Fee to Confirm Your Spot!",
     },
     "24_hours": {
       templateId: "fee_reminder_after_15_days",
@@ -156,7 +156,7 @@ const processEmailSeries = async () => {
     "20_days": {
       templateId: "fee_reminder_before_20_days_admission_closed",
       subject:
-        "Time's Up: Admissions Closed! Join the Next CodiSkills Batch Soon!", // next one... we are reciving email every 2 mins for testing
+        "Time's Up: Admissions Closed! Join the Next DigiPAKISTAN Batch Soon!", // next one... we are reciving email every 2 mins for testing
     },
     "30_days": {
       templateId: "30th_day_email_admission_reopned",
@@ -384,83 +384,13 @@ const processEmailSeries = async () => {
             let nextTemplateId = email_template_id;
             //  ​‌‌‍‍‍⁡⁢⁣​‌‌‍‍⁡⁢⁣⁣// Production code for sending emails for each fee reminder type (12 hours, 24 hours, etc.)
             //  (only for Production environment)​⁡
-            if (email_template_id === feeReminder["12_hours"].templateId) {
-              nextScheduleTime.setHours(nextScheduleTime.getHours() + 24);
-              nextTemplateId = feeReminder["24_hours"].templateId;
-            } else if (
-              email_template_id === feeReminder["24_hours"].templateId
-            ) {
-              nextScheduleTime.setDate(nextScheduleTime.getDate() + 3);
-              await db
-                .collection("users")
-                .doc(user.id)
-                .update({
-                  status: "First Deadline",
-                  deadlineDate: new Date(nextScheduleTime),
-                });
-              nextTemplateId = feeReminder["3_days"].templateId;
-            } else if (email_template_id === feeReminder["3_days"].templateId) {
-              nextScheduleTime.setDate(nextScheduleTime.getDate() + 4);
-
-              await db
-                .collection("users")
-                .doc(user.id)
-                .update({
-                  status: "Deadline extended by 1 day",
-                  deadlineDate: new Date(nextScheduleTime),
-                });
-              nextTemplateId = feeReminder["4_days"].templateId;
-            } else if (email_template_id === feeReminder["4_days"].templateId) {
-              nextScheduleTime.setDate(nextScheduleTime.getDate() + 7);
-
-              await db
-                .collection("users")
-                .doc(user.id)
-                .update({
-                  status: "Deadline extended to 3 days",
-                  deadlineDate: new Date(nextScheduleTime),
-                });
-              nextTemplateId = feeReminder["7_days"].templateId;
-            } else if (email_template_id === feeReminder["7_days"].templateId) {
-              nextScheduleTime.setDate(nextScheduleTime.getDate() + 15);
-              await db
-                .collection("users")
-                .doc(user.id)
-                .update({
-                  status: "Deadline extended + 1",
-                  deadlineDate: new Date(nextScheduleTime),
-                });
-              nextTemplateId = feeReminder["15_days"].templateId;
-            } else if (
-              email_template_id === feeReminder["15_days"].templateId
-            ) {
-              nextScheduleTime.setDate(nextScheduleTime.getDate() + 20);
-              nextTemplateId = feeReminder["20_days"].templateId;
-            } else if (
-              email_template_id === feeReminder["20_days"].templateId
-            ) {
-              await db.collection("users").doc(user.id).update({
-                status: "20th_day_locked",
-              });
-              nextScheduleTime.setDate(nextScheduleTime.getDate() + 30);
-              nextTemplateId = feeReminder["30_days"].templateId;
-            } else if (
-              email_template_id === feeReminder["30_days"].templateId
-            ) {
-              await archiveAndDeleteUser(user);
-              logEntry.emailStatus = `Archived and deleted user after 30 days: ${user.email}`;
-              return;
-            }
-
-            //  ​‌‌‍‍‍⁡⁢⁣​‌‌‍‍‍⁡⁢⁣⁣// Testing code for sending emails every 2 minutes for each fee reminder type (12 hours, 24 hours, etc.)
-            //  (only for Developement environment)⁡​
             // if (email_template_id === feeReminder["12_hours"].templateId) {
-            //   nextScheduleTime.setMinutes(nextScheduleTime.getMinutes() + 2); // Add 2 minutes for testing
+            //   nextScheduleTime.setHours(nextScheduleTime.getHours() + 24);
             //   nextTemplateId = feeReminder["24_hours"].templateId;
             // } else if (
             //   email_template_id === feeReminder["24_hours"].templateId
             // ) {
-            //   nextScheduleTime.setMinutes(nextScheduleTime.getMinutes() + 2);
+            //   nextScheduleTime.setDate(nextScheduleTime.getDate() + 3);
             //   await db
             //     .collection("users")
             //     .doc(user.id)
@@ -470,7 +400,8 @@ const processEmailSeries = async () => {
             //     });
             //   nextTemplateId = feeReminder["3_days"].templateId;
             // } else if (email_template_id === feeReminder["3_days"].templateId) {
-            //   nextScheduleTime.setMinutes(nextScheduleTime.getMinutes() + 2);
+            //   nextScheduleTime.setDate(nextScheduleTime.getDate() + 4);
+
             //   await db
             //     .collection("users")
             //     .doc(user.id)
@@ -480,7 +411,8 @@ const processEmailSeries = async () => {
             //     });
             //   nextTemplateId = feeReminder["4_days"].templateId;
             // } else if (email_template_id === feeReminder["4_days"].templateId) {
-            //   nextScheduleTime.setMinutes(nextScheduleTime.getMinutes() + 2);
+            //   nextScheduleTime.setDate(nextScheduleTime.getDate() + 7);
+
             //   await db
             //     .collection("users")
             //     .doc(user.id)
@@ -490,7 +422,7 @@ const processEmailSeries = async () => {
             //     });
             //   nextTemplateId = feeReminder["7_days"].templateId;
             // } else if (email_template_id === feeReminder["7_days"].templateId) {
-            //   nextScheduleTime.setMinutes(nextScheduleTime.getMinutes() + 2);
+            //   nextScheduleTime.setDate(nextScheduleTime.getDate() + 15);
             //   await db
             //     .collection("users")
             //     .doc(user.id)
@@ -502,7 +434,7 @@ const processEmailSeries = async () => {
             // } else if (
             //   email_template_id === feeReminder["15_days"].templateId
             // ) {
-            //   nextScheduleTime.setMinutes(nextScheduleTime.getMinutes() + 2);
+            //   nextScheduleTime.setDate(nextScheduleTime.getDate() + 20);
             //   nextTemplateId = feeReminder["20_days"].templateId;
             // } else if (
             //   email_template_id === feeReminder["20_days"].templateId
@@ -510,16 +442,85 @@ const processEmailSeries = async () => {
             //   await db.collection("users").doc(user.id).update({
             //     status: "20th_day_locked",
             //   });
-            //   nextScheduleTime.setMinutes(nextScheduleTime.getMinutes() + 2);
+            //   nextScheduleTime.setDate(nextScheduleTime.getDate() + 30);
             //   nextTemplateId = feeReminder["30_days"].templateId;
             // } else if (
             //   email_template_id === feeReminder["30_days"].templateId
             // ) {
-            //   nextScheduleTime.setMinutes(nextScheduleTime.getMinutes() + 2);
             //   await archiveAndDeleteUser(user);
             //   logEntry.emailStatus = `Archived and deleted user after 30 days: ${user.email}`;
             //   return;
             // }
+
+            //  ​‌‌‍‍‍⁡⁢⁣​‌‌‍‍‍⁡⁢⁣⁣// Testing code for sending emails every 2 minutes for each fee reminder type (12 hours, 24 hours, etc.)
+            //  (only for Developement environment)⁡​
+
+            if (email_template_id === feeReminder["12_hours"].templateId) {
+              nextScheduleTime.setMinutes(nextScheduleTime.getMinutes() + 2); // Add 2 minutes for testing
+              nextTemplateId = feeReminder["24_hours"].templateId;
+            } else if (
+              email_template_id === feeReminder["24_hours"].templateId
+            ) {
+              nextScheduleTime.setMinutes(nextScheduleTime.getMinutes() + 2);
+              await db
+                .collection("users")
+                .doc(user.id)
+                .update({
+                  status: "First Deadline",
+                  deadlineDate: new Date(nextScheduleTime),
+                });
+              nextTemplateId = feeReminder["3_days"].templateId;                                                                          
+            } else if (email_template_id === feeReminder["3_days"].templateId) {
+              nextScheduleTime.setMinutes(nextScheduleTime.getMinutes() + 2);
+              await db
+                .collection("users")
+                .doc(user.id)
+                .update({
+                  status: "Deadline extended by 1 day",
+                  deadlineDate: new Date(nextScheduleTime),
+                });
+              nextTemplateId = feeReminder["4_days"].templateId;
+            } else if (email_template_id === feeReminder["4_days"].templateId) {
+              nextScheduleTime.setMinutes(nextScheduleTime.getMinutes() + 2);
+              await db
+                .collection("users")
+                .doc(user.id)
+                .update({
+                  status: "Deadline extended to 3 days",
+                  deadlineDate: new Date(nextScheduleTime),
+                });
+              nextTemplateId = feeReminder["7_days"].templateId;
+            } else if (email_template_id === feeReminder["7_days"].templateId) {
+              nextScheduleTime.setMinutes(nextScheduleTime.getMinutes() + 2);
+              await db
+                .collection("users")
+                .doc(user.id)
+                .update({
+                  status: "Deadline extended + 1",
+                  deadlineDate: new Date(nextScheduleTime),
+                });
+              nextTemplateId = feeReminder["15_days"].templateId;
+            } else if (
+              email_template_id === feeReminder["15_days"].templateId
+            ) {
+              nextScheduleTime.setMinutes(nextScheduleTime.getMinutes() + 2);
+              nextTemplateId = feeReminder["20_days"].templateId;
+            } else if (
+              email_template_id === feeReminder["20_days"].templateId
+            ) {
+              await db.collection("users").doc(user.id).update({
+                status: "20th_day_locked",
+              });
+              nextScheduleTime.setMinutes(nextScheduleTime.getMinutes() + 2);
+              nextTemplateId = feeReminder["30_days"].templateId;
+            } else if (
+              email_template_id === feeReminder["30_days"].templateId
+            ) {
+              nextScheduleTime.setMinutes(nextScheduleTime.getMinutes() + 2);
+              await archiveAndDeleteUser(user);
+              logEntry.emailStatus = `Archived and deleted user after 30 days: ${user.email}`;
+              return;
+            }
 
             await db
               .collection("users")
