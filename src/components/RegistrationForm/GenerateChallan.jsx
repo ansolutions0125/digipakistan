@@ -20,10 +20,11 @@ const GenerateChallan = () => {
   const [userInformation, setUserInformation] = useState(null);
   const [loading, setLoading] = useState(true);
   const { userData } = userHooks();
-  const [selectedGateway, setSelectedGateway] = useState("001");
+  const [selectedGateway, setSelectedGateway] = useState("101");
   const [gatewayLoading, setGatewayLoading] = useState(false);
   const [selectedMethod, setSelectedMethod] = useState("PayFast");
   const [filteredC,setFilteredCourses]=useState([]);
+  const [payproId,setPayproId] =useState("");
   useEffect(() => {
     const getUserData = async () => {
       const usersRef = collection(firestore, "user_information");
@@ -83,128 +84,126 @@ console.log(filteredC);
   // }
 
   // Generate challan
-  const [challanData, setChallanData] = useState(null);
-
+  const [challanData, setChallanData] = useState({
+    challanId:payproId,
+    name: userInformation?.fullName,
+          fatherName: userInformation?.fatherName,
+          email: userInformation?.email,
+          phone: userInformation?.contactNo,
+          amount: 100,
+          dueDate: userInformation?.dueDate,
+          userId: userInformation?.userId,
+          
+  });
   console.log(challanData);
-  const handleChallanGenerate = async () => {
-    try {
-      const res = await fetch("/api/generate-challan", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userId: userInformation.userId,
-          name: userInformation.fullName,
-          fatherName: userInformation.fatherName,
-          email: userInformation.email,
-          phone: userInformation.contactNo,
-          amount: 1,
-          dueDate: userInformation.dueDate,
-          // courses: userInformation.selectedCourses,
-        }),
-      });
-      const data = await res.json();
-      setChallanData(data);
-      ChallanGenerator(data);
-    } catch (error) {
-      console.log("Error while generating challan:", error);
+  // const handleChallanGenerate = async () => {
+  //   try {
+  //     const res = await fetch("/api/generate-challan", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({
+  //         userId: userInformation.userId,
+  //         name: userInformation.fullName,
+  //         fatherName: userInformation.fatherName,
+  //         email: userInformation.email,
+  //         phone: userInformation.contactNo,
+  //         amount: 100,
+  //         dueDate: userInformation.dueDate,
+  //       }),
+  //     });
+  //     const data = await res.json();
+  //     setChallanData(data);
+  //     ChallanGenerator(data);
+  //   } catch (error) {
+  //     console.log("Error while generating challan:", error);
+  //   }
+  // };
+
+  // Genreator
+console.log(userInformation)
+const ChallanGenerator = () => {
+  if (!userInformation) {
+    console.error("User information is missing.");
+    return;
+  }
+
+  const doc = new jsPDF("landscape", "mm", "a4");
+  const pageWidth = doc.internal.pageSize.getWidth();
+  const pageHeight = doc.internal.pageSize.getHeight();
+  const margin = 20; // 2-inch margins on both sides
+  const sectionWidth = (pageWidth - margin * 2) / 3;
+
+  const drawSection = (title, offsetX) => {
+    const marginY = 80; // Starting Y position for content
+
+    // Add logo
+    const logoUrl = "https://res.cloudinary.com/doregjvid/image/upload/v1736933713/iav1i5iqm4zbgn8katxg.jpg"; // Replace with your logo URL
+    doc.addImage(logoUrl, "PNG", offsetX + sectionWidth / 2 - 15, 15, 30, 30);
+
+    // Title
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(16);
+    doc.text("DigiPAKISTAN", offsetX + sectionWidth / 2, 50, { align: "center" });
+    doc.text("Course Fee Challan", offsetX + sectionWidth / 2, 60, { align: "center" });
+
+    // Subtitle
+    doc.setFontSize(12);
+    doc.text(title, offsetX + 20, marginY);
+    doc.setFont("helvetica", "normal");
+
+    // Details
+    const details = [
+      { key: "Invoice ID:", value: payproId },
+      { key: "Name:", value: userInformation?.fullName },
+      { key: "Father Name:", value: userInformation?.fatherName },
+      { key: "Email:", value: userInformation?.email },
+      { key: "Phone:", value: userInformation?.contactNo },
+      { key: "Amount (PKR):", value: "3500" },
+      { key: "Due Date:", value: userInformation?.dueDate },
+    ];
+
+    details.forEach((detail, index) => {
+      const keyX = offsetX + 1; // Position for key
+      const valueX = offsetX + 30; // Position for value
+      const yPos = marginY +10 + index * 10;
+
+      // Truncate or wrap value if it exceeds the width
+      const wrappedValue = doc.splitTextToSize(detail.value || "N/A", sectionWidth - 10);
+
+      doc.text(detail.key, keyX, yPos); // Key
+      doc.text(wrappedValue, valueX, yPos); // Wrapped value
+    });
+
+    // Draw a vertical line between sections
+    if (offsetX + sectionWidth < pageWidth - margin) {
+      doc.setLineDash([2, 2], 0);
+      doc.line(offsetX + sectionWidth, 30, offsetX + sectionWidth, pageHeight - margin);
     }
   };
 
-  // Genreator
+  // Draw sections
+  drawSection("Student Copy", margin);
+  drawSection("Bank Copy", margin + sectionWidth);
+  drawSection("Company Copy", margin + 2 * sectionWidth);
 
-  const ChallanGenerator = (challanData) => {
-    const doc = new jsPDF("landscape", "mm", "a4");
-    const pageWidth = doc.internal.pageSize.getWidth();
-    const pageHeight = doc.internal.pageSize.getHeight();
-    const sectionWidth = pageWidth / 3;
+  // Footer Note
+  doc.setFont("helvetica", "italic");
+  doc.setFontSize(10);
+  doc.text(
+    "Note: You can Pay this invoice via on biller from any acoount.",
+    pageWidth / 2,
+    pageHeight - 10,
+    { align: "center" }
+  );
 
-    const drawSection = (title, offsetX) => {
-      const marginY = 40;
+  // Save the PDF
+  doc.save(`DigiPAKISTAN_fee_challan_${userInformation.fullName}.pdf`);
+};
 
-      doc.setFont("sans-serif", "bold");
-      doc.setFontSize(20);
-      doc.text("DigiPAKISTAN", offsetX + sectionWidth / 2, 15, {
-        align: "center",
-      });
-      doc.setFontSize(16);
-      doc.text("Course Fee Challan", offsetX + sectionWidth / 2, 25, {
-        align: "center",
-      });
 
-      doc.setFontSize(14);
-      doc.text(title, offsetX + 10, marginY);
 
-      // Add challan details
-      doc.setFont("sans-serif", "normal");
-      doc.setFontSize(10);
-      const maxTextWidth = sectionWidth; // Ensure text stays within the section
-
-      doc.setFont("sans-serif", "bold"); // Set key to bold
-      doc.text("Invoice ID:", offsetX + 10, marginY + 10);
-      doc.setFont("sans-serif", "normal"); // Set value to normal
-      doc.text(challanData.challanID, offsetX + 40, marginY + 10);
-
-      doc.setFont("sans-serif", "bold");
-      doc.text("Name:", offsetX + 10, marginY + 15);
-      doc.setFont("sans-serif", "normal");
-      doc.text(challanData.name, offsetX + 40, marginY + 15);
-
-      doc.setFont("sans-serif", "bold");
-      doc.text("Father Name:", offsetX + 10, marginY + 20);
-      doc.setFont("sans-serif", "normal");
-      doc.text(challanData.fatherName, offsetX + 40, marginY + 20);
-
-      doc.setFont("sans-serif", "bold");
-      doc.text("Email:", offsetX + 10, marginY + 25);
-      doc.setFont("sans-serif", "normal");
-      doc.text(challanData.email, offsetX + 40, marginY + 25);
-
-      doc.setFont("sans-serif", "bold");
-      doc.text("Phone:", offsetX + 10, marginY + 30);
-      doc.setFont("sans-serif", "normal");
-      doc.text(challanData.phone, offsetX + 40, marginY + 30);
-
-      doc.setFont("sans-serif", "bold");
-      doc.text("Amount (PKR):", offsetX + 10, marginY + 35);
-      doc.setFont("sans-serif", "normal");
-      doc.text(challanData.amount.toString(), offsetX + 40, marginY + 35);
-
-      doc.setFont("sans-serif", "bold");
-      doc.text("Due Date:", offsetX + 10, marginY + 40);
-      doc.setFont("sans-serif", "normal");
-      doc.text(challanData.dueDate, offsetX + 40, marginY + 40);
-
-      // Add a dotted vertical line to separate sections (except the last one)
-      if (offsetX + sectionWidth < pageWidth) {
-        doc.setLineDash([2, 2], 0); // Set dotted line style
-        doc.line(
-          offsetX + sectionWidth,
-          30,
-          offsetX + sectionWidth,
-          pageHeight - 20
-        ); // Dotted line
-      }
-    };
-
-    // Draw three sections
-    drawSection("Student Copy", 10);
-    drawSection("Bank Copy", 10 + sectionWidth);
-    drawSection("Company Copy", 10 + 2 * sectionWidth);
-
-    // Add a note at the bottom of the page
-    doc.setFont("sans-serif", "italic", "bold");
-    doc.setFontSize(10);
-    doc.text(
-      "Note:Please deposit the Fee challan in any Meezan Bank Branch and keep the receipt as a proof for the payment.",
-      pageWidth / 2,
-      pageHeight - 10,
-      { align: "center" }
-    );
-
-    doc.save(`DigiPAKISTAN_fee_challan_${challanData.name}.pdf`);
-  };
 
   // Generate challan
 
@@ -212,31 +211,57 @@ console.log(filteredC);
     setSelectedGateway(gatewayName);
     console.log(`Selected Gateway: ${gatewayName}`);
   };
-
   if (!userData) return null;
 
-  const payload = {
-    websiteId: "3abbd8db-5e4d-4600-abb4-f569074e60a8",
-    requestedPaymentGateway: selectedGateway,
-    user: userInformation?.fullName,
-    course: {
-      courseTitle: "Test Gateway",
-      price: 1,
+
+//   const payload = {
+//     websiteId: "911",
+//     requestedPaymentGateway:selectedGateway,
+//     course: {
+//       title: "Test Gateway",
+//       price:1000,
+//       courseId:2980056,
+//       id:"machine_learning",
+//       thumbnailUrl:"https://res.cloudinary.com/doregjvid/image/upload/v1736933713/iav1i5iqm4zbgn8katxg.jpg",
+//   },
+//     user: {
+//       userId:userData?.portalDetails?.id,
+//       fullName:`${userData?.firstName}  ${userData?.lastName}` ,
+//       email:userData?.email,
+//       address:"ladjflkjds",
+//       phone:"123213123"
+//     },
+// }
+
+
+const payload={
+  websiteId: "911", 
+  requestedPaymentGateway:"101",
+  course: {
+    title: "Microsoft 365 Fundamentals (MS-900)", 
+    price: 2000, 
+    courseId: "2980056",
+    id:"machine_learning",
+    thumbnailUrl:"https://firebasestorage.googleapis.com/v0/b/eskills-program-ansolutions.appspot.com/o/courseThumbnail%2FThumbnail%20-%20Microsoft%20Certifications%20-%2010.jpg?alt=media&token=8a91fa62-6aee-4b51-9208-05174e647d84"
     },
-  };
+    user: {
+      userId : userData?.portalDetails?.id,
+      fullName:`${userData?.firstName}  ${userData?.lastName}` ,
+      email:userData?.email,
+      address:"Wow Streen lahore",
+      phone:"2020445324"
+    }
+  }
 
   const handlePaymentRequest = async () => {
     try {
       setGatewayLoading(true);
-
       const response = await fetch(
         "https://eduportal.com.pk/api/payment-management/payment",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "x-payment-validation-token":
-              "bcd97901-0358-4730-a5cc-03e434e6c941",
           },
           body: JSON.stringify(payload),
         }
@@ -255,17 +280,15 @@ console.log(filteredC);
       }
 
       const data = await response.json();
-
-      // Debugging: Log the response
-      console.log("API Response:", data);
-
-
+      setPayproId(data.payProId);
     } catch (err) {
       console.error("Payment Request Error:", err.message || err);
     } finally {
       setGatewayLoading(false);
     }
   };
+
+
 
 
   return (
@@ -378,40 +401,19 @@ console.log(filteredC);
 
           <div className="flex items-center flex-col lg:flex-row justify-center gap-3">
             {" "}
+           
             <button
-              disabled={gatewayLoading}
-              onClick={() => (
-                handleGatewaySelection("001"), setSelectedMethod("PayFast")
+              onClick={() => (handlePaymentRequest(), handleGatewaySelection("101"), setSelectedMethod("PayPro")
               )}
               className={`relative gap-3 w-40 ${
-                selectedGateway === "001" ? "bg-primary text-white" : ""
+                selectedGateway === "101" ? "bg-primary text-white" : ""
               } justify-center items-center p-3 border-2 border-primary bg-gray-50 shadow-xl rounded flex`}
             >
-              <div className="flex gap-3 items-center">
-                <img src="/payfast.png" className="w-5 h-5 " alt="" /> PayFast
-              </div>
-            </button>
-            <button
-              onClick={() => (
-                handleGatewaySelection("invoice"), setSelectedMethod("PSID")
-              )}
-              className={`relative gap-3 w-40 ${
-                selectedGateway === "invoice" ? "bg-primary text-white" : ""
-              } justify-center items-center p-3 border-2 border-primary bg-gray-50 shadow-xl rounded flex`}
-            >
-              <div className="flex gap-3 items-center">Generate Challan</div>
-            </button>
-          </div>
-          <div className="mt-4 max-w-60 mx-auto">
-            <button
-              onClick={() => handlePaymentRequest()}
-              className="bg-yellow-600 w-full hover:bg-second flex items-center justify-center text-white p-3 rounded"
-            >
-              {gatewayLoading ? (
+               {gatewayLoading ? (
                 <div role="status">
                   <svg
                     aria-hidden="true"
-                    class="w-6 h-6  text-gray-200 dark:text-blue-200 animate-spin  fill-blue-600"
+                    className="w-6 h-6  text-gray-200 dark:text-blue-200 animate-spin  fill-blue-600"
                     viewBox="0 0 100 101"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -425,14 +427,21 @@ console.log(filteredC);
                       fill="currentFill"
                     />
                   </svg>
-                  <span class="sr-only">Loading...</span>
                 </div>
               ) : (
-                `Pay ${"Rs.1"} via ${selectedMethod}`
+                `Generate PSID`
               )}{" "}
             </button>
           </div>
+          {payproId && <div>
+            <input type="text" value={payproId} className="p-3 mt-5 border rounded"/>
+            </div>}
+            {payproId && <button className="bg-primary text-white p-3 mt-5" onClick={ChallanGenerator}>
+              Download Challan
+              </button>}
+       
         </div>
+        
 
         {loading ? (
           <div className="animate-pulse py-10 space-y-4">

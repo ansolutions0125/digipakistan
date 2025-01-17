@@ -17,7 +17,6 @@ export default function UploadVideo() {
       setMessage("Please select a video to upload.");
       return;
     }
-
     const formData = new FormData();
     formData.append("video", video);
 

@@ -25,7 +25,7 @@ async function getAuthToken(clientId, clientSecret) {
     return null;
   }
 }
-
+//curl handle
 async function getCurlHandle(payData, token) {
   const url = "https://api.paypro.com.pk/v2/ppro/co";
 
