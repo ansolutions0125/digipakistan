@@ -115,6 +115,9 @@ const PersonalInfo = () => {
     gettoknow: false,
   });
 
+
+
+
   // const [form,setForm] = useState({});
   const [registeredUser, setRegisteredUser] = useState(null);
   useEffect(() => {
@@ -138,20 +141,29 @@ const PersonalInfo = () => {
     setFocusState({ ...focusState, [field]: false });
   };
   const handleChange = (e) => {
+    // Commenting for understanding to store the courses object in array
+
+    // first of all get the value from name
+    
     const { name, value } = e.target;
-  
+  //set form Data by getting previous form data as it is
     setFormData((prev) => {
+
+      // let updated selectedCourses are all previous selectedCourses
       let updatedSelectedCourses = [...prev.selectedCourses];
   
+
+      // set updated form Data for all fields, getting from name and values
       const updatedFormData = {
         ...prev,
         [name]: value,
       };
   
+
+      //To select course category, either it is first select field, second or third
       // Handle course category selection
       if (name === "firstCourse") {
-        updatedSelectedCourses[0] =
-          coursesData.find((course) => course.courseCategory === value) || {};
+        updatedSelectedCourses[0] = coursesData.find((course) => course.courseCategory === value) || {};
       } else if (name === "secondCourse") {
         updatedSelectedCourses[1] =
           coursesData.find((course) => course.courseCategory === value) || {};
@@ -286,7 +298,8 @@ const PersonalInfo = () => {
               "Congratulations! Your Application Has Submitted Successfully at DigiPAKISTAN",
           }),
         });
-
+        await enrollUser();
+        console.log("user Enrollment Initiated")
         router.push("/registration/registration-status");
       } catch (error) {
         console.log(error);
@@ -314,6 +327,29 @@ const PersonalInfo = () => {
     };
     pushRouter();
   }, [userData]); // Add `userData` as a dependency
+
+const lmsPayLoad={
+   userLMSId:userData?.portalDetails?.id,
+   coursesArray:formData.selectedCourses,
+   userId:userData?.id
+}
+
+  const enrollUser = async()=>{
+   try {
+     const res = await fetch("/api/enrolluser",{
+      method:"POST",
+      headers:{
+        'Content-Type':'application/json'
+      },
+      body:JSON.stringify(lmsPayLoad)
+    })
+  const data = await res.json();
+  console.log(data);
+   } catch (error) {
+      console.log(error);
+   }
+}
+
 
   return (
     <div className="bg-gray-50">

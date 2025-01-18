@@ -12,6 +12,7 @@ import AuthenticateUser from "@/Hooks/AuthenticateUser";
 import { doc, getDoc } from "firebase/firestore";
 import { firestore } from "@/Backend/Firebase";
 import userHooks from "@/Hooks/userHooks";
+import { BsCheck } from "react-icons/bs";
 
 const PaymentSuccess = () => {
   const router = useRouter();
@@ -43,9 +44,9 @@ const PaymentSuccess = () => {
 
   // console.log(userData);
 
-  useEffect(()=>{
+//   useEffect(()=>{
 
-    const enrollUser = async()=>{
+//     const enrollUser = async()=>{
     
     
 
@@ -53,12 +54,12 @@ const PaymentSuccess = () => {
 
       
 
-    }
-enrollUser();
+//     }
+// enrollUser();
     
-  })
+//   })
 
-
+console.log(userData);
 
   return (
     <>
@@ -67,13 +68,14 @@ enrollUser();
 
       <div className="w-full py-10">
         <div className="p-5 mx-auto">
-          <div className="flex mb-5 animate-pulse justify-center">
-            <Image
+          <div className="flex mb-5 justify-center">
+            {/* <Image
               src={"/email-verify.gif"}
               width={150}
               height={150}
               alt="gg"
-            />
+            /> */}
+            <BsCheck className="text-7xl text-white bg-green-800 rounded-full"/>
           </div>
           <div className=" rounded-lg p-10">
             <div className="p-5 bg-green-200 rounded-lg ">
@@ -94,13 +96,14 @@ enrollUser();
               </p>
               <br />
               <h1>
-                <span className="font-bold text-[20px]"> Email:</span>{" "}
-                dummyemail@dummy.com
-              </h1>
-              <h1>
-                <span className="font-bold text-[20px]">Password:</span>{" "}
-                test1234
-              </h1>
+  <span className="font-bold text-[20px]">Email:</span>{" "}
+  {userData?.portalDetails?.email || "Email not available"}
+</h1>
+<h1>
+  <span className="font-bold text-[20px]">Password:</span>{" "}
+  {userData?.portalDetails?.lms_password || "Password not available"}
+</h1>
+
               <h1>
                 <span className="font-bold text-[20px]">Portal Link:</span>{" "}
                 <Link
