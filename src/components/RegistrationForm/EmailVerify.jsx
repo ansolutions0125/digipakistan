@@ -139,14 +139,14 @@ const EmailVerify = () => {
     };
 
     
-  useEffect(() => {
     const auth = getAuth();
+  useEffect(() => {
     const user = auth.currentUser;
     if (user?.emailVerified) {
       router.push("/registration/personalinfo");
       showToast("Your Email Has Verified", "success", 2000);
     }
-  }, [userData]);
+  }, [auth]);
 
   if (!userData) {
     return <div>Loading...</div>; // Replace with your loading state
