@@ -1,19 +1,23 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import Typed from "typed.js";
+// import Typed from "typed.js";
 import Image from "next/image";
-import StripeProtectedRoutes from "@/ProtectedRoutes/StripeProtectedRoutes";
+// import StripeProtectedRoutes from "@/ProtectedRoutes/StripeProtectedRoutes";
 import Navbar from "@/components/Navbar/Navbar";
 import FooterCopyRights from "@/components/Footer/FooterCopyRights";
 import Link from "next/link";
 import AuthenticateUser from "@/Hooks/AuthenticateUser";
+import { doc, getDoc } from "firebase/firestore";
+import { firestore } from "@/Backend/Firebase";
+import userHooks from "@/Hooks/userHooks";
 
 const PaymentSuccess = () => {
   const router = useRouter();
   const typedElement = useRef(null);
   const typedInstance = useRef(null);
+  const {userData} = userHooks();
 
   // useEffect(() => {
   //   const options = {
@@ -36,6 +40,25 @@ const PaymentSuccess = () => {
   //     clearTimeout(timeoutId);
   //   };
   // }, [router]);
+
+  // console.log(userData);
+
+  useEffect(()=>{
+
+    const enrollUser = async()=>{
+    
+    
+
+
+
+      
+
+    }
+enrollUser();
+    
+  })
+
+
 
   return (
     <>
@@ -81,7 +104,7 @@ const PaymentSuccess = () => {
               <h1>
                 <span className="font-bold text-[20px]">Portal Link:</span>{" "}
                 <Link
-                  href={"https://edu.nitsep.pk"}
+                  href={"https://edu.codiskills.com"}
                   className="text-blue-500 font-medium underline"
                 >
                   Portal Link
@@ -99,7 +122,7 @@ const PaymentSuccess = () => {
             <p>
               If you encounter any issues or have questions, please don't
               hesitate to reach out to our support team via{" "}
-              {"support@DigiPAKISTAN.org"}.
+            <a className="underline text-blue-700" href="mailto:support@digipakistan.org">support@digipakistan.org</a>
             </p>
             <br />
             <p>

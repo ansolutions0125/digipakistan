@@ -104,6 +104,7 @@ async function processPendingApprovals() {
           .doc(taskData.id);
         await approvedDocRef.set({
           ...taskData,
+          registrationStatus:"approved",
           isApproved: true,
           lastEmailSent: null,
           payment_Status: null,
@@ -165,6 +166,8 @@ async function processPendingApprovals() {
 
   return result;
 }
+
+
 
 // API route handlers
 export async function GET(request) {

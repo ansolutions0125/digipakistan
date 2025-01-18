@@ -111,7 +111,7 @@ export async function GET(req) {
     });
 
     return NextResponse.redirect(
-      new URL(`/register/registration-status`, req.url)
+      new URL(`/registration/registration-status`, req.url)
     );
   } catch (error) {
     console.error("Error during payment success processing:", error);

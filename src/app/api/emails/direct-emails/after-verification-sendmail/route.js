@@ -137,6 +137,7 @@ export async function POST(req) {
         }
         userData = await createUserResponse.json();
         console.log("New user created on Codiskills portal.");
+
         
       }
       } else {

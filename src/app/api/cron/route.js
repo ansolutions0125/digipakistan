@@ -203,6 +203,7 @@ const processEmailSeries = async () => {
           timeZone: "Asia/Karachi",
         }),
         emailHeader : email_template_id,
+        username:user.firstName,
       };
 
       logMessages.push(logEntry);
@@ -323,14 +324,13 @@ const processEmailSeries = async () => {
               logEntry.emailStatus = `Archived and deleted user: ${user.email}`;
               return;
             }
-
             await db
               .collection("users")
               .doc(user.id)
               .update({
                 profileReminder: {
-                  emailSendingTime: nextScheduleTime,
                   email_template_id: nextTemplateId,
+                  emailSendingTime: nextScheduleTime,
                 },
               });
           } catch (error) {
@@ -515,20 +515,23 @@ const processEmailSeries = async () => {
               nextTemplateId = feeReminder["30_days"].templateId;
             } else if (
               email_template_id === feeReminder["30_days"].templateId
-            ) {
+            )  {
               nextScheduleTime.setMinutes(nextScheduleTime.getMinutes() + 2);
               await archiveAndDeleteUser(user);
               logEntry.emailStatus = `Archived and deleted user after 30 days: ${user.email}`;
               return;
             }
 
+            console.log(nextTemplateId);
+            console.log(nextScheduleTime)
+            console.log(user.id)
             await db
               .collection("users")
               .doc(user.id)
               .update({
-                feeReminder: {
-                  emailSendingTime: nextScheduleTime,
-                  email_template_id: nextTemplateId,
+                profileReminder: {
+                  email_template_id:nextTemplateId,
+                  emailSendingTime:nextScheduleTime,
                 },
               });
           } catch (error) {
